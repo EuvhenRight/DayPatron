@@ -6,9 +6,9 @@ const ProductsItems = () => {
   return (
     <>
       <ul>
-        {DataProducts.map((product) => {
+        {DataProducts.map((product, index) => {
           return (
-            <li>
+            <li key={index}>
               <Link to={`/products/${product.name}/${product.id}`}>
                 <div>
                   <h1>{product.name}</h1>
