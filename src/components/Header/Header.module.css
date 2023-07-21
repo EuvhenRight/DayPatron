@@ -76,6 +76,7 @@
   line-height: 1;
   position: static;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header__button:hover {
@@ -86,8 +87,4 @@
 .nav__right__wrapper a {
   color: #fff;
   text-decoration: none;
-}
-
-.header__link:hover {
-  color: #303030;
 }

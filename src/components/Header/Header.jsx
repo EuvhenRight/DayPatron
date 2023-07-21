@@ -15,21 +15,21 @@ const Header = () => {
           </div>
           <div className={style.nav__right}>
             <div className={style.nav__right__wrapper}>
-              <button className={style.header__button} id="home" to="/">
-                <Link className={style.header__link} id="home" to="/products">
+              <Link className={style.header__link} id="home" to="/products">
+                <button className={style.header__button} id="home" to="/">
                   Products
-                </Link>
-              </button>
-              <button className={style.header__button} id="home" to="/">
-                <Link className={style.header__link} id="about" to="/about">
+                </button>
+              </Link>
+              <Link className={style.header__link} id="about" to="/about">
+                <button className={style.header__button} id="home" to="/">
                   About
-                </Link>
-              </button>
-              <button className={style.header__button} id="home" to="/">
-                <Link className={style.header__link} id="contact" to="/contact">
-                  Contact
-                </Link>
-              </button>
+                </button>
+              </Link>
+              <Link className={style.header__link} id="contact" to="/contact">
+                <button className={style.header__button} id="home" to="/">
+                  Contacts
+                </button>
+              </Link>
             </div>
           </div>
         </nav>

@@ -89,7 +89,7 @@ const Contacts = () => {
                     type="text"
                     placeholder="Message"
                   ></textarea>
-                  <button>SEND</button>
+                  <button className={style.contact__form__button}>SEND</button>
                 </form>
               </div>
             </div>
