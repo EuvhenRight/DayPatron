@@ -1,23 +1,67 @@
 import React from 'react';
+import style from './Contacts.module.css';
 
 const Contacts = () => {
   return (
     <div>
-      <h1>Contacts</h1>
-      <p>Feedback</p>
-      <p>
-        Manufacturer: LLC "Ekokemika Trading," Predslavynska Street, 34B, Kyiv,
-        03150, Ukraine
-      </p>
-      <h4>phone: +38(044)3793235</h4>
-      <p>
-        Production facility: Electrotekhnichna Street, 47, Kyiv, Ukraine.
-        Supplier and company for claims: LLC "Motorsport" Ltd., M. Solovtsova
-        Street, 3, Kyiv, 01014, Ukraine
-      </p>
-      <h6>phone: +38(044)3347700</h6>
-      <h6>email: office@motorsport.com.ua</h6>
-      <h6>www.motorsport.com.ua</h6>
+      <div className={style.section__gradient}>
+        <div className={style.headline__wrapper}>
+          <h1 className={style.headline__text}>CONTACTS</h1>
+        </div>
+      </div>
+      <div className={style.section__middle}>
+        <div className={style.container}>
+          <div className={style.middle__wrapper}>
+            <div className={style.middle__left}>
+              <h2 className={style.middle__left__text}>
+                <strong>
+                  Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
+                  Retail Analytics über Smart Digital Signage bis hin zu
+                </strong>
+                <br />
+                Live-Shopping.
+              </h2>
+            </div>
+            <div className={style.middle__right}>
+              <p className={style.middle__right__text}>
+                Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
+                Retail Analytics über Smart Digital Signage bis hin zu
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={style.section__down}>
+        <div className={style.container}>
+          <div className={style.down_list__wrapper}>
+            <div className={style.down_list__left}>
+              <div className={style.down__contact__wrapper}>
+                <h2 className={style.down__contact__text}>
+                  DayPatron LTD Ukraine
+                </h2>
+                <p>
+                  Manufacturer: LLC "Ekokemika Trading,"
+                  <br />
+                  Address: Predslavynska Street, 34B, Kyiv, 03150, Ukraine
+                  Production facility: Electrotekhnichna Street, 47, Kyiv,
+                  Ukraine
+                  <br />
+                  Supplier and company for claims: LLC "Motorsport" Ltd.
+                  <br />
+                  Address: M. Solovtsova Street, 3, Kyiv, 01014, Ukraine
+                  <br />
+                  phone: +38(044)3347700
+                  <br />
+                  email: office@motorsport.com.ua
+                  <br />
+                  www.motorsport.com.ua
+                </p>
+              </div>
+            </div>
+            <div className={style.down_list__right}></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
