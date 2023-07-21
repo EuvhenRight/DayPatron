@@ -57,8 +57,42 @@ const Contacts = () => {
                   www.motorsport.com.ua
                 </p>
               </div>
+              <div className={style.down__contact__map}>
+                <div>MAP</div>
+              </div>
             </div>
-            <div className={style.down_list__right}></div>
+            <div className={style.down_list__right}>
+              <div className={style.down__form__wrapper}>
+                <div className={style.down__form__headline}>
+                  <h2 className={style.down__form__headline__text}>
+                    CONTACT FEEDBACK
+                  </h2>
+                </div>
+                <form className={style.contact__form}>
+                  <input
+                    className={style.contact__form__name}
+                    type="text"
+                    placeholder="Name"
+                  />
+                  <input
+                    className={style.contact__form__email}
+                    type="text"
+                    placeholder="Email"
+                  />
+                  <input
+                    className={style.contact__form__phone}
+                    type="text"
+                    placeholder="Phone"
+                  />
+                  <textarea
+                    className={style.contact__form__message}
+                    type="text"
+                    placeholder="Message"
+                  ></textarea>
+                  <button>SEND</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
