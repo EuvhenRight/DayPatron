@@ -39,6 +39,7 @@
 .logo__header {
   width: 250px;
   display: block;
+  border-radius: 12px;
 }
 
 .logo__header img {

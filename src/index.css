@@ -1,3 +1,10 @@
+:root {
+  --background-color: #232323;
+  --border: rgba(255, 255, 255, 0.26);
+  --background-color-button: #303030;
+  --border-button: rgba(255, 255, 255, 0.18);
+}
+
 body {
   color: #232323;
   font-family: 'Exo 2', sans-serif;
@@ -7,4 +14,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fff;
+  height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
