@@ -54,11 +54,51 @@
 .headline__text {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 4.5em;
+  font-size: 1em;
   font-weight: 700;
   line-height: 1;
-  will-change: transform;
+  /* width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); */
 }
+
+.tradeMark {
+  width: 250px;
+  display: block;
+  border-radius: 12px;
+  width: 200px;
+  transform: rotate(0); /* Initial transform */
+  transition: transform 1s ease; /* Transition effect for smooth rotation */
+}
+
+.rotateTrademark {
+  transform: rotate(-2deg);
+  transition: transform 1s ease;
+  width: 250px;
+  display: block;
+  border-radius: 12px;
+  width: 200px; /* Target transform for rotation */
+}
+
+.animation__text{
+  animation-name: fade_in_bottom;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+  animation-fill-mode: both;
+}
+
+@keyframes fade_in_bottom {
+  from {
+    opacity: 0;
+   transform: translateY(100%);
+}
+  to {
+    transform: translateY(0);
+    opacity: 1 
+  }
+  }
 
 .section__middle {
   justify-content: center;

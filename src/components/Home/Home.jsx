@@ -1,8 +1,22 @@
 import React from 'react';
 import style from './Home.module.css';
 import logo from '../assets/logo.svg';
+import tradeMark from '../assets/DayLogo.svg';
+import AnimationText from './animation';
 
 const Home = () => {
+  const [rotate, setRotate] = React.useState(false);
+
+  const beautiful = 'We are back, brilliant quality!';
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setRotate(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div className={style.section__gradient}>
@@ -10,7 +24,8 @@ const Home = () => {
           <div className={style.gradient}></div>
         </div>
         <div className={style.headline__wrapper}>
-          <h1 className={style.headline__text}>CLP</h1>
+          <AnimationText text={beautiful} />
+          <img className={`${rotate ? style.rotateTrademark : style.tradeMark}`} src={tradeMark} alt="logo" />
           <img className={style.logo} src={logo} alt="logo" />
         </div>
       </div>
