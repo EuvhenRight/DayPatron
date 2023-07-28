@@ -25,6 +25,7 @@ const Home = () => {
         </div>
         <div className={style.headline__wrapper}>
           <AnimationText text={beautiful} />
+          {/* animation logo */}
           <img className={`${rotate ? style.rotateTrademark : style.tradeMark}`} src={tradeMark} alt="logo" />
           <img className={style.logo} src={logo} alt="logo" />
         </div>
