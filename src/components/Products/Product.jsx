@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Product.module.css';
+import ReactPlayer from 'react-player';
 
 const Product = () => {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [activeVolume, setActiveVolume] = React.useState(2);
+  const [isPictureActive, setIsPictureActive] = React.useState(null);
   const { id } = useParams();
 
   const fetchData = async (productId) => {
@@ -32,22 +34,50 @@ const Product = () => {
 
   // const product = productsData.find((product) => product.id === productId);
 
-  console.log(product);
   // Check if product exists before rendering.
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  const image = product.image.map((img, i) =>
+  const mainImage = product.image.map((img, i) =>
     i === activeVolume ? img.url : null
   );
 
-  console.log(image);
+  const menuPicture = product.image.map((img, i) =>
+    i === isPictureActive ? img.url : null
+  );
+
   const onChangeVolume = (index) => {
+    setIsPictureActive(0); // Reset isPictureActive to null when changing the volume
     setActiveVolume(index);
   };
 
-  console.log(activeVolume);
+  const onChangePicture = (index) => {
+    setActiveVolume(0); // Reset activeVolume to the default state when changing the picture
+    setIsPictureActive(index);
+  };
+
+  const renderProductImage = () => {
+    if (activeVolume) {
+      return `/images/${mainImage[activeVolume]}`;
+    } else {
+      return `/images/${menuPicture[isPictureActive]}`;
+    }
+  };
+
+  // Separate Image component
+  const Picture = ({ url, alt, isActive, onClick }) => (
+    <li onClick={onClick} className={isActive ? style.activePicture : ''}>
+      <img src={`/images/${url}`} alt={alt} />
+    </li>
+  );
+
+  // Separate Volume component
+  const Volume = ({ value, isActive, onClick }) => (
+    <li onClick={onClick} className={isActive ? style.activeMainImg : ''}>
+      {value}
+    </li>
+  );
 
   return (
     <>
@@ -61,33 +91,45 @@ const Product = () => {
         </div>
         <div className={style.container}>
           <div className={style.section__middle}>
+            <div className={style.middle__main__name__title}>
+              <h2>{product.name}</h2>
+              <p>Art: {product.article}</p>
+            </div>
             <div className={style.middle__wrapper}>
               <div className={style.middle__left}>
-                <ul className={style.down__list__volume}>
-                  {product.volume.map((value, i) => (
-                    <li
-                      key={i}
-                      onClick={() => onChangeVolume(i)}
-                      className={activeVolume === i ? style.active : ''}
-                    >
-                      {value}
-                    </li>
-                  ))}
-                </ul>
-                <img
-                  className={style.middle__left__img}
-                  src={`/images/${image[activeVolume]}`}
-                  alt={product.name}
-                />
-                <h4>{product.benefits}</h4>
+                <div className={style.middle__left__menu__wrapper}>
+                  <ul className={style.middle__left__menu}>
+                    {product.image.map((value, i) => (
+                      <Picture
+                        key={i}
+                        url={value.url}
+                        alt={product.name}
+                        isActive={isPictureActive === i}
+                        onClick={() => onChangePicture(i)}
+                      />
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <img
+                    className={style.middle__left__img}
+                    src={renderProductImage()}
+                    alt={product.name}
+                  />
+                </div>
               </div>
               <div className={style.middle__right}>
+                <ul className={style.down__list__volume}>
+                  {product.volume.map((value, i) => (
+                    <Volume
+                      key={i}
+                      value={value}
+                      isActive={activeVolume === i}
+                      onClick={() => onChangeVolume(i)}
+                    />
+                  ))}
+                </ul>
                 <ul className={style.middle__right__text}>
-                  <li>
-                    <h2 className={style.middle__right__text__title}>
-                      {product.name}
-                    </h2>
-                  </li>
                   <li>
                     <p>
                       <strong>Description: </strong>
@@ -112,6 +154,20 @@ const Product = () => {
                       {product.shelfLife}
                     </p>
                   </li>
+                  <div>
+                    <ul className={style.middle__right__benefits}>
+                      {product.benefits.map((value, i) => (
+                        <li key={i}>
+                          <div className={style.middle__left__container}>
+                            <img
+                              src={`/images/${[value]}`}
+                              alt={product.name}
+                            />
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -120,14 +176,11 @@ const Product = () => {
         <div className={style.container}>
           <div className={style.section__down__wrapper}>
             <div className={style.section__down__video}>
-              <iframe
-                className={style.video}
-                title="Gun Care"
-                src="https://youtu.be/p33qMGs_-Vo"
-                width="100%"
-                height="450px"
-                frameBorder="0"
-              ></iframe>
+              <ReactPlayer
+                url="https://youtu.be/p33qMGs_-Vo"
+                width={'100%'}
+                height={'450px'}
+              />
               <h2>Video</h2>
               <p>text</p>
             </div>
