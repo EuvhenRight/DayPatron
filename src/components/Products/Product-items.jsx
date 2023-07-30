@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import productsData from '../Data/DataProducts';
+import SpinnerLoader from '../LoaderSpinner/LoaderSpinner';
 import style from './Product-items.module.css';
 
 const ProductsItems = () => {
@@ -27,14 +27,15 @@ const ProductsItems = () => {
     fetchData();
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <SpinnerLoader />;
+  // }
 
   return (
     <>
       <div className={style.section__down}>
         <div className={style.container}>
+          {isLoading && <SpinnerLoader />}
           <ul className={style.down__list__wrapper}>
             {productsData.map((product) => {
               return (

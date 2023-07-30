@@ -27,6 +27,11 @@ const Header = () => {
               </Link>
               <Link className={style.header__link} id="contact" to="/contact">
                 <button className={style.header__button} id="home" to="/">
+                  where to buy?
+                </button>
+              </Link>
+              <Link className={style.header__link} id="contact" to="/contact">
+                <button className={style.header__button} id="home" to="/">
                   Contacts
                 </button>
               </Link>

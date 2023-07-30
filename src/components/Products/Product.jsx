@@ -2,6 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Product.module.css';
 import ReactPlayer from 'react-player';
+import FacebookShare from '../ShareSocial/FacebookShare';
+import TwitterShare from '../ShareSocial/TwitterShare';
+import ViberShare from '../ShareSocial/ViberShare';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
 
 const Product = () => {
   const [product, setProduct] = React.useState([]);
@@ -27,8 +31,6 @@ const Product = () => {
     }
   };
 
-  console.log(product);
-
   React.useEffect(() => {
     fetchData(id);
     setIsLoading(true);
@@ -38,14 +40,18 @@ const Product = () => {
 
   // Check if product exists before rendering.
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={style.container}>
+        <LoaderSpinner />
+      </div>
+    );
   }
 
-  const mainImage = product.image.map((img, i) =>
+  const mainImage = product?.image.map((img, i) =>
     i === activeVolume ? img.url : null
   );
 
-  const menuPicture = product.image.map((img, i) =>
+  const menuPicture = product?.image.map((img, i) =>
     i === isPictureActive ? img.url : null
   );
 
@@ -103,6 +109,18 @@ const Product = () => {
             <div className={style.middle__main__name__title}>
               <h2>{product.name}</h2>
               <p>Art: {product.article}</p>
+              <div className={style.middle__main__social__media}>
+                Share:
+                <button type="button">
+                  <FacebookShare />
+                </button>
+                <button>
+                  <TwitterShare />
+                </button>
+                <button>
+                  <ViberShare />
+                </button>
+              </div>
             </div>
             <div className={style.middle__wrapper}>
               <div className={style.middle__left}>
