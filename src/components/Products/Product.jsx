@@ -27,6 +27,8 @@ const Product = () => {
     }
   };
 
+  console.log(product);
+
   React.useEffect(() => {
     fetchData(id);
     setIsLoading(true);
@@ -82,10 +84,17 @@ const Product = () => {
   return (
     <>
       <div key={product.id}>
-        <div className={style.container}>
-          <div className={style.section__gradient}>
+        <div className={style.section__gradient}>
+          <div className={style.gradient__wrapper}>
+            <div className={style.gradient}></div>
+          </div>
+          <div className={style.container}>
             <div className={style.headline__wrapper}>
-              <h1 className={style.headline__text}>CONTACTS</h1>
+              <img
+                className={style.headline__img}
+                src={`/images/${product.tradeMarkImage}`}
+                alt={product.tradeMarkImage}
+              />
             </div>
           </div>
         </div>
@@ -154,24 +163,21 @@ const Product = () => {
                       {product.shelfLife}
                     </p>
                   </li>
-                  <div>
-                    <ul className={style.middle__right__benefits}>
-                      {product.benefits.map((value, i) => (
-                        <li key={i}>
-                          <div className={style.middle__left__container}>
-                            <img
-                              src={`/images/${[value]}`}
-                              alt={product.name}
-                            />
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </ul>
               </div>
             </div>
           </div>
+        </div>
+        <div className={style.middle__benefits__wrapper}>
+          <ul className={style.middle__benefits}>
+            {product.benefits.map((value, i) => (
+              <li key={i}>
+                <div className={style.middle__left__container}>
+                  <img src={`/images/${[value]}`} alt={product.name} />
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={style.container}>
           <div className={style.section__down__wrapper}>
