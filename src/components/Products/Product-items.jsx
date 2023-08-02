@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SpinnerLoader from '../LoaderSpinner/LoaderSpinner';
 import style from './Product-items.module.css';
+import logo from '../assets/logo.svg';
 
 const ProductsItems = () => {
   const [productsData, setProductsData] = React.useState([]);
@@ -25,50 +26,51 @@ const ProductsItems = () => {
       }
     };
     fetchData();
+    window.scrollTo(0, 0);
   }, []);
 
-  // if (isLoading) {
-  //   return <SpinnerLoader />;
-  // }
+  const changeColor = (category) => {
+    switch (category) {
+      case 'Oil':
+        return style.down__list__Oil;
+      case 'CLP':
+        return style.down__list__Clp;
+      case 'Cleaner':
+        return style.down__list__Cleaner;
+      default:
+        return style.down__list__universal;
+    }
+  };
 
   return (
-    <>
-      <div className={style.section__down}>
-        <div className={style.container}>
-          {isLoading && <SpinnerLoader />}
-          <ul className={style.down__list__wrapper}>
-            {productsData.map((product) => {
-              return (
-                <Link
-                  key={product.id}
-                  to={`/products/${product.name}/${product.id}`}
-                >
-                  <li
-                    className={
-                      product.category === 'Oil'
-                        ? style.down__list__Oil
-                        : style.down__list__universal &&
-                          product.category === 'CLP'
-                        ? style.down__list__Clp
-                        : style.down__list__universal &&
-                          product.category === 'Cleaner'
-                        ? style.down__list__Cleaner
-                        : style.down__list__universal
-                    }
-                  >
-                    <div className={style.down__list__content}>
-                      <h1 className={style.down__list__content__text}>
-                        {product.name}
-                      </h1>
-                    </div>
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
-        </div>
+    <div className={style.section__down}>
+      <div className={style.container}>
+        {isLoading && <SpinnerLoader />}
+        <ul className={style.down__list__wrapper}>
+          {productsData.map((product) => {
+            return (
+              <Link
+                key={product.id}
+                to={`/products/${product.name}/${product.id}`}
+              >
+                <li className={changeColor(product.category)}>
+                  <div className={style.down__list__content}>
+                    <h1 className={style.down__list__content__text}>
+                      {product.name}
+                    </h1>
+                    <img
+                      className={style.down__list__content__img}
+                      src={logo}
+                      alt={product.name}
+                    />
+                  </div>
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 

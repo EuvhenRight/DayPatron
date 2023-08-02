@@ -34,6 +34,13 @@
   background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
 }
 
+.down__list__Clp:hover,
+.down__list__Cleaner:hover,
+.down__list__Oil:hover,
+.down__list__universal:hover {
+  transform: translate(0, -10px);
+}
+
 .down__list__Oil {
   padding-left: 0;
   padding-right: 0;
@@ -87,6 +94,7 @@
   margin: 5em 5%;
   display: flex;
   position: static;
+  min-height: 100dvh;
 }
 
 .down__list__universal {
@@ -120,18 +128,16 @@
   bottom: 0%;
   left: 0%;
   right: 0%;
+  align-items: center;
 }
 
 .down__list__content__text {
   font-size: 3em;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
 }
 
-#loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
+.down__list__content__img {
+  width: 50%;
+  justify-content: center;
 }

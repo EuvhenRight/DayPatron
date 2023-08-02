@@ -11,22 +11,20 @@ import Product from './components/Products/Product';
 
 function App() {
   return (
-    <>
-      <div className={style.main__container}>
-        <Header />
-        <div className={style.App}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductsItems />} />
-            <Route path="/products/:name/:id" element={<Product />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contacts />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
+    <div className={style.main__container}>
+      <Header />
+      <div className={style.App}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductsItems />} />
+          <Route path="/products/:name/:id" element={<Product />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contacts />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
       </div>
-    </>
+    </div>
   );
 }
 

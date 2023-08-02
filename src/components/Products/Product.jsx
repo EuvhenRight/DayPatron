@@ -34,6 +34,7 @@ const Product = () => {
   React.useEffect(() => {
     fetchData(id);
     setIsLoading(true);
+    window.scrollTo(0, 0);
   }, [id]);
 
   // const product = productsData.find((product) => product.id === productId);
@@ -41,7 +42,7 @@ const Product = () => {
   // Check if product exists before rendering.
   if (isLoading) {
     return (
-      <div className={style.container}>
+      <div className={style.section__middle}>
         <LoaderSpinner />
       </div>
     );
@@ -88,130 +89,120 @@ const Product = () => {
   );
 
   return (
-    <>
-      <div key={product.id}>
-        <div className={style.section__gradient}>
-          <div className={style.gradient__wrapper}>
-            <div className={style.gradient}></div>
-          </div>
-          <div className={style.container}>
-            <div className={style.headline__wrapper}>
-              <img
-                className={style.headline__img}
-                src={`/images/${product.tradeMarkImage}`}
-                alt={product.tradeMarkImage}
-              />
-            </div>
-          </div>
+    <div key={product.id}>
+      <div className={style.section__gradient}>
+        <div className={style.gradient__wrapper}>
+          <div className={style.gradient}></div>
         </div>
         <div className={style.container}>
-          <div className={style.section__middle}>
-            <div className={style.middle__main__name__title}>
-              <h2>{product.name}</h2>
-              <p>Art: {product.article}</p>
-              <div className={style.middle__main__social__media}>
-                Share:
-                <button type="button">
-                  <FacebookShare />
-                </button>
-                <button>
-                  <TwitterShare />
-                </button>
-                <button>
-                  <ViberShare />
-                </button>
-              </div>
+          <div className={style.headline__wrapper}>
+            <img
+              className={style.headline__img}
+              src={`/images/${product.tradeMarkImage}`}
+              alt={product.tradeMarkImage}
+            />
+          </div>
+        </div>
+      </div>
+      <div className={style.container}>
+        <div className={style.section__middle}>
+          <div className={style.middle__main__name__title}>
+            <h2>{product.name}</h2>
+            <p>Art: {product.article}</p>
+            <div className={style.middle__main__social__media}>
+              Share:
+              <button type="button">
+                <FacebookShare />
+              </button>
+              <button>
+                <TwitterShare />
+              </button>
+              <button>
+                <ViberShare />
+              </button>
             </div>
-            <div className={style.middle__wrapper}>
-              <div className={style.middle__left}>
-                <div className={style.middle__left__menu__wrapper}>
-                  <ul className={style.middle__left__menu}>
-                    {product.image.map((value, i) => (
-                      <Picture
-                        key={i}
-                        url={value.url}
-                        alt={product.name}
-                        isActive={isPictureActive === i}
-                        onClick={() => onChangePicture(i)}
-                      />
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <img
-                    className={style.middle__left__img}
-                    src={renderProductImage()}
-                    alt={product.name}
-                  />
-                </div>
-              </div>
-              <div className={style.middle__right}>
-                <ul className={style.down__list__volume}>
-                  {product.volume.map((value, i) => (
-                    <Volume
+          </div>
+          <div className={style.middle__wrapper}>
+            <div className={style.middle__left}>
+              <div className={style.middle__left__menu__wrapper}>
+                <ul className={style.middle__left__menu}>
+                  {product.image.map((value, i) => (
+                    <Picture
                       key={i}
-                      value={value}
-                      isActive={activeVolume === i}
-                      onClick={() => onChangeVolume(i)}
+                      url={value.url}
+                      alt={product.name}
+                      isActive={isPictureActive === i}
+                      onClick={() => onChangePicture(i)}
                     />
                   ))}
                 </ul>
-                <ul className={style.middle__right__text}>
-                  <li>
-                    <p>
-                      <strong>Description: </strong>
-                      {product.description}
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <strong>Use to: </strong>
-                      {product.useTo}
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <strong>Composition: </strong>
-                      {product.composition}
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <strong>Shelf life: </strong>
-                      {product.shelfLife}
-                    </p>
-                  </li>
-                </ul>
+              </div>
+              <div>
+                <img
+                  className={style.middle__left__img}
+                  src={renderProductImage()}
+                  alt={product.name}
+                />
               </div>
             </div>
-          </div>
-        </div>
-        <div className={style.middle__benefits__wrapper}>
-          <ul className={style.middle__benefits}>
-            {product.benefits.map((value, i) => (
-              <li key={i}>
-                <div className={style.middle__left__container}>
-                  <img src={`/images/${[value]}`} alt={product.name} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={style.container}>
-          <div className={style.section__down__wrapper}>
-            <div className={style.section__down__video}>
-              <ReactPlayer
-                url="https://youtu.be/p33qMGs_-Vo"
-                width={'100%'}
-                height={'450px'}
-              />
-              <h2>Video</h2>
-              <p>text</p>
+            <div className={style.middle__right}>
+              <ul className={style.down__list__volume}>
+                {product.volume.map((value, i) => (
+                  <Volume
+                    key={i}
+                    value={value}
+                    isActive={activeVolume === i}
+                    onClick={() => onChangeVolume(i)}
+                  />
+                ))}
+              </ul>
+              <section className={style.middle__right__text}>
+                <article>
+                  <h2>Description:</h2>
+                  <p>{product.description}</p>
+                </article>
+                <article>
+                  <h2>Use:</h2>
+                  <p>{product.useTo}</p>
+                </article>
+                <article>
+                  <h2>Composition:</h2>
+                  <p>{product.composition}</p>
+                </article>
+                <article>
+                  <h2>Shelf life:</h2>
+                  <p>{product.shelfLife}</p>
+                </article>
+              </section>
             </div>
           </div>
         </div>
       </div>
-    </>
+      <div className={style.middle__benefits__wrapper}>
+        <ul className={style.middle__benefits}>
+          {product.benefits.map((value, i) => (
+            <li key={i}>
+              <div className={style.middle__left__container}>
+                <img src={`/images/${[value]}`} alt={product.name} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={style.container}>
+        <div className={style.section__down__wrapper}>
+          <div className={style.section__down__video}>
+            <ReactPlayer
+              url="https://youtu.be/p33qMGs_-Vo"
+              width={'100%'}
+              height={'450px'}
+            />
+            <h2>Video</h2>
+            <p>text</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -215,3 +215,7 @@ iframe {
   text-decoration: underline;
   font-weight: 700;
 }
+
+.section__middle {
+  min-height: 100dvh;
+}
