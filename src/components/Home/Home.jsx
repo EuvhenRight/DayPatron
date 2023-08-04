@@ -3,11 +3,13 @@ import style from './Home.module.css';
 import logo from '../assets/logo.svg';
 import tradeMark from '../assets/DayLogo.svg';
 import AnimationText from './animation';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const [rotate, setRotate] = React.useState(false);
+  const { t } = useTranslation();
 
-  const beautiful = 'We are back, brilliant quality!';
+  const mainTextSlogan = t('home.mainTextSlogan');
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,9 +26,13 @@ const Home = () => {
           <div className={style.gradient}></div>
         </div>
         <div className={style.headline__wrapper}>
-          <AnimationText text={beautiful} />
+          <AnimationText text={mainTextSlogan} />
           {/* animation logo */}
-          <img className={`${rotate ? style.rotateTrademark : style.tradeMark}`} src={tradeMark} alt="logo" />
+          <img
+            className={`${rotate ? style.rotateTrademark : style.tradeMark}`}
+            src={tradeMark}
+            alt="logo"
+          />
           <img className={style.logo} src={logo} alt="logo" />
         </div>
       </div>
@@ -35,18 +41,14 @@ const Home = () => {
           <div className={style.middle__wrapper}>
             <div className={style.middle__left}>
               <h2 className={style.middle__left__text}>
-                <strong>
-                  Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
-                  Retail Analytics über Smart Digital Signage bis hin zu
-                </strong>
+                <strong>DayPatron - the best Gum Care line of products</strong>
                 <br />
                 Live-Shopping.
               </h2>
             </div>
             <div className={style.middle__right}>
               <p className={style.middle__right__text}>
-                Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
-                Retail Analytics über Smart Digital Signage bis hin zu
+                I hope you like our products
               </p>
             </div>
           </div>

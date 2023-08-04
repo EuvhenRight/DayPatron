@@ -88,3 +88,32 @@
   color: #fff;
   text-decoration: none;
 }
+
+.lang__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.lang__wrapper__button {
+  color: #fff;
+  white-space: nowrap;
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lang__wrapper__button:hover {
+  background-color: #fff;
+  color: #303030;
+  border: 1px solid #232323;
+}

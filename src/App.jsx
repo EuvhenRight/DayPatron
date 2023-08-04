@@ -1,3 +1,4 @@
+import React from 'react';
 import style from './App.module.css';
 import Header from './components/Header/Header.jsx';
 import { Routes, Route } from 'react-router-dom';
@@ -8,23 +9,29 @@ import Footer from './components/Footer/Footer.jsx';
 import Home from './components/Home/Home.jsx';
 import ProductsItems from './components/Products/Product-items';
 import Product from './components/Products/Product';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './components/language/Translator.js';
+import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
 
 function App() {
   return (
-    <div className={style.main__container}>
-      <Header />
-      <div className={style.App}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductsItems />} />
-          <Route path="/products/:name/:id" element={<Product />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contacts />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+    <I18nextProvider i18n={i18n}>
+      <div className={style.main__container}>
+        <Header />
+        <div className={style.App}>
+          <Routes>
+            <Route path="/:lang" element={<Home />} />
+            <Route path="/:lang/products" element={<ProductsItems />} />
+            <Route path="/:lang/products/:name/:id" element={<Product />} />
+            <Route path="/:lang/about" element={<About />} />
+            <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
+            <Route path="/:lang/contact" element={<Contacts />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </I18nextProvider>
   );
 }
 

@@ -1,0 +1,13 @@
+{
+  "header": {
+    "products": "Products",
+    "about": "About",
+    "whereToBuy": "Where to Buy?",
+    "contacts": "Contacts",
+    "en": "En",
+    "ua": "Ua"
+  },
+  "home": {
+    "mainTextSlogan": "We have returned, and we are better than ever, striving to enhance your experience!"
+  }
+}
