@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SpinnerLoader from '../LoaderSpinner/LoaderSpinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
@@ -7,12 +7,13 @@ import logo from '../assets/logo.svg';
 const ProductsItems = () => {
   const [productsData, setProductsData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const { lang } = useParams();
 
   React.useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (lang) => {
       try {
-        const url = 'http://localhost:3333/products/';
-
+        const url = `http://localhost:3333/products/${lang}`;
+        console.log(url, 'url');
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -25,9 +26,9 @@ const ProductsItems = () => {
         setIsLoading(false);
       }
     };
-    fetchData();
+    fetchData(lang);
     window.scrollTo(0, 0);
-  }, []);
+  }, [lang]);
 
   const changeColor = (category) => {
     switch (category) {
@@ -51,7 +52,7 @@ const ProductsItems = () => {
             return (
               <Link
                 key={product.id}
-                to={`/products/${product.name}/${product.id}`}
+                to={`/${lang}/products/${product.id}/${product.name}`}
               >
                 <li className={changeColor(product.category)}>
                   <div className={style.down__list__content}>

@@ -9,5 +9,15 @@
   },
   "home": {
     "mainTextSlogan": "We have returned, and we are better than ever, striving to enhance your experience!"
+  },
+  "product": {
+    "article": "Article",
+    "share": "Share",
+    "description": "Description",
+    "useTo": "Use",
+    "composition": "Composition",
+    "shelfLife": "Shelf Life",
+    "video": "Video",
+    "videoText": "Watch the video"
   }
 }

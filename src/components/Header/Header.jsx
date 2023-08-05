@@ -5,15 +5,20 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const [lang, setLang] = React.useState('ua');
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
 
   const currentLanguage = location.pathname.split('/')[1]; // Get the current language from the URL
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    const newPath = location.pathname.replace(`/${currentLanguage}`, `/${lng}`);
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    const newPath = location.pathname.replace(
+      `/${currentLanguage}`,
+      `/${lang}`
+    );
     navigate(newPath);
+    setLang(lang);
   };
   return (
     <>

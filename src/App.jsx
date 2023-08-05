@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './App.module.css';
 import Header from './components/Header/Header.jsx';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import About from './components/About/About';
 import Contacts from './components/Contacts/Contacts.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
@@ -20,13 +20,14 @@ function App() {
         <Header />
         <div className={style.App}>
           <Routes>
+            <Route path="/" element={<Navigate to="/ua" />} />
             <Route path="/:lang" element={<Home />} />
             <Route path="/:lang/products" element={<ProductsItems />} />
-            <Route path="/:lang/products/:name/:id" element={<Product />} />
+            <Route path="/:lang/products/:id/:name" element={<Product />} />
             <Route path="/:lang/about" element={<About />} />
             <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
             <Route path="/:lang/contact" element={<Contacts />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound to="/" />} />
           </Routes>
           <Footer />
         </div>

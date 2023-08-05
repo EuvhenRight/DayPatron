@@ -12,11 +12,11 @@ const Product = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [activeVolume, setActiveVolume] = React.useState(2);
   const [isPictureActive, setIsPictureActive] = React.useState(null);
-  const { id } = useParams();
+  const { id, lang } = useParams();
 
   const fetchData = async (productId) => {
     try {
-      const url = `http://localhost:3333/products/${productId}`;
+      const url = `http://localhost:3333/products/${lang}/${productId}`;
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -31,11 +31,13 @@ const Product = () => {
     }
   };
 
+  console.log(product, 'product');
+
   React.useEffect(() => {
-    fetchData(id);
+    fetchData(id, lang);
     setIsLoading(true);
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, lang]);
 
   // const product = productsData.find((product) => product.id === productId);
 
