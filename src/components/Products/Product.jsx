@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Product.module.css';
 import ReactPlayer from 'react-player';
@@ -6,6 +6,7 @@ import FacebookShare from '../ShareSocial/FacebookShare';
 import TwitterShare from '../ShareSocial/TwitterShare';
 import ViberShare from '../ShareSocial/ViberShare';
 import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
+import { useTranslation } from 'react-i18next';
 
 const Product = () => {
   const [product, setProduct] = React.useState([]);
@@ -13,6 +14,15 @@ const Product = () => {
   const [activeVolume, setActiveVolume] = React.useState(2);
   const [isPictureActive, setIsPictureActive] = React.useState(null);
   const { id, lang } = useParams();
+
+  const { t } = useTranslation();
+
+  const translate = useCallback(
+    (key) => {
+      return t(key);
+    },
+    [t]
+  );
 
   const fetchData = async (productId) => {
     try {
@@ -110,9 +120,11 @@ const Product = () => {
         <div className={style.section__middle}>
           <div className={style.middle__main__name__title}>
             <h2>{product.name}</h2>
-            <p>Art: {product.article}</p>
+            <p>
+              {translate('product.article')}: {product.article}
+            </p>
             <div className={style.middle__main__social__media}>
-              Share:
+              {translate('product.share')}:
               <button type="button">
                 <FacebookShare />
               </button>
@@ -160,19 +172,19 @@ const Product = () => {
               </ul>
               <section className={style.middle__right__text}>
                 <article>
-                  <h2>Description:</h2>
+                  <h2>{translate('product.description')}:</h2>
                   <p>{product.description}</p>
                 </article>
                 <article>
-                  <h2>Use:</h2>
+                  <h2>{translate('product.useTo')}:</h2>
                   <p>{product.useTo}</p>
                 </article>
                 <article>
-                  <h2>Composition:</h2>
+                  <h2>{translate('product.ingredients')}:</h2>
                   <p>{product.composition}</p>
                 </article>
                 <article>
-                  <h2>Shelf life:</h2>
+                  <h2>{translate('product.shelfLife')}:</h2>
                   <p>{product.shelfLife}</p>
                 </article>
               </section>
@@ -199,8 +211,8 @@ const Product = () => {
               width={'100%'}
               height={'450px'}
             />
-            <h2>Video</h2>
-            <p>text</p>
+            <h2>{translate('product.video')}</h2>
+            <p>{translate('product.videoText')}</p>
           </div>
         </div>
       </div>
