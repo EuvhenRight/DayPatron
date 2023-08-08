@@ -26,7 +26,7 @@ const Product = () => {
 
   const fetchData = async (productId) => {
     try {
-      const url = `http://localhost:3333/products/${lang}/${productId}`;
+      const url = `https://daypatron.adaptable.app/products/${lang}/${productId}`;
 
       const response = await fetch(url);
       if (!response.ok) {

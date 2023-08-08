@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import style from './Form_FeedBack_Contact.module.css';
 
 const FormFeedBackContact = ({ success, setSuccess }) => {
+  const [error, setError] = React.useState(false);
   const form = useRef();
   const { t } = useTranslation();
 
@@ -66,6 +67,8 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         'user_agreement',
         t('form_feedback.user_error_agreement')
       );
+    } else {
+      setError(false);
     }
   }, [t, formik.setFieldError]);
 
@@ -120,9 +123,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         </div>
         <div className={style.contact__bottom__wrapper}>
           <span>
-            Я прочитав
-            <Link to="/privacy-policy">політику конфіденційності</Link> та
-            погоджуюся.
+            <Link to="/privacy-policy"> {t('form_feedback.privacy')}</Link>
           </span>
           <button className={style.contact__form__button} type="submit">
             {t('form_feedback.send_button')}

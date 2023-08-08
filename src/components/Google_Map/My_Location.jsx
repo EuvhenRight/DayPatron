@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 
 const MyLocation = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAz85RSQPTcbBsyE08RA_d-MtHNTjoC7aA',
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
 
   if (loadError) {

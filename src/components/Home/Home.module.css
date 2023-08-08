@@ -75,25 +75,38 @@
   width: 200px; /* Target transform for rotation */
 }
 
-.animation__text {
-  animation-name: fade_in_bottom;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
-  animation-fill-mode: both;
-  color: transparent;
-  -webkit-text-stroke: 3px rgb(63, 62, 62);
-  text-shadow: hsla(0, 0%, 60%, 0.3) 0 -2px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
-}
-
-@keyframes fade_in_bottom {
-  from {
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
     opacity: 0;
-    transform: translateY(100%);
   }
-  to {
-    transform: translateY(0);
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
     opacity: 1;
   }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.animation__text {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  margin: 0 10px;
+  color: black;
+  -webkit-text-stroke: 3px rgb(110, 103, 103);
+  text-shadow: hsla(0, 0%, 60%, 0.3) 0 -2px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
 }
 
 .section__middle {

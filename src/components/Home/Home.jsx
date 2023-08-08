@@ -26,8 +26,9 @@ const Home = () => {
           <div className={style.gradient}></div>
         </div>
         <div className={style.headline__wrapper}>
-          <AnimationText text={mainTextSlogan} />
-          {/* animation logo */}
+          <div className={style.test}>
+            <AnimationText text={mainTextSlogan} />
+          </div>
           <img
             className={`${rotate ? style.rotateTrademark : style.tradeMark}`}
             src={tradeMark}

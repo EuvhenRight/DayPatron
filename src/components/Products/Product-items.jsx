@@ -12,7 +12,7 @@ const ProductsItems = () => {
   React.useEffect(() => {
     const fetchData = async (lang) => {
       try {
-        const url = `http://localhost:3333/products/${lang}`;
+        const url = `https://daypatron.adaptable.app/products/${lang}`;
         console.log(url, 'url');
         const response = await fetch(url);
         if (!response.ok) {

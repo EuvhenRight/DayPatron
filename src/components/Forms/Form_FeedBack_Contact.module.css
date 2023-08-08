@@ -120,3 +120,16 @@
 .form__error__agreement {
   margin-left: 10px;
 }
+/* 
+.contact__form__agreement label {
+  color: #232323;
+  background-color: #fff;
+  border: 1px solid #232323;
+  border-radius: 8px;
+  width: 0.65em;
+  height: 0.65em;
+}
+
+.contact__form__agreement label:hover {
+  border: 5px solid #232323;
+} */

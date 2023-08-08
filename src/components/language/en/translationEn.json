@@ -41,6 +41,7 @@
     "user_error_phone": "Phone is required",
     "user_error_message": "Message is required",
     "user_error_agreement": "You must agree to the terms and conditions",
-    "send_button": "Send"
+    "send_button": "Send",
+    "privacy": "I have read the privacy policy and agree"
   }
 }
