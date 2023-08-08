@@ -1,34 +1,18 @@
+import MyLocation from '../Google_Map/My_Location';
 import React from 'react';
+import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
+import { useTranslation } from 'react-i18next';
 
 const Contacts = () => {
+  const { t } = useTranslation();
+  const [success, setSuccess] = React.useState(false);
+
   return (
     <div>
       <div className={style.section__gradient}>
         <div className={style.headline__wrapper}>
-          <h1 className={style.headline__text}>CONTACTS</h1>
-        </div>
-      </div>
-      <div className={style.section__middle}>
-        <div className={style.container}>
-          <div className={style.middle__wrapper}>
-            <div className={style.middle__left}>
-              <h2 className={style.middle__left__text}>
-                <strong>
-                  Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
-                  Retail Analytics über Smart Digital Signage bis hin zu
-                </strong>
-                <br />
-                Live-Shopping.
-              </h2>
-            </div>
-            <div className={style.middle__right}>
-              <p className={style.middle__right__text}>
-                Challenges? Accepted! Ausgewählte Wow-Projekte von DMS von
-                Retail Analytics über Smart Digital Signage bis hin zu
-              </p>
-            </div>
-          </div>
+          <h1 className={style.headline__text}>{t('contacts.mainText')}</h1>
         </div>
       </div>
       <div className={style.section__down}>
@@ -37,60 +21,46 @@ const Contacts = () => {
             <div className={style.down_list__left}>
               <div className={style.down__contact__wrapper}>
                 <h2 className={style.down__contact__text}>
-                  DayPatron LTD Ukraine
+                  {t('contacts.leftText')}
                 </h2>
+                <p>{t('contacts.leftText_manufacturer')}</p>
+                <p>{t('contacts.leftText_supplier')}</p>
+                <p>{t('contacts.leftText_phone')}</p>
                 <p>
-                  Manufacturer: LLC "Ekokemika Trading,"
+                  Email: info@dezze.com.ua
                   <br />
-                  Address: Predslavynska Street, 34B, Kyiv, 03150, Ukraine
-                  Production facility: Electrotekhnichna Street, 47, Kyiv,
-                  Ukraine
-                  <br />
-                  Supplier and company for claims: LLC "Motorsport" Ltd.
-                  <br />
-                  Address: M. Solovtsova Street, 3, Kyiv, 01014, Ukraine
-                  <br />
-                  phone: +38(044)3347700
-                  <br />
-                  email: office@motorsport.com.ua
-                  <br />
-                  www.motorsport.com.ua
+                  Email: info@daypatron.com.ua"
                 </p>
               </div>
               <div className={style.down__contact__map}>
-                <div>MAP</div>
+                <MyLocation />
               </div>
             </div>
             <div className={style.down_list__right}>
               <div className={style.down__form__wrapper}>
                 <div className={style.down__form__headline}>
                   <h2 className={style.down__form__headline__text}>
-                    CONTACT FEEDBACK
+                    {t('contacts.rightText')}
                   </h2>
                 </div>
-                <form className={style.contact__form}>
-                  <input
-                    className={style.contact__form__name}
-                    type="text"
-                    placeholder="Name"
+                {success ? (
+                  <div className={style.success}>
+                    <h3 className={style.success__text}>
+                      {t('contacts.successText')}
+                    </h3>
+                    <button
+                      className={style.success__button}
+                      onClick={() => setSuccess(false)}
+                    >
+                      {t('contacts.repeatText')}
+                    </button>
+                  </div>
+                ) : (
+                  <FormFeedBackContact
+                    success={success}
+                    setSuccess={setSuccess}
                   />
-                  <input
-                    className={style.contact__form__email}
-                    type="text"
-                    placeholder="Email"
-                  />
-                  <input
-                    className={style.contact__form__phone}
-                    type="text"
-                    placeholder="Phone"
-                  />
-                  <textarea
-                    className={style.contact__form__message}
-                    type="text"
-                    placeholder="Message"
-                  ></textarea>
-                  <button className={style.contact__form__button}>SEND</button>
-                </form>
+                )}
               </div>
             </div>
           </div>
@@ -99,5 +69,4 @@ const Contacts = () => {
     </div>
   );
 };
-
 export default Contacts;

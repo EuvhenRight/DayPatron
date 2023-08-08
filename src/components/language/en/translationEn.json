@@ -4,8 +4,8 @@
     "about": "About",
     "whereToBuy": "Where to Buy?",
     "contacts": "Contacts",
-    "en": "En",
-    "ua": "Ua"
+    "en": "en",
+    "ua": "ua"
   },
   "home": {
     "mainTextSlogan": "We have returned, and we are better than ever, striving to enhance your experience!"
@@ -19,5 +19,28 @@
     "shelfLife": "Shelf Life",
     "video": "Video",
     "videoText": "Watch the video"
+  },
+  "contacts": {
+    "mainText": "Contacts",
+    "leftText": "DayPatron company Ukraine",
+    "leftText_manufacturer": "Manufacturer: LLC 'Ekokemika Trading,' Address: Predslavynska Street, 34B, Kyiv, 03150, Ukraine",
+    "leftText_supplier": "Supplier and company for claims: 'Dezze' Ltd",
+    "leftText_phone": "Phone: +38 (050) 123-45-67",
+    "rightText": "Contact feedback",
+    "successText": "Thank you for sharing your feedback",
+    "repeatText": "Repeat"
+  },
+  "form_feedback": {
+    "user_name": "User name",
+    "user_email": "Email",
+    "user_phone": "Phone(optional)",
+    "user_message": "Message",
+    "user_error_name": "Name is required",
+    "user_error_email": "Invalid email address",
+    "user_error_email_2": "Email is required",
+    "user_error_phone": "Phone is required",
+    "user_error_message": "Message is required",
+    "user_error_agreement": "You must agree to the terms and conditions",
+    "send_button": "Send"
   }
 }

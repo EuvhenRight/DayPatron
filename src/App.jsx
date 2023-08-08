@@ -12,6 +12,7 @@ import Product from './components/Products/Product';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './components/language/Translator.js';
 import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/:lang/about" element={<About />} />
             <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
             <Route path="/:lang/contact" element={<Contacts />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound to="/" />} />
           </Routes>
           <Footer />
