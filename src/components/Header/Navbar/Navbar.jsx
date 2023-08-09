@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import style from './Navbar.module.css';
 
@@ -30,6 +30,7 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
             className={style.link}
             id={link.id}
             to={`/${currentLanguage}/${link.to}`}
+            onClick={toggleNavItems}
           >
             {t(link.label)}
           </Link>

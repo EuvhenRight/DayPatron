@@ -131,6 +131,7 @@
 
 @media screen and (max-width: 991px) {
 }
+
 @media screen and (max-width: 781px) {
   .main_container {
     z-index: 1001;
@@ -151,5 +152,10 @@
 @media screen and (max-width: 479px) {
   .main_container {
     padding: 8px 0;
+    margin: 0 10px;
+  }
+
+  .logo {
+    width: 220px;
   }
 }
