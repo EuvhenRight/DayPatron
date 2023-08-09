@@ -35,6 +35,7 @@
     "user_email": "Email",
     "user_phone": "Phone(optional)",
     "user_message": "Message",
+    "user_agreement": "I agree",
     "user_error_name": "Name is required",
     "user_error_email": "Invalid email address",
     "user_error_email_2": "Email is required",

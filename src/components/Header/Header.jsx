@@ -3,6 +3,7 @@ import logo from '../assets/DayLogo.svg';
 import * as React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Navbar from './Navbar/Navbar';
 
 const Header = () => {
   const [lang, setLang] = React.useState('ua');
@@ -20,56 +21,60 @@ const Header = () => {
     navigate(newPath);
     setLang(lang);
   };
+
   return (
     <>
-      <header className={style.header}>
+      <header className={style.main_container}>
         <nav className={style.nav__wrapper}>
           <div className={style.nav__left}>
-            <Link
-              className={style.logo__header__link}
-              to={`/${currentLanguage}`}
-            >
-              <img className={style.logo__header} src={logo} alt="logo" />
+            <Link className={style.logo__link} to={`/${currentLanguage}`}>
+              <img className={style.logo} src={logo} alt="logo" />
             </Link>
           </div>
           <div className={style.nav__right}>
             <div className={style.nav__right__wrapper}>
               <Link
-                className={style.header__link}
+                className={style.__link}
                 id="home"
                 to={`/${currentLanguage}/products`}
               >
-                <button className={style.header__button} id="home">
+                <button className={style.button} id="home">
                   {t('header.products')}
                 </button>
               </Link>
               <Link
-                className={style.header__link}
+                className={style.link}
                 id="about"
                 to={`/${currentLanguage}/about`}
               >
-                <button className={style.header__button} id="home">
+                <button className={style.button} id="home">
                   {t('header.about')}
                 </button>
               </Link>
               <Link
-                className={style.header__link}
+                className={style.link}
                 id="home"
                 to={`/${currentLanguage}/whereToBuy`}
               >
-                <button className={style.header__button} id="home">
+                <button className={style.button} id="home">
                   {t('header.whereToBuy')}
                 </button>
               </Link>
               <Link
-                className={style.header__link}
+                className={style.link}
                 id="home"
                 to={`/${currentLanguage}/contact`}
               >
-                <button className={style.header__button} id="home">
+                <button className={style.button} id="home">
                   {t('header.contacts')}
                 </button>
               </Link>
+            </div>
+            <div className={style.mobile__navbar__wrapper}>
+              <Navbar
+                currentLanguage={currentLanguage}
+                changeLanguage={changeLanguage}
+              />
             </div>
           </div>
         </nav>
