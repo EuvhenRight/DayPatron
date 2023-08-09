@@ -38,13 +38,19 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
         <div className={style.lang__wrapper}>
           <button
             className={style.lang__wrapper__button}
-            onClick={() => changeLanguage('en')}
+            onClick={() => {
+              changeLanguage('en');
+              setShowMenu(false);
+            }}
           >
             {t('header.en')}
           </button>
           <button
             className={style.lang__wrapper__button}
-            onClick={() => changeLanguage('ua')}
+            onClick={() => {
+              changeLanguage('en');
+              setShowMenu(false);
+            }}
           >
             {t('header.ua')}
           </button>
