@@ -74,13 +74,9 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
 
   return (
     <>
-      <form
-        ref={form}
-        onSubmit={formik.handleSubmit}
-        className={style.contact__form}
-      >
+      <form ref={form} onSubmit={formik.handleSubmit} className={style.form}>
         <FormField
-          className={style.contact__form__name}
+          className={style.form__name}
           type="text"
           name="user_name"
           label={t('form_feedback.user_name')}
@@ -88,7 +84,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__name}
         />
         <FormField
-          className={style.contact__form__email}
+          className={style.form__email}
           type="email"
           name="user_email"
           label={t('form_feedback.user_email')}
@@ -96,7 +92,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__email}
         />
         <FormField
-          className={style.contact__form__phone}
+          className={style.form__phone}
           type="text"
           name="user_phone"
           label={t('form_feedback.user_phone')}
@@ -104,16 +100,16 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__phone}
         />
         <FormField
-          className={style.contact__form__message}
+          className={style.form__message}
           type="text"
           name="user_message"
           label={t('form_feedback.user_message')}
           formik={formik}
           errorStyle={style.form__error__message}
         />
-        <div className={style.contact__agreement__wrapper}>
+        <div className={style.agreement__wrapper}>
           <FormField
-            className={style.contact__form__agreement}
+            className={style.form__agreement}
             type="checkbox"
             name="user_agreement"
             label={t('form_feedback.user_agreement')}
@@ -121,11 +117,11 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
             errorStyle={style.form__error__agreement}
           />
         </div>
-        <div className={style.contact__bottom__wrapper}>
-          <span>
+        <div className={style.bottom__wrapper}>
+          <span className={style.private__policy__link}>
             <Link to="/privacy-policy"> {t('form_feedback.privacy')}</Link>
           </span>
-          <button className={style.contact__form__button} type="submit">
+          <button className={style.form__button} type="submit">
             {t('form_feedback.send_button')}
           </button>
         </div>

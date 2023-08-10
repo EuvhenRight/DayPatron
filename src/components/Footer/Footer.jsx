@@ -5,7 +5,7 @@ import logo from '../assets/DayLogo_footer.svg';
 
 const Footer = () => {
   return (
-    <footer className={style.footer}>
+    <footer>
       <div className={style.section}>
         <div className={style.container}>
           <div className={style.content}>
@@ -17,8 +17,8 @@ const Footer = () => {
                 © 2023, DayPatron LTD, Ukraine
               </div>
             </div>
-            <div className={style.content__links}>
-              <nav>
+            <div>
+              <nav className={style.content__links}>
                 <Link to="*">Facebook</Link>
                 <Link to="*">Instagram</Link>
                 <Link to="*">Telegram</Link>

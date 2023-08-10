@@ -9,7 +9,7 @@ const Contacts = () => {
   const [success, setSuccess] = React.useState(false);
 
   return (
-    <div>
+    <>
       <div className={style.section__gradient}>
         <div className={style.headline__wrapper}>
           <h1 className={style.headline__text}>{t('contacts.mainText')}</h1>
@@ -66,7 +66,7 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Contacts;
