@@ -39,7 +39,11 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
         ))}
         <div className={style.lang__wrapper}>
           <button
-            className={style.lang__wrapper__button}
+            className={
+              currentLanguage === 'en'
+                ? style.lang__wrapper__button__active
+                : style.lang__wrapper__button
+            }
             onClick={() => {
               changeLanguage('en');
               setShowMenu(false);
@@ -48,7 +52,11 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
             {t('header.en')}
           </button>
           <button
-            className={style.lang__wrapper__button}
+            className={
+              currentLanguage === 'ua'
+                ? style.lang__wrapper__button__active
+                : style.lang__wrapper__button
+            }
             onClick={() => {
               changeLanguage('ua');
               setShowMenu(false);

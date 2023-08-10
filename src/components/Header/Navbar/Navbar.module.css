@@ -63,6 +63,22 @@
   margin: 0 5px;
 }
 
+.lang__wrapper__button__active {
+  background-color: #fff;
+  color: #303030;
+  border: 1px solid #232323;
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .lang__wrapper {
   padding: 10px 0;
 }

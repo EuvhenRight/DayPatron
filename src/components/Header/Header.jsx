@@ -80,14 +80,22 @@ const Header = () => {
         </nav>
         <div className={style.lang__wrapper}>
           <button
-            className={style.lang__wrapper__button}
+            className={
+              currentLanguage === 'en'
+                ? style.lang__wrapper__button__active
+                : style.lang__wrapper__button
+            }
             onClick={() => changeLanguage('en')}
           >
             {t('header.en')}
           </button>
 
           <button
-            className={style.lang__wrapper__button}
+            className={
+              currentLanguage === 'ua'
+                ? style.lang__wrapper__button__active
+                : style.lang__wrapper__button
+            }
             onClick={() => changeLanguage('ua')}
           >
             {t('header.ua')}
