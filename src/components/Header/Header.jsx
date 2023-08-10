@@ -22,6 +22,12 @@ const Header = () => {
     setLang(lang);
   };
 
+  const changeColorLanguageClick = (lang) => {
+    return currentLanguage === lang
+      ? style.lang__wrapper__button__active
+      : style.lang__wrapper__button;
+  };
+
   return (
     <>
       <header className={style.main_container}>
@@ -80,22 +86,14 @@ const Header = () => {
         </nav>
         <div className={style.lang__wrapper}>
           <button
-            className={
-              currentLanguage === 'en'
-                ? style.lang__wrapper__button__active
-                : style.lang__wrapper__button
-            }
+            className={changeColorLanguageClick('en')}
             onClick={() => changeLanguage('en')}
           >
             {t('header.en')}
           </button>
 
           <button
-            className={
-              currentLanguage === 'ua'
-                ? style.lang__wrapper__button__active
-                : style.lang__wrapper__button
-            }
+            className={changeColorLanguageClick('ua')}
             onClick={() => changeLanguage('ua')}
           >
             {t('header.ua')}

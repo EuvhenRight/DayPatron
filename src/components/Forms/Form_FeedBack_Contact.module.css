@@ -168,4 +168,9 @@
   .form {
     grid-template-rows: 0fr 0.3fr 0fr 0.3fr 0fr 0.3fr 1fr repeat(2, 0.3fr) 0fr;
   }
+
+  .agreement__wrapper {
+    align-items: center;
+    flex-direction: row;
+  }
 }
