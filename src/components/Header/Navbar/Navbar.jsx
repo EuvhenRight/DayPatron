@@ -11,6 +11,8 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
     setShowMenu(!showMenu);
   };
 
+  console.log(currentLanguage);
+
   const navLinks = [
     { id: 'products', to: 'products', label: 'header.products' },
     { id: 'about', to: 'about', label: 'header.about' },
@@ -21,7 +23,7 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
   return (
     <div className={style.main_container}>
       <div type="button" className={style.menu__icon} onClick={toggleNavItems}>
-        Menu
+        {t('header.menu')}
       </div>
       <nav className={showMenu ? style.list_active : style.list}>
         {navLinks.map((link) => (
@@ -48,7 +50,7 @@ const Navbar = ({ currentLanguage, changeLanguage }) => {
           <button
             className={style.lang__wrapper__button}
             onClick={() => {
-              changeLanguage('en');
+              changeLanguage('ua');
               setShowMenu(false);
             }}
           >
