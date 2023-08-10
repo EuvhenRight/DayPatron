@@ -235,4 +235,8 @@
   .down__form__wrapper {
     padding: 1.83em 1.93em;
   }
+
+  .headline__text {
+    font-size: 4em;
+  }
 }
