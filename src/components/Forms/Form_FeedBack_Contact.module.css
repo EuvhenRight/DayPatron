@@ -121,6 +121,14 @@
   margin-left: 10px;
 }
 
+.private__policy__link {
+  font-size: 14px;
+}
+
+.private__policy__link a {
+  color: black;
+}
+
 /* mobile responsive */
 
 @media screen and (max-width: 991px) {
@@ -144,9 +152,20 @@
   }
 
   .private__policy__link {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 479px) {
+  .bottom__wrapper {
+    flex-direction: column;
+  }
+
+  .private__policy__link {
+    margin-bottom: 9px;
+  }
+
+  .form {
+    grid-template-rows: 0fr 0.3fr 0fr 0.3fr 0fr 0.3fr 1fr repeat(2, 0.3fr) 0fr;
+  }
 }
