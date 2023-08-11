@@ -225,13 +225,16 @@ iframe {
     align-items: center;
   }
   .middle__left {
-    width: 100%;
+    flex-direction: column;
   }
   .middle__right {
     width: 100%;
   }
   .headline__img {
     width: 55%;
+  }
+  .middle__left__menu {
+    display: flex;
   }
 }
 @media screen and (max-width: 781px) {
