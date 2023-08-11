@@ -9,14 +9,13 @@ import Footer from './components/Footer/Footer.jsx';
 import Home from './components/Home/Home.jsx';
 import ProductsItems from './components/Products/Product-items';
 import Product from './components/Products/Product';
-import { I18nextProvider } from 'react-i18next';
-import i18n from './components/language/Translator.js';
 import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import { LanguageProvider } from './components/language/LanguageContext';
 
 function App() {
   return (
-    <I18nextProvider i18n={i18n}>
+    <LanguageProvider>
       <div className={style.main__container}>
         <Header />
         <div className={style.App}>
@@ -34,7 +33,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </I18nextProvider>
+    </LanguageProvider>
   );
 }
 

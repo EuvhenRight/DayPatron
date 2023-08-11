@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import style from './Navbar.module.css';
+import { useLanguage } from '../../language/LanguageContext';
 
-const Navbar = ({ currentLanguage, changeLanguage }) => {
+const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);
-  const { t } = useTranslation();
+  const { lang, currentLanguage, changeLanguage, t } = useLanguage();
 
   const toggleNavItems = () => {
     setShowMenu(!showMenu);
   };
-
-  console.log(currentLanguage);
 
   const navLinks = [
     { id: 'products', to: 'products', label: 'header.products' },

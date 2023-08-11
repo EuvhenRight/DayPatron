@@ -218,3 +218,38 @@ iframe {
 .section__middle {
   min-height: 100dvh;
 }
+
+@media screen and (max-width: 991px) {
+  .middle__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .middle__left {
+    width: 100%;
+  }
+  .middle__right {
+    width: 100%;
+  }
+  .headline__img {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 781px) {
+  .headline__img {
+    width: 70%;
+  }
+
+  .middle__left__menu__wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .headline__img {
+    width: 80%;
+  }
+
+  .middle__main__name__title h2 {
+    font-size: 40px;
+  }
+}

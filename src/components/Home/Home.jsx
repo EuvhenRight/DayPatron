@@ -17,7 +17,7 @@ const Home = () => {
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [t]);
 
   return (
     <>

@@ -104,4 +104,8 @@
     flex: 0 auto;
     justify-content: space-between;
   }
+
+  .content {
+    flex-direction: column;
+  }
 }

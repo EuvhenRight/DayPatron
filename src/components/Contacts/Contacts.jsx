@@ -2,10 +2,11 @@ import MyLocation from '../Google_Map/My_Location';
 import React from 'react';
 import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
-import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../language/LanguageContext';
+import { useParams } from 'react-router-dom';
 
 const Contacts = () => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [success, setSuccess] = React.useState(false);
 
   return (

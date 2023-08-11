@@ -1,26 +1,12 @@
 import style from './Header.module.css';
 import logo from '../assets/DayLogo.svg';
 import * as React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
+import { useLanguage } from '../language/LanguageContext';
 
 const Header = () => {
-  const [lang, setLang] = React.useState('ua');
-  const { t, i18n } = useTranslation();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const currentLanguage = location.pathname.split('/')[1]; // Get the current language from the URL
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-    const newPath = location.pathname.replace(
-      `/${currentLanguage}`,
-      `/${lang}`
-    );
-    navigate(newPath);
-    setLang(lang);
-  };
+  const { lang, currentLanguage, changeLanguage, t } = useLanguage();
 
   const changeColorLanguageClick = (lang) => {
     return currentLanguage === lang
@@ -77,10 +63,7 @@ const Header = () => {
               </Link>
             </div>
             <div className={style.mobile__navbar__wrapper}>
-              <Navbar
-                currentLanguage={currentLanguage}
-                changeLanguage={changeLanguage}
-              />
+              <Navbar />
             </div>
           </div>
         </nav>
