@@ -3,7 +3,6 @@ import React from 'react';
 import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
 import { useLanguage } from '../language/LanguageContext';
-import { useParams } from 'react-router-dom';
 
 const Contacts = () => {
   const { t } = useLanguage();

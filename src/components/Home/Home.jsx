@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './Home.module.css';
 import logo from '../assets/logo.svg';
-import tradeMark from '../assets/DayLogo.svg';
-import AnimationText from './animation';
+import AnimationTextWord from './Animation_Text';
 import { useTranslation } from 'react-i18next';
+import AnimationLogo from './Animation_Logo';
 
 const Home = () => {
   const [rotate, setRotate] = React.useState(false);
@@ -14,7 +14,7 @@ const Home = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setRotate(true);
-    }, 5000);
+    }, 7000);
 
     return () => clearTimeout(timer);
   }, [t]);
@@ -26,15 +26,10 @@ const Home = () => {
           <div className={style.gradient}></div>
         </div>
         <div className={style.headline__wrapper}>
-          <div className={style.test}>
-            <AnimationText text={mainTextSlogan} />
+          <AnimationLogo rotate={rotate} />
+          <div className={style.headline__text}>
+            <AnimationTextWord Text text={mainTextSlogan} />
           </div>
-          <img
-            className={`${rotate ? style.rotateTrademark : style.tradeMark}`}
-            src={tradeMark}
-            alt="logo"
-          />
-          <img className={style.logo} src={logo} alt="logo" />
         </div>
       </div>
       <div className={style.section__middle}>
