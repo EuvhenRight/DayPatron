@@ -255,4 +255,7 @@ iframe {
   .middle__main__name__title h2 {
     font-size: 40px;
   }
+  .middle__left {
+    width: 100%;
+  }
 }
