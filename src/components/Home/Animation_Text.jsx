@@ -9,7 +9,7 @@ const AnimatedTextWord = ({ text }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.55, delayChildren: 0.5 * i },
+      transition: { staggerChildren: 0.3, delayChildren: 0.5 * i },
     }),
   };
 
@@ -17,23 +17,23 @@ const AnimatedTextWord = ({ text }) => {
   const child = {
     visible: {
       opacity: 1,
-      y: 22,
+      y: 25,
       scale: 1,
       transition: {
         type: 'spring',
         damping: 5,
-        stiffness: 10, // Reduced stiffness for slower animation
+        stiffness: 25, // Reduced stiffness for slower animation
         duration: 0, // Longer duration for slower animation
       },
     },
     hidden: {
       opacity: 0,
-      y: 100, // Change y value for bottom to top effect
-      scale: 0.8,
+      y: 70, // Change y value for bottom to top effect
+      scale: 1,
       transition: {
         type: 'spring',
-        damping: 1,
-        stiffness: 10,
+        damping: 0,
+        stiffness: 0,
         duration: 1,
       },
     },
@@ -43,12 +43,6 @@ const AnimatedTextWord = ({ text }) => {
     <motion.div
       style={{
         overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'row',
-        fontSize: '4rem',
-        flexWrap: 'wrap',
-        fontWeight: '600',
-        justifyContent: 'center',
       }}
       variants={container}
       initial="hidden"

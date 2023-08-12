@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import tradeMark from '../assets/DayLogo.svg';
+import tradeMark from '../assets/DayLogo_main.svg';
 import style from './Home.module.css';
 
 const AnimationLogo = ({ rotate }) => {

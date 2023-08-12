@@ -14,7 +14,7 @@ const Home = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setRotate(true);
-    }, 7000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [t]);

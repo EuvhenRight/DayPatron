@@ -50,59 +50,28 @@
 
 .headline__text {
   width: 80%;
+  display: flex;
+  flex-direction: row;
+  font-size: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: 600;
 }
 
 .tradeMark {
-  width: 250px;
-  display: block;
+  width: 350px;
   border-radius: 12px;
-  width: 200px;
-  transform: rotate(0); /* Initial transform */
-  transition: transform 1s ease; /* Transition effect for smooth rotation */
+  /* transform: rotate(0); /* Initial transform */
+  /* transition: transform 1s ease; Transition effect for smooth rotation */
 }
 /* animation logo  */
 
 .rotateTrademark {
-  transform: rotate(-2deg);
-  transition: transform 1s ease;
-  width: 250px;
+  transform: rotate(-3deg);
+  transition: transform 3s ease;
+  width: 350px;
   display: block;
   border-radius: 12px;
-  width: 200px; /* Target transform for rotation */
-}
-
-@-webkit-keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-
-.animation__text {
-  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  margin: 0 10px;
-  color: black;
-  -webkit-text-stroke: 3px rgb(110, 103, 103);
-  text-shadow: hsla(0, 0%, 60%, 0.3) 0 -2px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
 }
 
 .section__middle {
@@ -150,7 +119,7 @@
 }
 
 .middle__right__text {
-  color: #232323;
+  color: #23232300;
   flex: 0 auto;
   align-self: auto;
   margin-bottom: 0;
@@ -199,5 +168,36 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 781px) {
+  .headline__text {
+    font-size: 45px;
+  }
+
+  .tradeMark {
+    width: 300px;
+  }
+
+  .rotateTrademark {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .headline__text {
+    font-size: 35px;
+  }
+
+  .tradeMark {
+    width: 250px;
+  }
+
+  .rotateTrademark {
+    width: 250px;
   }
 }
