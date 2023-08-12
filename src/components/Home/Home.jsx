@@ -1,13 +1,20 @@
 import React from 'react';
 import style from './Home.module.css';
-import logo from '../assets/logo.svg';
 import AnimationTextWord from './Animation_Text';
-import { useTranslation } from 'react-i18next';
 import AnimationLogo from './Animation_Logo';
+import Home_Benefits_Info from '../Home_Benefits_Info/Home_Benefits_Info';
+import { useLanguage } from '../language/LanguageContext';
+import product from '../assets/carbon500.png';
+import arGun from '../assets/ar15.svg';
+import shotgun from '../assets/shotgun.svg';
+import sniper from '../assets/sniper-rifle.svg';
+import tank from '../assets/tank.svg';
+import antiAir from '../assets/anti-aircraft-gun.svg';
+import gun from '../assets/gun.svg';
 
 const Home = () => {
   const [rotate, setRotate] = React.useState(false);
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   const mainTextSlogan = t('home.mainTextSlogan');
 
@@ -37,29 +44,31 @@ const Home = () => {
           <div className={style.middle__wrapper}>
             <div className={style.middle__left}>
               <h2 className={style.middle__left__text}>
-                <strong>DayPatron - the best Gum Care line of products</strong>
-                <br />
-                Live-Shopping.
+                <strong>DayPatron - the best Gun Care line of products</strong>
               </h2>
             </div>
-            <div className={style.middle__right}>
-              <p className={style.middle__right__text}>
-                I hope you like our products
-              </p>
+            <div className={style.middle__block__guns}>
+              <div>
+                <img src={gun} alt="gun" />
+                <img src={arGun} alt="ar15" />
+                <img src={shotgun} alt="sniper-rifle" />
+              </div>
+              <img src={product} className={style.middle__img} alt="product" />
+              <div>
+                <img src={sniper} alt="shotgun" />
+                <img src={antiAir} alt="anti-aircraft-gun" />
+                <img src={tank} alt="tank" />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className={style.section__down}>
-        <div className={style.container}>
-          <div className={style.down_list__wrapper}>
-            <div className={style.down_list__item}></div>
-            <div className={style.down_list__item}></div>
-            <div className={style.down_list__item}></div>
-            <div className={style.down_list__item}></div>
-            <div className={style.down_list__item}></div>
-            <div className={style.down_list__item}></div>
+        <div className={style.down__wrapper}>
+          <div className={style.down__background}>
+            <h1>GUN CARE PRODUCTS</h1>
           </div>
+          <Home_Benefits_Info />
         </div>
       </div>
     </>

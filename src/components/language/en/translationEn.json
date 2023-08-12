@@ -11,6 +11,12 @@
   "home": {
     "mainTextSlogan": "We have returned, and we are better than ever!"
   },
+  "home_benefits": {
+    "hand_care": "Whether you're at home, in the office, or on the go, trust our reliable products to deliver effective results without compromising your health or the integrity of your valuable equipment",
+    "clp": "Our cleaning products are more effective than most others. Our lubricants offer advanced protection, enduring extreme temperatures with less application needed",
+    "ph": "Our pH-neutral formula is safe for all firearm surfaces – wood, polymer, stainless steel, and more. Our products clean effectively without harming your firearm's integrity or aesthetics",
+    "ukraine": "When you embark on your journey of firearm care, allow our products, crafted in Ukraine, to accompany you, providing unparalleled results."
+  },
   "product": {
     "article": "Article",
     "share": "Share",
