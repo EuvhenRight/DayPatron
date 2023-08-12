@@ -6,7 +6,7 @@ import Navbar from './Navbar/Navbar';
 import { useLanguage } from '../language/LanguageContext';
 
 const Header = () => {
-  const { lang, currentLanguage, changeLanguage, t } = useLanguage();
+  const { currentLanguage, changeLanguage, t } = useLanguage();
 
   const changeColorLanguageClick = (lang) => {
     return currentLanguage === lang

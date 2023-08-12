@@ -21,7 +21,7 @@ export const LanguageProvider = ({ children }) => {
       i18n.changeLanguage(currentLanguage);
       setLang(currentLanguage);
     }
-  }, [currentLanguage, lang, i18n]);
+  }, [currentLanguage, lang]);
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);

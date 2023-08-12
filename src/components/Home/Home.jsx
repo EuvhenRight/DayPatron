@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Home.module.css';
 import AnimationTextWord from './Animation_Text';
 import AnimationLogo from './Animation_Logo';
-import Home_Benefits_Info from '../Home_Benefits_Info/Home_Benefits_Info';
+import HomeBenefitsInfo from '../Home_Benefits_Info/Home_Benefits_Info';
 import { useLanguage } from '../language/LanguageContext';
 import product from '../assets/carbon500.png';
 import arGun from '../assets/ar15.svg';
@@ -68,7 +68,7 @@ const Home = () => {
           <div className={style.down__background}>
             <h1>GUN CARE PRODUCTS</h1>
           </div>
-          <Home_Benefits_Info />
+          <HomeBenefitsInfo />
         </div>
       </div>
     </>

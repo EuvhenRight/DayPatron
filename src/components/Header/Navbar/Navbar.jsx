@@ -5,7 +5,7 @@ import { useLanguage } from '../../language/LanguageContext';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);
-  const { lang, currentLanguage, changeLanguage, t } = useLanguage();
+  const { currentLanguage, changeLanguage, t } = useLanguage();
 
   const toggleNavItems = () => {
     setShowMenu(!showMenu);
@@ -69,7 +69,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /* <div className={style.lang__wrapper}></div>; */
-}
