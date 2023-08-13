@@ -5,7 +5,7 @@ import Ukraine from '../assets/made_in_Ukraine.png';
 import hand from '../assets/hand.png';
 import CLP from '../assets/clp_tr.svg';
 import { useLanguage } from '../language/LanguageContext';
-import { motion } from 'framer-motion';
+import AnimatedListItem from '../Animate/Animate_List_Item';
 
 const listItems = [
   { imageSrc: PH, textKey: 'ph' },
@@ -13,25 +13,6 @@ const listItems = [
   { imageSrc: hand, textKey: 'hand_care' },
   { imageSrc: CLP, textKey: 'clp' },
 ];
-
-const AnimatedListItem = ({ imageSrc, textKey }) => {
-  const { t } = useLanguage();
-  return (
-    <motion.li
-      className={style.down_list__item}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      key={textKey}
-    >
-      <div className={style.list__content}>
-        <div>
-          <img src={imageSrc} alt={imageSrc} />
-        </div>
-        <p>{t(`home_benefits.${textKey}`)}</p>
-      </div>
-    </motion.li>
-  );
-};
 
 const Home_Benefits_Info = () => {
   const { t } = useLanguage();

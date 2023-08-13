@@ -11,8 +11,8 @@ import { useParams } from 'react-router-dom';
 const Product = () => {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeVolume, setActiveVolume] = React.useState(2);
-  const [isPictureActive, setIsPictureActive] = React.useState(null);
+  const [activeVolume, setActiveVolume] = React.useState(2); // Default volume
+  const [isPictureActive, setIsPictureActive] = React.useState(null); // Default picture
   const { id, lang } = useParams();
 
   const { t } = useLanguage();
@@ -24,6 +24,7 @@ const Product = () => {
     [t]
   );
 
+  // Fetch product data
   const fetchData = async (productId) => {
     try {
       const url = `https://daypatron.adaptable.app/products/${lang}/${productId}`;
@@ -83,14 +84,14 @@ const Product = () => {
   };
 
   // Separate Image component
-  const Picture = ({ url, alt, isActive, onClick }) => (
+  const PictureTogglePhoto = ({ url, alt, isActive, onClick }) => (
     <li onClick={onClick} className={isActive ? style.activePicture : ''}>
       <img src={`/images/${url}`} alt={alt} />
     </li>
   );
 
   // Separate Volume component
-  const Volume = ({ value, isActive, onClick }) => (
+  const VolumeTogglePhoto = ({ value, isActive, onClick }) => (
     <li onClick={onClick} className={isActive ? style.activeMainImg : ''}>
       {value}
     </li>
@@ -137,8 +138,9 @@ const Product = () => {
               <div className={style.middle__left}>
                 <div className={style.middle__left__menu__wrapper}>
                   <ul className={style.middle__left__menu}>
+                    {/* Separate Picture */}
                     {product.image.map((value, i) => (
-                      <Picture
+                      <PictureTogglePhoto
                         key={i}
                         url={value.url}
                         alt={product.name}
@@ -158,8 +160,9 @@ const Product = () => {
               </div>
               <div className={style.middle__right}>
                 <ul className={style.down__list__volume}>
+                  {/* Separate Volume */}
                   {product.volume.map((value, i) => (
-                    <Volume
+                    <VolumeTogglePhoto
                       key={i}
                       value={value}
                       isActive={activeVolume === i}

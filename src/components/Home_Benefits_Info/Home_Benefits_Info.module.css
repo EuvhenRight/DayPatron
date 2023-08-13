@@ -8,14 +8,6 @@
   display: grid;
   top: 28px;
 }
-.down_list__item {
-  color: #fff;
-  border-radius: 1em;
-  flex: 1 1;
-  position: relative;
-  overflow: hidden;
-  background-color: #f2f2f2;
-}
 
 .down__wrapper {
   width: 100%;

@@ -18,7 +18,7 @@ function App() {
     <LanguageProvider>
       <div className={style.main__container}>
         <Header />
-        <div className={style.App}>
+        <div className={style.myApp}>
           <Routes>
             <Route path="/" element={<Navigate to="/ua" />} />
             <Route path="/:lang" element={<Home />} />
