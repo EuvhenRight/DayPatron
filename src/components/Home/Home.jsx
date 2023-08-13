@@ -9,8 +9,10 @@ import arGun from '../assets/ar15.svg';
 import shotgun from '../assets/shotgun.svg';
 import sniper from '../assets/sniper-rifle.svg';
 import tank from '../assets/tank.svg';
-import antiAir from '../assets/anti-aircraft-gun.svg';
+import antiAir from '../assets/anti-aircraft-gun.png';
 import gun from '../assets/gun.svg';
+import knife from '../assets/knife.png';
+import paintball from '../assets/paintball.png';
 
 const Home = () => {
   const [rotate, setRotate] = React.useState(false);
@@ -42,23 +44,33 @@ const Home = () => {
       <div className={style.section__middle}>
         <div className={style.container}>
           <div className={style.middle__wrapper}>
-            <div className={style.middle__left}>
-              <h2 className={style.middle__left__text}>
-                <strong>DayPatron - the best Gun Care line of products</strong>
+            <div className={style.middle__up}>
+              <h2 className={style.middle__up__text}>
+                <strong>{t('home.middleTextSlogan')}</strong>
               </h2>
             </div>
-            <div className={style.middle__block__guns}>
-              <div>
-                <img src={gun} alt="gun" />
-                <img src={arGun} alt="ar15" />
-                <img src={shotgun} alt="sniper-rifle" />
-              </div>
-              <img src={product} className={style.middle__img} alt="product" />
-              <div>
-                <img src={sniper} alt="shotgun" />
-                <img src={antiAir} alt="anti-aircraft-gun" />
-                <img src={tank} alt="tank" />
-              </div>
+            <div className={style.middle__guns__container}>
+              <img src={gun} className={style.gun__img} alt="gun" />
+              <img src={arGun} className={style.gun__img} alt="ar15" />
+              <img src={knife} className={style.gun__img} alt="knife" />
+              <img src={paintball} className={style.gun__img} alt="paintball" />
+              <img
+                src={shotgun}
+                className={style.gun__img}
+                alt="sniper-rifle"
+              />
+              <img
+                src={product}
+                className={style.product__block__img}
+                alt="product"
+              />
+              <img src={sniper} className={style.gun__img} alt="shotgun" />
+              <img
+                src={antiAir}
+                className={style.gun__img}
+                alt="anti-aircraft-gun"
+              />
+              <img src={tank} className={style.gun__img} alt="tank" />
             </div>
           </div>
         </div>
