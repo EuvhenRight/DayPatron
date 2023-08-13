@@ -55,16 +55,14 @@
 @media screen and (max-width: 991px) {
   .down_list__wrapper {
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 0.55em;
-    grid-row-gap: 0.55em;
+    grid-row-gap: 1em;
   }
 }
 
 @media screen and (max-width: 781px) {
   .down_list__wrapper {
     grid-template-columns: 1fr;
-    grid-column-gap: 0.55em;
-    grid-row-gap: 0.55em;
+    grid-row-gap: 1em;
   }
 }
 
