@@ -4,7 +4,7 @@ import PH from '../assets/phbalanced.png';
 import Ukraine from '../assets/made_in_Ukraine.png';
 import hand from '../assets/hand.png';
 import CLP from '../assets/clp_tr.svg';
-import { useLanguage } from '../language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 import AnimatedListItem from '../Animate/Animate_List_Item';
 
 const listItems = [

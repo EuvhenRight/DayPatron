@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import SpinnerLoader from '../LoaderSpinner/LoaderSpinner';
+import SpinnerLoader from '../Loader_Spinner/Loader_Spinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
 

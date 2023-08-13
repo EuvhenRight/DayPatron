@@ -3,7 +3,7 @@ import logo from '../assets/DayLogo.svg';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
-import { useLanguage } from '../language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 
 const Header = () => {
   const { currentLanguage, changeLanguage, t } = useLanguage();

@@ -4,8 +4,8 @@ import ReactPlayer from 'react-player';
 import FacebookShare from '../ShareSocial/FacebookShare';
 import TwitterShare from '../ShareSocial/TwitterShare';
 import ViberShare from '../ShareSocial/ViberShare';
-import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
-import { useLanguage } from '../language/LanguageContext';
+import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
+import { useLanguage } from '../Language/LanguageContext';
 import { useParams } from 'react-router-dom';
 
 const Product = () => {
@@ -24,25 +24,25 @@ const Product = () => {
     [t]
   );
 
-  // Fetch product data
-  const fetchData = async (productId) => {
-    try {
-      const url = `https://daypatron.adaptable.app/products/${lang}/${productId}`;
-
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      setProduct(data);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-    }
-  };
-
   React.useEffect(() => {
+    // Fetch product data
+    const fetchData = async (productId) => {
+      try {
+        const url = `https://daypatron.adaptable.app/products/${lang}/${productId}`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProduct(data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
+      }
+    };
+
     fetchData(id, lang);
     setIsLoading(true);
     window.scrollTo(0, 0);

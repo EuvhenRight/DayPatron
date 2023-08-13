@@ -11,7 +11,7 @@ import ProductsItems from './components/Products/Product-items';
 import Product from './components/Products/Product';
 import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import { LanguageProvider } from './components/language/LanguageContext';
+import { LanguageProvider } from './components/Language/LanguageContext';
 
 function App() {
   return (

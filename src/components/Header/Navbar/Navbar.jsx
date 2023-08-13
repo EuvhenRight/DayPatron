@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Navbar.module.css';
-import { useLanguage } from '../../language/LanguageContext';
+import { useLanguage } from '../../Language/LanguageContext';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);

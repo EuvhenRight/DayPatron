@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import style from './Animate_List_Item.module.css';
 import React from 'react';
-import { useLanguage } from '../language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 
 const AnimatedListItem = ({ imageSrc, textKey }) => {
   const { t } = useLanguage();

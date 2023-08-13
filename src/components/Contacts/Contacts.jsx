@@ -2,7 +2,7 @@ import MyLocation from '../Google_Map/My_Location';
 import React from 'react';
 import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
-import { useLanguage } from '../language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 
 const Contacts = () => {
   const { t } = useLanguage();

@@ -3,7 +3,7 @@ import style from './Home.module.css';
 import AnimationTextWord from '../Animate/Animation_Text';
 import AnimationLogo from '../Animate/Animation_Logo';
 import HomeBenefitsInfo from '../Home_Benefits_Info/Home_Benefits_Info';
-import { useLanguage } from '../language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 import product from '../assets/carbon500.png';
 import arGun from '../assets/ar15.svg';
 import shotgun from '../assets/shotgun.svg';
