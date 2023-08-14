@@ -1,15 +1,13 @@
 import React from 'react';
-import privacyPdf from './privacy-policy.pdf';
-import PdfDocument from './PdfViewer';
+import PdfViewerComponent from './PdfViewer.js';
 
 const PrivacyPolicy = () => {
-  const pdfUrl = privacyPdf;
-
   return (
-    <>
-      <h1>Privacy Policy</h1>
-      <PdfDocument pdfUrl={pdfUrl} />
-    </>
+    <div className="container">
+      <div className="PDF-viewer">
+        <PdfViewerComponent document={'privacy-policy.pdf'} />
+      </div>
+    </div>
   );
 };
 

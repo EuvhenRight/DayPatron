@@ -54,6 +54,7 @@
     "framer-motion": "^10.15.1",
     "i18next": "^23.4.1",
     "i18next-browser-languagedetector": "^7.1.0",
+    "pspdfkit": "^2023.3.5",
     "react-i18next": "^13.0.3",
     "react-loader-spinner": "^5.3.4",
     "react-pdf": "^7.3.3",
