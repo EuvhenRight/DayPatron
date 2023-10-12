@@ -6,10 +6,11 @@ import * as Yup from 'yup';
 import FormField from './FormField';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
 import style from './Form_FeedBack_Contact.module.css';
+import { useLanguage } from '../Language/LanguageContext';
 
 const FormFeedBackContact = ({ success, setSuccess }) => {
+  const { currentLanguage } = useLanguage();
   const [error, setError] = React.useState(false);
   const form = useRef();
   const { t } = useTranslation();
@@ -119,7 +120,9 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         </div>
         <div className={style.bottom__wrapper}>
           <span className={style.private__policy__link}>
-            <Link to="/privacy-policy"> {t('form_feedback.privacy')}</Link>
+            <Link to={`/${currentLanguage}/privacy-policy`}>
+              {t('form_feedback.privacy')}
+            </Link>
           </span>
           <button className={style.form__button} type="submit">
             {t('form_feedback.send_button')}
