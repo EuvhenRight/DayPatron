@@ -1,7 +1,6 @@
-
 # DayPatron Gun Care Line Website
 
-[Click here for the Demo version](https://day-patron.vercel.app)
+[Click here for the Demo version](https://www.daypatron.com.ua/en/)
 
 Welcome to the DayPatron Gun Care Line Website repository! This project aims to provide firearm enthusiasts with essential resources, products, and services related to gun care and maintenance.
 
@@ -12,15 +11,13 @@ Welcome to the DayPatron Gun Care Line Website repository! This project aims to 
 
 The Gun Care Line Website is built using a combination of frontend and backend technologies, creating a seamless user experience while ensuring the longevity and performance of firearms.
 
-
 [My backend](https://github.com/EuvhenRight/DayPatron-backend)
 
 ## Features
 
 - **User-Friendly Interface:** Navigate through the website effortlessly with an intuitive and user-friendly interface.
 
-- **The website is designed to be responsive and provide an optimal experience on both desktop and mobile devices. 
-  
+- \*\*The website is designed to be responsive and provide an optimal experience on both desktop and mobile devices.
 - **Engaging Animations:** Experience captivating animations throughout the website that enhance user engagement.
 
 - **Contact and Support:** Connect with the Gun Care Line team for assistance and inquiries in the "Contacts" section.
@@ -37,8 +34,8 @@ The Gun Care Line Website is built using a combination of frontend and backend t
 
 - **Future Development:** The project is designed for scalability, with planned features including user accounts, order processing, and personalized recommendations.
 
-
 ## Code Structure
+
 ```
 DayPatron
 │
@@ -55,42 +52,42 @@ DayPatron
     │   ├── About
     │   │   ├── About.jsx
     │   │   └── About.module.css
-    │   │   
+    │   │
     │   ├── Animate
     │   │   ├── Animate_List_Item.jsx
     │   │   └── Animate_List_Item.module.css
-    │   │  
+    │   │
     │   ├── Contacts
     │   │   ├── Contacts.jsx
     │   │   └── Contacts.module.css
-    │   │   
+    │   │
     │   ├── Footer
     │   │   ├── Footer.jsx
     │   │   └── Footer.module.css
-    │   │   
+    │   │
     │   ├── Forms
     │   │   ├── Form_FeedBack_Contact.jsx
     │   │   ├── Form_FeedBack_Contact.module.css
     │   │   └── FormField.jsx
-    │   │   
+    │   │
     │   ├── Google_Map
     │   │   └── My_Location.jsx
-    │   │  
+    │   │
     │   ├── Header
     │   ├── Header.jsx
     │   │   └── Header.module.css
-    │   │   
+    │   │
     │   ├── Home
     │   │   ├── Home.jsx
     │   │   └── Home.module.css
-    │   │   
+    │   │
     │   ├── Load_Spinner
     │   │   └── Loader_Spinner.jsx
-    │   │  
+    │   │
     │   ├── NotFound
     │   │   ├── NotFound.jsx
     │   │   └── NotFound.module.css
-    │   │   
+    │   │
     │   └── PrivacyPolicy
     │       ├── PdfViewer.jsx
     │       ├── privacy-policy.pdf
@@ -120,9 +117,9 @@ DayPatron
     │   └── ViberShare.jsx
     │
     ├── utils
-    │  
+    │
     ├── Where_To_Buy
-    │   ├── Where_To_Buy.jsx    
+    │   ├── Where_To_Buy.jsx
     │   └── Where_To_Buy.module.css
     │
     ├── assets
@@ -131,6 +128,7 @@ DayPatron
     └── index.jsx
 
 ```
+
 ## Directory Structure
 
 ### `public`
@@ -149,41 +147,51 @@ This directory contains the main source code of your web application. It's typic
     - `About.jsx`: The main component for the "About" section.
     - `About.module.css`: Styles specific to the "About" component.
   - `Animate`: Components related to animations.
+
     - `Animate_List_Item.jsx`: A component for animating list items.
     - `Animate_List_Item.module.css`: Styles specific to the animation component.
 
   - `Contacts`: Components related to contact information.
+
     - `Contacts.jsx`: The main component for displaying contact information.
     - `Contacts.module.css`: Styles specific to the contact component.
 
   - `Footer`: Components for the footer section of the application.
+
     - `Footer.jsx`: The main footer component.
     - `Footer.module.css`: Styles specific to the footer component.
 
   - `Forms`: Components related to forms and user input.
+
     - `Form_FeedBack_Contact.jsx`: A form for providing feedback or contacting.
     - `Form_FeedBack_Contact.module.css`: Styles specific to the form component.
     - `FormField.jsx`: A reusable form field component.
 
   - `Google_Map`: Components related to Google Maps integration.
+
     - `My_Location.jsx`: A component to display the user's location on a map.
 
   - `Header`: Components for the header/navigation section.
+
     - `Header.jsx`: The main header component.
     - `Header.module.css`: Styles specific to the header component.
 
   - `Home`: Components for the home page.
+
     - `Home.jsx`: The main home page component.
     - `Home.module.css`: Styles specific to the home page component.
 
   - `Home_Benefits_Info`: Components for displaying benefits information on the home page.
+
     - `Home_Benefits_Info.jsx`: The main component for benefits information.
     - `Home_Benefits_Info.module.css`: Styles specific to the benefits component.
 
   - `Load_Spinner`: A component for displaying a loading spinner.
+
     - `Loader_Spinner.jsx`: The loading spinner component.
 
   - `NotFound`: Components for handling "404 Not Found" pages.
+
     - `NotFound.jsx`: The component for the "404 Not Found" page.
     - `NotFound.module.css`: Styles specific to the "404 Not Found" component.
 
@@ -202,20 +210,24 @@ This directory contains the main source code of your web application. It's typic
   - `LanguageContext.jsx`: A context for language settings.
 
 - `Loader_Spinner`: A separate directory for a loading spinner component.
+
   - `Loader_Spinner.jsx`: The loading spinner component.
 
 - `Products`: Components related to product information.
+
   - `Product-items.jsx`: Component for displaying a list of product items.
   - `Product-items.module.css`: Styles specific to the product items component.
   - `Product.jsx`: Component for displaying detailed product information.
   - `Product.module.css`: Styles specific to the product component.
 
 - `ShareSocial`: Components related to social media sharing.
+
   - `FacebookShare.jsx`: A component for sharing content on Facebook.
   - `TwitterShare.jsx`: A component for sharing content on Twitter.
   - `ViberShare.jsx`: A component for sharing content on Viber.
 
 - `utils`: A directory for utility components or functions.
+
   - `Where_To_Buy`: Components related to providing information about where to buy products.
     - `Where_To_Buy.jsx`: The main component for "Where to Buy" information.
     - `Where_To_Buy.module.css`: Styles specific to the "Where to Buy" component.
