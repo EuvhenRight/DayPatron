@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Image,
-} from '@chakra-ui/react';
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from '@chakra-ui/react';
 import {
   InfoOutlineIcon,
   RepeatIcon,
@@ -17,7 +10,7 @@ import ModalSpecification from './Modal';
 
 export default function TabsComponent({ translate, product }) {
   return (
-    <Tabs size="md" variant="enclosed" isFitted>
+    <Tabs size="sm" variant="enclosed" isFitted>
       <TabList>
         <Tab _selected={{ color: 'white', bg: 'red.400' }}>
           <InfoOutlineIcon pr={2} boxSize={10} />
@@ -58,7 +51,13 @@ export default function TabsComponent({ translate, product }) {
           alignItems="center"
         >
           <p>{product.specification.text}</p>
-          <ModalSpecification product={product} translate={translate} />
+          <Box w="sm">
+            <ModalSpecification
+              product={product}
+              translate={translate}
+              imageUrl={`/images/${product.specification.url}`}
+            />
+          </Box>
         </TabPanel>
         <TabPanel textAlign="justify">
           <p>{product.faq}</p>

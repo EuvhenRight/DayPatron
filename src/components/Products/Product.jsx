@@ -19,6 +19,7 @@ import { Box } from '@chakra-ui/react';
 import ShareButtonsComponent from '../ShareSocial/ShareButtons';
 import TabsComponent from './TabsComponent';
 import AccordionComponent from './AccordionComponent';
+import ModalSpecification from './Modal';
 
 const Product = () => {
   const [product, setProduct] = React.useState([]);
@@ -175,7 +176,11 @@ const Product = () => {
               </Wrap>
             </GridItem>
             <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="60%">
-              <Image src={renderProductImage()} alt={product.name} />
+              <ModalSpecification
+                imageUrl={renderProductImage()}
+                product={product}
+                translate={translate}
+              />
             </GridItem>
             <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
               <Wrap cursor="pointer" justify="center">

@@ -11,16 +11,15 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 
-export default function ModalSpecification({ translate, product }) {
+export default function ModalSpecification({ translate, product, imageUrl }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Image
         onClick={onOpen}
         cursor="pointer"
-        src={`/images/${product.specification.url}`}
+        src={imageUrl}
         alt={product.name}
-        boxSize="sm"
       />
       <Modal
         isCentered
@@ -32,13 +31,20 @@ export default function ModalSpecification({ translate, product }) {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <Image
-              src={`/images/${product.specification.url}`}
-              alt={product.name}
-            />
+            <Image src={imageUrl} alt={product.name} />
           </ModalBody>
           <ModalFooter>
-            <Button mr={3} onClick={onClose} bg="#232323" color="white">
+            <Button
+              mr={3}
+              onClick={onClose}
+              bg="#232323"
+              color="white"
+              _hover={{
+                bg: 'white',
+                color: 'black',
+                border: '1px solid black',
+              }}
+            >
               {translate('product.close')}
             </Button>
           </ModalFooter>
