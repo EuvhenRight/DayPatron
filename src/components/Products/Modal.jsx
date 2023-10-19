@@ -26,6 +26,7 @@ export default function ModalSpecification({ translate, product, imageUrl }) {
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"
+        size="6xl"
       >
         <ModalOverlay />
         <ModalContent>

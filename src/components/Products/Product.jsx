@@ -75,7 +75,7 @@ const Product = () => {
     i === activeVolume ? img.url : null
   );
 
-  const menuPicture = product?.image.map((img, i) =>
+  const menuPicture = product?.imageParts.map((img, i) =>
     i === isPictureActive ? img.url : null
   );
 
@@ -164,7 +164,7 @@ const Product = () => {
             <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
               <Wrap cursor="pointer" display="flex" justify="center">
                 {/* Separate Picture */}
-                {product.image.map((value, i) => (
+                {product.imageParts.map((value, i) => (
                   <PictureTogglePhoto
                     key={i}
                     url={value.url}
