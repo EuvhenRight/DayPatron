@@ -13,26 +13,40 @@ import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { LanguageProvider } from './components/Language/LanguageContext';
 
+import { ChakraBaseProvider, extendTheme } from '@chakra-ui/react';
+// 2. Extend the theme to include custom colors, fonts, etc
+const colors = {
+  brand: {
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
+  },
+};
+
+const theme = extendTheme({ colors });
+
 function App() {
   return (
     <LanguageProvider>
-      <div className={style.main__container}>
-        <Header />
-        <div className={style.myApp}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/ua" />} />
-            <Route path="/:lang" element={<Home />} />
-            <Route path="/:lang/products" element={<ProductsItems />} />
-            <Route path="/:lang/products/:id/:name" element={<Product />} />
-            <Route path="/:lang/about" element={<About />} />
-            <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
-            <Route path="/:lang/contact" element={<Contacts />} />
-            <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<NotFound to="/" />} />
-          </Routes>
-          <Footer />
+      <ChakraBaseProvider theme={theme}>
+        <div className={style.main__container}>
+          <Header />
+          <div className={style.myApp}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/ua" />} />
+              <Route path="/:lang" element={<Home />} />
+              <Route path="/:lang/products" element={<ProductsItems />} />
+              <Route path="/:lang/products/:id/:name" element={<Product />} />
+              <Route path="/:lang/about" element={<About />} />
+              <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
+              <Route path="/:lang/contact" element={<Contacts />} />
+              <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound to="/" />} />
+            </Routes>
+            <Footer />
+          </div>
         </div>
-      </div>
+      </ChakraBaseProvider>
     </LanguageProvider>
   );
 }

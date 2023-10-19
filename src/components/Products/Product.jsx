@@ -1,18 +1,31 @@
 import React from 'react';
 import style from './Product.module.css';
-import ReactPlayer from 'react-player';
-import FacebookShare from '../ShareSocial/FacebookShare';
-import TwitterShare from '../ShareSocial/TwitterShare';
-import ViberShare from '../ShareSocial/ViberShare';
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import { useLanguage } from '../Language/LanguageContext';
 import { useParams } from 'react-router-dom';
+import {
+  Container,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  Tag,
+  Text,
+  useBreakpointValue,
+  Wrap,
+  WrapItem,
+} from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import ShareButtonsComponent from '../ShareSocial/ShareButtons';
+import TabsComponent from './TabsComponent';
+import AccordionComponent from './AccordionComponent';
 
 const Product = () => {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [activeVolume, setActiveVolume] = React.useState(2); // Default volume
   const [isPictureActive, setIsPictureActive] = React.useState(null); // Default picture
+  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { id, lang } = useParams();
 
   const { t } = useLanguage();
@@ -85,138 +98,123 @@ const Product = () => {
 
   // Separate Image component
   const PictureTogglePhoto = ({ url, alt, isActive, onClick }) => (
-    <li onClick={onClick} className={isActive ? style.activePicture : ''}>
-      <img src={`/images/${url}`} alt={alt} />
-    </li>
+    <WrapItem
+      onClick={onClick}
+      borderWidth={isActive ? '2px' : '0'}
+      borderRadius="md"
+      borderColor="green.200"
+    >
+      <Image src={`/images/${url}`} width="100px" alt={alt} />
+    </WrapItem>
   );
 
   // Separate Volume component
   const VolumeTogglePhoto = ({ value, isActive, onClick }) => (
-    <li onClick={onClick} className={isActive ? style.activeMainImg : ''}>
+    <Tag
+      size="md" // Define the size attribute here
+      m={2}
+      variant="outline"
+      colorScheme={isActive ? 'green' : 'gray'}
+      onClick={onClick}
+    >
       {value}
-    </li>
+    </Tag>
   );
 
   return (
     <>
-      <div key={product.id}>
-        <div className={style.section__gradient}>
-          <div className={style.gradient__wrapper}>
-            <div className={style.gradient}></div>
-          </div>
-          <div className={style.container}>
-            <div className={style.headline__wrapper}>
-              <img
-                className={style.headline__img}
-                src={`/images/${product.tradeMarkImage}`}
-                alt={product.tradeMarkImage}
-              />
-            </div>
-          </div>
-        </div>
-        <div className={style.container}>
-          <div className={style.section__middle}>
-            <div className={style.middle__main__name__title}>
-              <h2>{product.name}</h2>
-              <p>
-                {translate('product.article')}: {product.article}
-              </p>
-              <div className={style.middle__main__social__media}>
-                {translate('product.share')}:
-                <button>
-                  <FacebookShare />
-                </button>
-                <button>
-                  <TwitterShare />
-                </button>
-                <button>
-                  <ViberShare />
-                </button>
-              </div>
-            </div>
-            <div className={style.middle__wrapper}>
-              <div className={style.middle__left}>
-                <div className={style.middle__left__menu__wrapper}>
-                  <ul className={style.middle__left__menu}>
-                    {/* Separate Picture */}
-                    {product.image.map((value, i) => (
-                      <PictureTogglePhoto
-                        key={i}
-                        url={value.url}
-                        alt={product.name}
-                        isActive={isPictureActive === i}
-                        onClick={() => onChangePicture(i)}
-                      />
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <img
-                    className={style.middle__left__img}
-                    src={renderProductImage()}
+      <Container key={product.id} maxW="container.lg" centerContent mt="150">
+        <Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems={{ base: 'center', md: 'flex-end', lg: 'flex-end' }}
+            mb={{ base: 5, md: 10, lg: 10 }}
+          >
+            <Image
+              src={`/images/${product.tradeMarkImage}`}
+              w="15%"
+              mb={5}
+              alt={product.tradeMarkImage}
+            />
+            <Heading as="h2" size="xl">
+              {product.name}
+            </Heading>
+            <Text mt={2} mb={2}>
+              {translate('product.article')}: {product.article}
+            </Text>
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent={{
+                base: 'center',
+                md: 'flex-end',
+                lg: 'flex-end',
+              }}
+            >
+              {translate('product.share')}:
+              <Box ml={1} mr={1}>
+                <ShareButtonsComponent product={product} />
+              </Box>
+            </Box>
+          </Box>
+          <Grid
+            as="section"
+            templateRows="repeat(1, 1fr)"
+            templateColumns="repeat(6, 1fr)"
+            gap={4}
+            justifyItems="center"
+            alignItems="end"
+          >
+            <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
+              <Wrap cursor="pointer" display="flex" justify="center">
+                {/* Separate Picture */}
+                {product.image.map((value, i) => (
+                  <PictureTogglePhoto
+                    key={i}
+                    url={value.url}
                     alt={product.name}
+                    isActive={isPictureActive === i}
+                    onClick={() => onChangePicture(i)}
                   />
-                </div>
-              </div>
-              <div className={style.middle__right}>
-                <ul className={style.down__list__volume}>
-                  {/* Separate Volume */}
-                  {product.volume.map((value, i) => (
-                    <VolumeTogglePhoto
-                      key={i}
-                      value={value}
-                      isActive={activeVolume === i}
-                      onClick={() => onChangeVolume(i)}
-                    />
-                  ))}
-                </ul>
-                <section className={style.middle__right__text}>
-                  <article>
-                    <h2>{translate('product.description')}:</h2>
-                    <p>{product.description}</p>
-                  </article>
-                  <article>
-                    <h2>{translate('product.useTo')}:</h2>
-                    <p>{product.useTo}</p>
-                  </article>
-                  <article>
-                    <h2>{translate('product.ingredients')}:</h2>
-                    <p>{product.composition}</p>
-                  </article>
-                  <article>
-                    <h2>{translate('product.shelfLife')}:</h2>
-                    <p>{product.shelfLife}</p>
-                  </article>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={style.middle__benefits__wrapper}>
-          <ul className={style.middle__benefits}>
-            {product.benefits.map((value, i) => (
-              <li key={i}>
-                <div className={style.middle__left__container}>
-                  <img src={`/images/${[value]}`} alt={product.name} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={style.container}>
-          <div className={style.section__down__wrapper}>
-            <div className={style.section__down__video}>
-              <ReactPlayer
-                url="https://youtu.be/p33qMGs_-Vo"
-                width={'100%'}
-                height={'450px'}
-              />
-              <h2>{translate('product.video')}</h2>
-              <p>{translate('product.videoText')}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+                ))}
+              </Wrap>
+            </GridItem>
+            <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="60%">
+              <Image src={renderProductImage()} alt={product.name} />
+            </GridItem>
+            <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
+              <Wrap cursor="pointer" justify="center">
+                {/* Separate Volume */}
+                {product.volume.map((value, i) => (
+                  <VolumeTogglePhoto
+                    key={i}
+                    value={value}
+                    isActive={activeVolume === i}
+                    onClick={() => onChangeVolume(i)}
+                  />
+                ))}
+              </Wrap>
+            </GridItem>
+          </Grid>
+          <Box mt={10} as="section">
+            {isMobile ? (
+              <AccordionComponent translate={translate} product={product} />
+            ) : (
+              <TabsComponent translate={translate} product={product} />
+            )}
+          </Box>
+        </Box>
+      </Container>
+      {/* <Box>
+        <Wrap display="flex" justify="center">
+          {product.benefits.map((value, i) => (
+            <WrapItem key={i}>
+              <img src={`/images/${[value]}`} alt={product.name} />
+            </WrapItem>
+          ))}
+        </Wrap>
+      </Box> */}
     </>
   );
 };

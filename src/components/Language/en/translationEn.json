@@ -21,12 +21,16 @@
   "product": {
     "article": "Article",
     "share": "Share",
+    "shareInfo": "dayPatron.com.ua - Crafting Perfection in Firearm Care",
+    "specifications": "Specifications",
     "description": "Description",
-    "useTo": "Instructions for use",
+    "useTo": "Instructions",
     "ingredients": "Ingredients",
     "shelfLife": "Shelf Life",
+    "volume": "volume",
     "video": "Video",
-    "videoText": "Watch the video"
+    "videoText": "Watch the video",
+    "faq": "FAQ"
   },
   "contacts": {
     "mainText": "Contacts",

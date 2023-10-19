@@ -21,12 +21,16 @@
   "product": {
     "article": "Арт",
     "share": "Поділитися",
+    "shareInfo": "dayPatron.com.ua - творчість досконалості в догляді за вогнепальною зброєю",
+    "specifications": "Характеристики",
     "description": "Опис",
-    "useTo": "Інструкція по використанню",
-    "igredients": "Склад",
+    "useTo": "Інструкція",
+    "ingredients": "Склад",
     "shelfLife": "Термін зберігання",
+    "volume": "oб'єм",
     "video": "Відео",
-    "videoText": "Переглянути відео"
+    "videoText": "Переглянути відео",
+    "faq": "Частi питання"
   },
   "contacts": {
     "mainText": "Контакти",
