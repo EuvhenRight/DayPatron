@@ -30,7 +30,8 @@
     "volume": "volume",
     "video": "Video",
     "videoText": "Watch the video",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "close": "Close"
   },
   "contacts": {
     "mainText": "Contacts",

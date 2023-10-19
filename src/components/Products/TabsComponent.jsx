@@ -1,11 +1,19 @@
 import React from 'react';
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Image,
+} from '@chakra-ui/react';
 import {
   InfoOutlineIcon,
   RepeatIcon,
   SettingsIcon,
   QuestionOutlineIcon,
 } from '@chakra-ui/icons';
+import ModalSpecification from './Modal';
 
 export default function TabsComponent({ translate, product }) {
   return (
@@ -43,12 +51,14 @@ export default function TabsComponent({ translate, product }) {
           </b>
           <p>{product.shelfLife}</p>
         </TabPanel>
-        <TabPanel textAlign="justify">
+        <TabPanel
+          textAlign="justify"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
           <p>{product.specification.text}</p>
-          <img
-            src={`/images/${product.specification.url}`}
-            alt={product.name}
-          />
+          <ModalSpecification product={product} translate={translate} />
         </TabPanel>
         <TabPanel textAlign="justify">
           <p>{product.faq}</p>

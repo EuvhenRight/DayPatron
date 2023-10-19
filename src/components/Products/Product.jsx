@@ -131,12 +131,6 @@ const Product = () => {
             alignItems={{ base: 'center', md: 'flex-end', lg: 'flex-end' }}
             mb={{ base: 5, md: 10, lg: 10 }}
           >
-            <Image
-              src={`/images/${product.tradeMarkImage}`}
-              w="15%"
-              mb={5}
-              alt={product.tradeMarkImage}
-            />
             <Heading as="h2" size="xl">
               {product.name}
             </Heading>
