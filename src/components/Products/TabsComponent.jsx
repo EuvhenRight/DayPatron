@@ -39,14 +39,10 @@ export default function TabsComponent({ translate, product }) {
       </TabList>
       <TabPanels>
         <TabPanel textAlign="justify">
-          <Text mt={5} mb={5}>
-            {product.description}
-          </Text>
+          <Text my={{ base: 2, md: 5 }}>{product.description}</Text>
         </TabPanel>
         <TabPanel textAlign="justify">
-          <Text mt={5} mb={5}>
-            {product.useTo}
-          </Text>
+          <Text my={{ base: 2, md: 5 }}>{product.useTo}</Text>
           <b>
             <h3>{translate('product.ingredients')}:</h3>
           </b>
@@ -62,10 +58,8 @@ export default function TabsComponent({ translate, product }) {
           flexDirection="column"
           alignItems="center"
         >
-          <Text mt={5} mb={5}>
-            {product.specification.text}
-          </Text>
-          <Box w="sm" mt={5} mb={5}>
+          <Text my={{ base: 2, md: 5 }}>{product.specification.text}</Text>
+          <Box w="sm" my={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}
               translate={translate}

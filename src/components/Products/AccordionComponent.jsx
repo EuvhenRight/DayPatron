@@ -30,9 +30,7 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
-          <Text mb={5} mt={5}>
-            {product.description}
-          </Text>
+          <Text my={{ base: 2, md: 5 }}>{product.description}</Text>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -46,9 +44,7 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
-          <Text mt={5} mb={5}>
-            {product.useTo}
-          </Text>
+          <Text my={{ base: 2, md: 5 }}>{product.useTo}</Text>
           <b>
             <h3>{translate('product.ingredients')}:</h3>
           </b>
@@ -76,10 +72,8 @@ export default function AccordionComponent({ translate, product }) {
           flexDirection="column"
           alignItems="center"
         >
-          <Text mt={5} mb={5}>
-            {product.specification.text}
-          </Text>
-          <Box w="sm" mt={5} mb={5}>
+          <Text my={{ base: 2, md: 5 }}>{product.specification.text}</Text>
+          <Box w="sm" my={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}
               translate={translate}

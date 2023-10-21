@@ -88,7 +88,11 @@ const Product = () => {
       borderRadius="md"
       borderColor={isActive ? 'green.200' : 'gray'} // Apply a border color only when active
     >
-      <Image src={`/images/${url}`} width="100px" alt={alt} />
+      <Image
+        src={`/images/${url}`}
+        width={{ base: '75px', md: '100px', lg: '100px' }}
+        alt={alt}
+      />
     </WrapItem>
   );
 
