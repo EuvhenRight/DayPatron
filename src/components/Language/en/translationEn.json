@@ -31,7 +31,9 @@
     "video": "Video",
     "videoText": "Watch the video",
     "faq": "FAQ",
-    "close": "Close"
+    "close": "Close",
+    "question": "Question",
+    "answer": "Answer"
   },
   "contacts": {
     "mainText": "Contacts",

@@ -24,8 +24,7 @@ import ModalSpecification from './Modal';
 const Product = () => {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeVolume, setActiveVolume] = React.useState(2); // Default volume
-  const [isPictureActive, setIsPictureActive] = React.useState(null); // Default picture
+  const [activeMainPhoto, setActiveVolume] = React.useState(0);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { id, lang } = useParams();
 
@@ -71,39 +70,23 @@ const Product = () => {
     );
   }
 
-  const mainImage = product?.image.map((img, i) =>
-    i === activeVolume ? img.url : null
-  );
+  const mainImage = product?.image.map((img) => img.url);
 
-  const menuPicture = product?.imageParts.map((img, i) =>
-    i === isPictureActive ? img.url : null
-  );
-
-  const onChangeVolume = (index) => {
-    setIsPictureActive(0); // Reset isPictureActive to null when changing the volume
+  const onTogglePhoto = (index) => {
     setActiveVolume(index);
   };
 
-  const onChangePicture = (index) => {
-    setActiveVolume(0); // Reset activeVolume to the default state when changing the picture
-    setIsPictureActive(index);
-  };
-
   const renderProductImage = () => {
-    if (activeVolume) {
-      return `/images/${mainImage[activeVolume]}`;
-    } else {
-      return `/images/${menuPicture[isPictureActive]}`;
-    }
+    return `/images/${mainImage[activeMainPhoto]}`;
   };
 
   // Separate Image component
   const PictureTogglePhoto = ({ url, alt, isActive, onClick }) => (
     <WrapItem
       onClick={onClick}
-      borderWidth={isActive ? '2px' : '0'}
+      borderWidth={isActive ? '2px' : '2px'} // Set '0px' instead of '0' for proper CSS
       borderRadius="md"
-      borderColor="green.200"
+      borderColor={isActive ? 'green.200' : 'gray'} // Apply a border color only when active
     >
       <Image src={`/images/${url}`} width="100px" alt={alt} />
     </WrapItem>
@@ -114,6 +97,7 @@ const Product = () => {
     <Tag
       size="md" // Define the size attribute here
       m={2}
+      borderRadius="md"
       variant="outline"
       colorScheme={isActive ? 'green' : 'gray'}
       onClick={onClick}
@@ -130,7 +114,6 @@ const Product = () => {
             display="flex"
             flexDirection="column"
             alignItems={{ base: 'center', md: 'flex-end', lg: 'flex-end' }}
-            mb={{ base: 5, md: 10, lg: 10 }}
           >
             <Heading as="h2" size="xl">
               {product.name}
@@ -164,18 +147,18 @@ const Product = () => {
             <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
               <Wrap cursor="pointer" display="flex" justify="center">
                 {/* Separate Picture */}
-                {product.imageParts.map((value, i) => (
+                {product.image.map((value, i) => (
                   <PictureTogglePhoto
                     key={i}
                     url={value.url}
                     alt={product.name}
-                    isActive={isPictureActive === i}
-                    onClick={() => onChangePicture(i)}
+                    isActive={activeMainPhoto === i}
+                    onClick={() => onTogglePhoto(i)}
                   />
                 ))}
               </Wrap>
             </GridItem>
-            <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="60%">
+            <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="70%" h="auto">
               <ModalSpecification
                 imageUrl={renderProductImage()}
                 product={product}
@@ -189,8 +172,8 @@ const Product = () => {
                   <VolumeTogglePhoto
                     key={i}
                     value={value}
-                    isActive={activeVolume === i}
-                    onClick={() => onChangeVolume(i)}
+                    isActive={activeMainPhoto === i}
+                    onClick={() => onTogglePhoto(i)}
                   />
                 ))}
               </Wrap>

@@ -1,5 +1,13 @@
 import React from 'react';
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from '@chakra-ui/react';
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Box,
+  Text,
+} from '@chakra-ui/react';
 import {
   InfoOutlineIcon,
   RepeatIcon,
@@ -60,7 +68,22 @@ export default function TabsComponent({ translate, product }) {
           </Box>
         </TabPanel>
         <TabPanel textAlign="justify">
-          <p>{product.faq}</p>
+          <b>
+            <Text mb="5">{translate('product.question')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_1.Q}</Text>
+          <b>
+            <Text mb="5">{translate('product.answer')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_1.A}</Text>
+          <b>
+            <Text mb="5">{translate('product.question')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_2.Q}</Text>
+          <b>
+            <Text mb="5">{translate('product.answer')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_2.A}</Text>
         </TabPanel>
       </TabPanels>
     </Tabs>

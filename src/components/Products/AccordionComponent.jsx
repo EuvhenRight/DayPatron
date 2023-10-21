@@ -11,6 +11,7 @@ import {
   AccordionPanel,
   Accordion,
   Box,
+  Text,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -82,7 +83,22 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
-          <p>{product.faq}</p>
+          <b>
+            <Text mb="5">{translate('product.question')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_1.Q}</Text>
+          <b>
+            <Text mb="5">{translate('product.answer')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_1.A}</Text>
+          <b>
+            <Text mb="5">{translate('product.question')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_2.Q}</Text>
+          <b>
+            <Text mb="5">{translate('product.answer')}:</Text>
+          </b>
+          <Text mb="5">{product.faq.question_2.A}</Text>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
