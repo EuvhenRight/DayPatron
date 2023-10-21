@@ -14,6 +14,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
+import ModalSpecification from './Modal';
 
 export default function AccordionComponent({ translate, product }) {
   return (
@@ -29,7 +30,9 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
-          <p>{product.description}</p>
+          <Text mb={5} mt={5}>
+            {product.description}
+          </Text>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -43,15 +46,17 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
-          <p>{product.useTo}</p>
+          <Text mt={5} mb={5}>
+            {product.useTo}
+          </Text>
           <b>
             <h3>{translate('product.ingredients')}:</h3>
           </b>
-          <p>{product.composition}</p>
+          <Text>{product.composition}</Text>
           <b>
             <h3>{translate('product.shelfLife')}:</h3>
           </b>
-          <p>{product.shelfLife}</p>
+          <Text mb={5}>{product.shelfLife}</Text>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -64,12 +69,23 @@ export default function AccordionComponent({ translate, product }) {
             <AccordionIcon />
           </AccordionButton>
         </h2>
-        <AccordionPanel pb={4} textAlign="justify">
-          <p>{product.specification.text}</p>
-          <img
-            src={`/images/${product.specification.url}`}
-            alt={product.name}
-          />
+        <AccordionPanel
+          pb={4}
+          textAlign="justify"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Text mt={5} mb={5}>
+            {product.specification.text}
+          </Text>
+          <Box w="sm" mt={5} mb={5}>
+            <ModalSpecification
+              product={product}
+              translate={translate}
+              imageUrl={`/images/${product.specification.url}`}
+            />
+          </Box>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
@@ -84,21 +100,21 @@ export default function AccordionComponent({ translate, product }) {
         </h2>
         <AccordionPanel pb={4} textAlign="justify">
           <b>
-            <Text mb="5">{translate('product.question')}:</Text>
+            <Text mb={5}>{translate('product.question')}:</Text>
           </b>
-          <Text mb="5">{product.faq.question_1.Q}</Text>
+          <Text mb={5}>{product.faq.question_1.Q}</Text>
           <b>
-            <Text mb="5">{translate('product.answer')}:</Text>
+            <Text mb={5}>{translate('product.answer')}:</Text>
           </b>
-          <Text mb="5">{product.faq.question_1.A}</Text>
+          <Text mb={5}>{product.faq.question_1.A}</Text>
           <b>
-            <Text mb="5">{translate('product.question')}:</Text>
+            <Text mb={5}>{translate('product.question')}:</Text>
           </b>
-          <Text mb="5">{product.faq.question_2.Q}</Text>
+          <Text mb={5}>{product.faq.question_2.Q}</Text>
           <b>
-            <Text mb="5">{translate('product.answer')}:</Text>
+            <Text mb={5}>{translate('product.answer')}:</Text>
           </b>
-          <Text mb="5">{product.faq.question_2.A}</Text>
+          <Text mb={5}>{product.faq.question_2.A}</Text>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

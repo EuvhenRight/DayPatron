@@ -24,7 +24,7 @@ import ModalSpecification from './Modal';
 const Product = () => {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeMainPhoto, setActiveVolume] = React.useState(0);
+  const [activeMainPhoto, setActiveVolume] = React.useState(2);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { id, lang } = useParams();
 
@@ -108,14 +108,19 @@ const Product = () => {
 
   return (
     <>
-      <Container key={product.id} maxW="container.lg" centerContent mt="150">
+      <Container
+        key={product.id}
+        maxW="container.lg"
+        centerContent
+        mt={{ base: 100, sm: 100, md: 175, lg: 175 }}
+      >
         <Box>
           <Box
             display="flex"
-            flexDirection="column"
-            alignItems={{ base: 'center', md: 'flex-end', lg: 'flex-end' }}
+            flexDirection="column-reverse"
+            alignItems={{ base: 'flex-end', md: 'flex-end', lg: 'flex-end' }}
           >
-            <Heading as="h2" size="xl">
+            <Heading as="h2" size="xl" mb={5}>
               {product.name}
             </Heading>
             <Text mt={2} mb={2}>
@@ -179,7 +184,7 @@ const Product = () => {
               </Wrap>
             </GridItem>
           </Grid>
-          <Box mt={10} as="section">
+          <Box mt={5} as="section">
             {isMobile ? (
               <AccordionComponent translate={translate} product={product} />
             ) : (
