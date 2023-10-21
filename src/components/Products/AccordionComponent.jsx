@@ -73,7 +73,7 @@ export default function AccordionComponent({ translate, product }) {
           alignItems="center"
         >
           <Text my={{ base: 2, md: 5 }}>{product.specification.text}</Text>
-          <Box w="sm" my={{ base: 2, md: 5 }}>
+          <Box w="50%" my={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}
               translate={translate}
