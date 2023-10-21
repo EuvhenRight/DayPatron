@@ -167,7 +167,11 @@ const Product = () => {
                 ))}
               </Wrap>
             </GridItem>
-            <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="70%" h="auto">
+            <GridItem
+              colSpan={{ base: 6, md: 4, lg: 4 }}
+              w="70%"
+              minH={{ base: 'sm', md: 'auto', lg: 'auto' }}
+            >
               <ModalSpecification
                 imageUrl={renderProductImage()}
                 product={product}
