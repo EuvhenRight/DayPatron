@@ -118,7 +118,6 @@ const Product = () => {
         centerContent
         mt={{ base: 100, sm: 100, md: 175, lg: 175 }}
         fontSize={{ base: 'md', sm: 'md', md: 'md', lg: 'md' }}
-        maxH="container.lg"
       >
         <Box>
           <Box
