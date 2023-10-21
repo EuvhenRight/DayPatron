@@ -117,6 +117,8 @@ const Product = () => {
         maxW="container.lg"
         centerContent
         mt={{ base: 100, sm: 100, md: 175, lg: 175 }}
+        fontSize={{ base: 'md', sm: 'md', md: 'md', lg: 'md' }}
+        maxH="container.lg"
       >
         <Box>
           <Box
@@ -167,11 +169,7 @@ const Product = () => {
                 ))}
               </Wrap>
             </GridItem>
-            <GridItem
-              colSpan={{ base: 6, md: 4, lg: 4 }}
-              w="70%"
-              minH={{ base: 'sm', md: 'auto', lg: 'auto' }}
-            >
+            <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="70%" h="auto">
               <ModalSpecification
                 imageUrl={renderProductImage()}
                 product={product}
