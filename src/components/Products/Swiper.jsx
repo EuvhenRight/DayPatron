@@ -1,36 +1,40 @@
 import React from 'react';
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+
+// Import Swiper styles
+
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import 'swiper/css';
 
 import './styles.css';
-import { Box, Image } from '@chakra-ui/react';
-import { Navigation, Pagination } from 'swiper/modules';
+
+// import required modules
+import { Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Image } from '@chakra-ui/react';
 
 export default function SwiperComponent({ product }) {
   return (
     <>
       <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        pagination={{
-          clickable: true,
+        style={{
+          '--swiper-pagination-color': '#38a169',
+          '--swiper-navigation-color': '#38a169',
         }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
+        cssMode={true}
+        spaceBetween={30}
+        pagination={{ clickable: true }}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
+        loop={true}
       >
-        <SwiperSlide>
-          {product.image.map((image, index) => (
-            <Image
-              src={`/images/${image.url}`}
-              alt={product.name}
-              key={index}
-            />
-          ))}
-        </SwiperSlide>
+        {product.image.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Image src={`/images/${image.url}`} alt={product.name} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

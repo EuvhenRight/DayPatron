@@ -39,10 +39,10 @@ export default function TabsComponent({ translate, product }) {
       </TabList>
       <TabPanels>
         <TabPanel textAlign="justify">
-          <Text my={{ base: 2, md: 5 }}>{product.description}</Text>
+          <Text>{product.description}</Text>
         </TabPanel>
         <TabPanel textAlign="justify">
-          <Text my={{ base: 2, md: 5 }}>{product.useTo}</Text>
+          <Text mb={{ base: 2, md: 5 }}>{product.useTo}</Text>
           <b>
             <h3>{translate('product.ingredients')}:</h3>
           </b>
@@ -50,7 +50,7 @@ export default function TabsComponent({ translate, product }) {
           <b>
             <h3>{translate('product.shelfLife')}:</h3>
           </b>
-          <Text mb={5}>{product.shelfLife}</Text>
+          <Text>{product.shelfLife}</Text>
         </TabPanel>
         <TabPanel
           textAlign="justify"
@@ -58,8 +58,8 @@ export default function TabsComponent({ translate, product }) {
           flexDirection="column"
           alignItems="center"
         >
-          <Text my={{ base: 2, md: 5 }}>{product.specification.text}</Text>
-          <Box w="sm" my={{ base: 2, md: 5 }}>
+          <Text>{product.specification.text}</Text>
+          <Box w="sm" mt={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}
               translate={translate}
@@ -69,21 +69,21 @@ export default function TabsComponent({ translate, product }) {
         </TabPanel>
         <TabPanel textAlign="justify">
           <b>
-            <Text mb={5}>{translate('product.question')}:</Text>
+            <Text>{translate('product.question')}:</Text>
           </b>
           <Text mb={5}>{product.faq.question_1.Q}</Text>
           <b>
-            <Text mb={5}>{translate('product.answer')}:</Text>
+            <Text>{translate('product.answer')}:</Text>
           </b>
           <Text mb={5}>{product.faq.question_1.A}</Text>
           <b>
-            <Text mb={5}>{translate('product.question')}:</Text>
+            <Text>{translate('product.question')}:</Text>
           </b>
           <Text mb={5}>{product.faq.question_2.Q}</Text>
           <b>
-            <Text mb={5}>{translate('product.answer')}:</Text>
+            <Text>{translate('product.answer')}:</Text>
           </b>
-          <Text mb={5}>{product.faq.question_2.A}</Text>
+          <Text>{product.faq.question_2.A}</Text>
         </TabPanel>
       </TabPanels>
     </Tabs>

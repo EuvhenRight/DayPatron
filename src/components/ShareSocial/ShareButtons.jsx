@@ -7,12 +7,13 @@ import {
   TelegramIcon,
 } from 'react-share';
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 
 const ShareButtonsComponent = ({ product }) => {
+  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const title = `${product.name} | ${product.specification.text}`;
   const url = window.location.href;
-  const iconSize = 48;
+  const iconSize = isMobile ? 32 : 48;
   const hashtag = '#DayPatron';
   const imageUrl = `https://www.daypatron.com.ua/images/${product.image.url}';`;
 
@@ -24,6 +25,7 @@ const ShareButtonsComponent = ({ product }) => {
           title={title}
           hashtag={hashtag}
           media={imageUrl}
+          style={{ marginRight: 5 }}
         >
           <TwitterIcon size={iconSize} round={true} />
         </TwitterShareButton>
@@ -32,6 +34,7 @@ const ShareButtonsComponent = ({ product }) => {
           quote={title}
           hashtag={hashtag}
           media={imageUrl}
+          style={{ marginRight: 5 }}
         >
           <FacebookIcon size={iconSize} round={true} />
         </FacebookShareButton>

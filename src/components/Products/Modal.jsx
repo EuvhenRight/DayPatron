@@ -23,6 +23,7 @@ export default function ModalSpecification({ translate, product, imageUrl }) {
       />
       <Modal
         isCentered
+        blockScrollOnMount={false}
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"

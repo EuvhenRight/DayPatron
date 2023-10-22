@@ -12,6 +12,7 @@ import {
   Accordion,
   Box,
   Text,
+  Heading,
 } from '@chakra-ui/react';
 import React from 'react';
 import ModalSpecification from './Modal';
@@ -20,7 +21,7 @@ export default function AccordionComponent({ translate, product }) {
   return (
     <Accordion allowToggle>
       <AccordionItem>
-        <h2>
+        <Heading as="h2">
           <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <InfoOutlineIcon pr={2} boxSize={7} />
@@ -28,13 +29,13 @@ export default function AccordionComponent({ translate, product }) {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4} textAlign="justify">
-          <Text my={{ base: 2, md: 5 }}>{product.description}</Text>
+        </Heading>
+        <AccordionPanel textAlign="justify">
+          <Text mt={{ base: 2, md: 5 }}>{product.description}</Text>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
-        <h2>
+        <Heading as="h2">
           <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <RepeatIcon pr={2} boxSize={7} />
@@ -42,7 +43,7 @@ export default function AccordionComponent({ translate, product }) {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-        </h2>
+        </Heading>
         <AccordionPanel pb={4} textAlign="justify">
           <Text my={{ base: 2, md: 5 }}>{product.useTo}</Text>
           <b>
@@ -52,11 +53,11 @@ export default function AccordionComponent({ translate, product }) {
           <b>
             <h3>{translate('product.shelfLife')}:</h3>
           </b>
-          <Text mb={5}>{product.shelfLife}</Text>
+          <Text>{product.shelfLife}</Text>
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
-        <h2>
+        <Heading as="h2">
           <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <SettingsIcon pr={2} boxSize={7} />
@@ -64,7 +65,7 @@ export default function AccordionComponent({ translate, product }) {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-        </h2>
+        </Heading>
         <AccordionPanel
           pb={4}
           textAlign="justify"
@@ -83,7 +84,7 @@ export default function AccordionComponent({ translate, product }) {
         </AccordionPanel>
       </AccordionItem>
       <AccordionItem>
-        <h2>
+        <Heading as="h2">
           <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <QuestionOutlineIcon pr={2} boxSize={7} />
@@ -91,24 +92,24 @@ export default function AccordionComponent({ translate, product }) {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-        </h2>
+        </Heading>
         <AccordionPanel pb={4} textAlign="justify">
           <b>
-            <Text mb={5}>{translate('product.question')}:</Text>
+            <Text>{translate('product.question')}:</Text>
           </b>
           <Text mb={5}>{product.faq.question_1.Q}</Text>
           <b>
-            <Text mb={5}>{translate('product.answer')}:</Text>
+            <Text>{translate('product.answer')}:</Text>
           </b>
           <Text mb={5}>{product.faq.question_1.A}</Text>
           <b>
-            <Text mb={5}>{translate('product.question')}:</Text>
+            <Text>{translate('product.question')}:</Text>
           </b>
-          <Text mb={5}>{product.faq.question_2.Q}</Text>
+          <Text>{product.faq.question_2.Q}</Text>
           <b>
             <Text mb={5}>{translate('product.answer')}:</Text>
           </b>
-          <Text mb={5}>{product.faq.question_2.A}</Text>
+          <Text>{product.faq.question_2.A}</Text>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
