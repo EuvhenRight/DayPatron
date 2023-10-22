@@ -21,9 +21,8 @@ import TabsComponent from './TabsComponent';
 import AccordionComponent from './AccordionComponent';
 import ModalSpecification from './Modal';
 import SwiperComponent from './Swiper';
-import { is } from 'css-select';
 
-const Product = () => {
+export default function Product() {
   const [product, setProduct] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [activeMainPhoto, setActiveVolume] = React.useState(0);
@@ -118,11 +117,12 @@ const Product = () => {
         key={product.id}
         maxW="container.lg"
         centerContent
-        mt={{ base: 100, sm: 100, md: 175, lg: 175 }}
+        mt={{ base: 75, sm: 85, md: 85, lg: 85, xl: 85 }}
         fontSize={{ base: 'sm', sm: 'md', md: 'md', lg: 'md' }}
       >
         <Box w="100%">
           <Box
+            pr={{ base: 0, sm: '12px', md: '12px', lg: '12px' }}
             display="flex"
             flexDirection="column-reverse"
             alignItems={{ base: 'flex-end', md: 'flex-end', lg: 'flex-end' }}
@@ -225,17 +225,6 @@ const Product = () => {
           </Box>
         </Box>
       </Container>
-      {/* <Box>
-        <Wrap display="flex" justify="center">
-          {product.benefits.map((value, i) => (
-            <WrapItem key={i}>
-              <img src={`/images/${[value]}`} alt={product.name} />
-            </WrapItem>
-          ))}
-        </Wrap>
-      </Box> */}
     </>
   );
-};
-
-export default Product;
+}
