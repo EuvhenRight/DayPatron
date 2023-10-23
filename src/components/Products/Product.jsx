@@ -91,7 +91,7 @@ export default function Product() {
     >
       <Image
         src={`/images/${url}`}
-        width={{ base: '75px', md: '100px', lg: '100px' }}
+        width={{ base: '75px', md: '75px', lg: '75px' }}
         alt={alt}
       />
     </WrapItem>
@@ -115,14 +115,17 @@ export default function Product() {
     <>
       <Container
         key={product.id}
-        maxW="container.lg"
+        maxW={{
+          lg: 'container.lg',
+          xl: 'container.xl',
+          '2xl': 'container.2xl',
+        }}
         centerContent
-        mt={{ base: 75, sm: 85, md: 85, lg: 85, xl: 85 }}
+        mt={{ base: 85, sm: 85, md: 100, lg: 100 }}
         fontSize={{ base: 'sm', sm: 'md', md: 'md', lg: 'md' }}
       >
         <Box w="100%">
           <Box
-            pr={{ base: 0, sm: '12px', md: '12px', lg: '12px' }}
             display="flex"
             flexDirection="column-reverse"
             alignItems={{ base: 'flex-end', md: 'flex-end', lg: 'flex-end' }}
@@ -194,7 +197,7 @@ export default function Product() {
                   ))}
                 </Wrap>
               </GridItem>
-              <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="70%" h="auto">
+              <GridItem colSpan={{ base: 6, md: 4, lg: 4 }} w="65%" h="auto">
                 <ModalSpecification
                   imageUrl={renderProductImage()}
                   product={product}
@@ -202,7 +205,7 @@ export default function Product() {
                 />
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
-                <Wrap cursor="pointer" justify="center">
+                <Wrap cursor="pointer" flexDirection="column">
                   {/* Separate Volume */}
                   {product.volume.map((value, i) => (
                     <VolumeTogglePhoto

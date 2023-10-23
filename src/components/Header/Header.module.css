@@ -20,7 +20,6 @@
 
 .nav__wrapper {
   width: 100%;
-  max-width: 97.5em;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +54,7 @@
   border: 1px rgba(255, 255, 255, 0.26);
   border-radius: 12px;
   padding: 10px;
+  display: flex;
 }
 
 .nav__right__wrapper {
@@ -98,6 +98,10 @@
   margin-left: 16px;
 }
 
+.lang__wrapper button {
+  margin-right: 10px;
+}
+
 .lang__wrapper__button {
   color: #fff;
   white-space: nowrap;
@@ -109,7 +113,7 @@
   padding: 10px 14px 11px;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1;
   position: static;
   text-decoration: none;
   cursor: pointer;
@@ -125,7 +129,7 @@
   padding: 10px 14px 11px;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1;
   position: static;
   text-decoration: none;
   cursor: pointer;
@@ -141,12 +145,6 @@
 }
 
 /* media sizes */
-
-@media screen and (min-width: 1018px) {
-  .nav__wrapper {
-    max-width: 60.5em;
-  }
-}
 
 @media screen and (max-width: 991px) {
   .main_container {

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import { useLanguage } from '../Language/LanguageContext';
+import { Container } from '@chakra-ui/react';
 
 const Header = () => {
   const { currentLanguage, changeLanguage, t } = useLanguage();
@@ -16,7 +17,18 @@ const Header = () => {
 
   return (
     <>
-      <header className={style.main_container}>
+      <Container
+        maxW={{
+          lg: 'container.lg',
+          xl: 'container.xl',
+          '2xl': 'container.2xl',
+        }}
+        centerContent
+        as="header"
+        className={style.main_container}
+        flexDirection="row"
+        justifyContent="space-between"
+      >
         <nav className={style.nav__wrapper}>
           <div className={style.nav__left}>
             <Link className={style.logo__link} to={`/${currentLanguage}`}>
@@ -62,27 +74,27 @@ const Header = () => {
                 </button>
               </Link>
             </div>
+            <div className={style.lang__wrapper}>
+              <button
+                className={changeColorLanguageClick('en')}
+                onClick={() => changeLanguage('en')}
+              >
+                {t('header.en')}
+              </button>
+
+              <button
+                className={changeColorLanguageClick('ua')}
+                onClick={() => changeLanguage('ua')}
+              >
+                {t('header.ua')}
+              </button>
+            </div>
             <div className={style.mobile__navbar__wrapper}>
               <Navbar />
             </div>
           </div>
         </nav>
-        <div className={style.lang__wrapper}>
-          <button
-            className={changeColorLanguageClick('en')}
-            onClick={() => changeLanguage('en')}
-          >
-            {t('header.en')}
-          </button>
-
-          <button
-            className={changeColorLanguageClick('ua')}
-            onClick={() => changeLanguage('ua')}
-          >
-            {t('header.ua')}
-          </button>
-        </div>
-      </header>
+      </Container>
     </>
   );
 };
