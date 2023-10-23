@@ -23,7 +23,13 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  fonts: {
+    body: 'font-family: Carlito, sans-serif',
+    heading: 'font-family: Carlito, sans-serif',
+  },
+  colors,
+});
 
 function App() {
   return (

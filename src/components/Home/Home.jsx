@@ -1,88 +1,34 @@
 import React from 'react';
-import style from './Home.module.css';
-import AnimationTextWord from '../Animate/Animation_Text';
-import AnimationLogo from '../Animate/Animation_Logo';
-import HomeBenefitsInfo from '../Home_Benefits_Info/Home_Benefits_Info';
 import { useLanguage } from '../Language/LanguageContext';
 import product from '../assets/CLP-500ml.png';
-import arGun from '../assets/ar15.svg';
-import shotgun from '../assets/shotgun.svg';
-import sniper from '../assets/sniper-rifle.svg';
-import tank from '../assets/tank.svg';
-import antiAir from '../assets/anti-aircraft-gun.png';
-import gun from '../assets/gun.svg';
-import knife from '../assets/knife.png';
-import paintball from '../assets/paintball.png';
+import { Box, Container } from '@chakra-ui/react';
+import SwiperHC from './SwiperHC';
 
 const Home = () => {
-  const [rotate, setRotate] = React.useState(false);
   const { t } = useLanguage();
+  const titles = ['home.title_one', 'home.title_two', 'home.title_three'];
 
-  const mainTextSlogan = t('home.mainTextSlogan');
+  const translate = React.useCallback(
+    (key) => {
+      return t(key);
+    },
+    [t]
+  );
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setRotate(true);
-    }, 4000);
-
-    return () => clearTimeout(timer);
-  }, [t]);
+  const translateArray = titles.map((item) => translate(item));
 
   return (
     <>
-      <div className={style.section__gradient}>
-        <div className={style.gradient__wrapper}>
-          <div className={style.gradient}></div>
-        </div>
-        <div className={style.headline__wrapper}>
-          <AnimationLogo rotate={rotate} />
-          <div className={style.headline__text}>
-            <AnimationTextWord Text text={mainTextSlogan} />
-          </div>
-        </div>
-      </div>
-      <div className={style.section__middle}>
-        <div className={style.container}>
-          <div className={style.middle__wrapper}>
-            <div className={style.middle__up}>
-              <h2 className={style.middle__up__text}>
-                <strong>{t('home.middleTextSlogan')}</strong>
-              </h2>
-            </div>
-            <div className={style.middle__guns__container}>
-              <img src={gun} className={style.gun__img} alt="gun" />
-              <img src={arGun} className={style.gun__img} alt="ar15" />
-              <img src={knife} className={style.gun__img} alt="knife" />
-              <img src={paintball} className={style.gun__img} alt="paintball" />
-              <img
-                src={shotgun}
-                className={style.gun__img}
-                alt="sniper-rifle"
-              />
-              <img
-                src={product}
-                className={style.product__block__img}
-                alt="product"
-              />
-              <img src={sniper} className={style.gun__img} alt="shotgun" />
-              <img
-                src={antiAir}
-                className={style.gun__img}
-                alt="anti-aircraft-gun"
-              />
-              <img src={tank} className={style.gun__img} alt="tank" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={style.section__down}>
-        <div className={style.down__wrapper}>
-          <div className={style.down__background}>
-            <h1>GUN CARE PRODUCTS</h1>
-          </div>
-          <HomeBenefitsInfo />
-        </div>
-      </div>
+      <Container
+        key={product.id}
+        maxW="100%"
+        centerContent
+        mt={{ base: 85, sm: 85, md: 100, lg: 100 }}
+        fontSize={{ base: 'sm', sm: 'md', md: 'md', lg: 'md' }}
+        p="0"
+      >
+        <SwiperHC translateArray={translateArray} />
+      </Container>
     </>
   );
 };
