@@ -113,7 +113,7 @@ export default function Product() {
 
   return (
     <>
-      <Container key={product.id} mt="100px" maxW={'6xl'}>
+      <Container key={product.id} maxW={'6xl'}>
         <Box
           display="flex"
           flexDirection="column-reverse"

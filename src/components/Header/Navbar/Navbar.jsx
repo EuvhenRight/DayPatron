@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Navbar.module.css';
 import { useLanguage } from '../../Language/LanguageContext';
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);
   const { currentLanguage, changeLanguage, t } = useLanguage();
   const { colorMode, toggleColorMode } = useColorMode();
+  const menuRef = useRef();
 
   const toggleNavItems = () => {
     setShowMenu(!showMenu);
@@ -21,12 +22,27 @@ const Navbar = () => {
     { id: 'contact', to: 'contact', label: 'header.contacts' },
   ];
 
+  useEffect(() => {
+    // Function to close the menu when clicking outside
+    const closeMenuOnClickOutside = (e) => {
+      console.log('Close Menu Clicked');
+      if (menuRef.current && showMenu && !menuRef.current.contains(e.target)) {
+        console.log('Closing');
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', closeMenuOnClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', closeMenuOnClickOutside);
+    };
+  }, []);
+
   return (
     <div className={style.main_container}>
       <div type="button" className={style.menu__icon} onClick={toggleNavItems}>
         {t('header.menu')}
       </div>
-      <nav className={showMenu ? style.list_active : style.list}>
+      <nav ref={menuRef} className={showMenu ? style.list_active : style.list}>
         {navLinks.map((link) => (
           <Link
             key={link.id}
