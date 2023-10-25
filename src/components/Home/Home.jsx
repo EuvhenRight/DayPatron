@@ -23,7 +23,6 @@ const Home = () => {
         key={product.id}
         maxW="100%"
         centerContent
-        mt={{ base: 85, sm: 85, md: 100, lg: 100 }}
         fontSize={{ base: 'sm', sm: 'md', md: 'md', lg: 'md' }}
         p="0"
       >

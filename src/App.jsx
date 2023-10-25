@@ -29,7 +29,10 @@ function App() {
               <Route path="/:lang/about" element={<About />} />
               <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
               <Route path="/:lang/contact" element={<Contacts />} />
-              <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
+              <Route
+                path="/:lang/help/privacy-policy"
+                element={<PrivacyPolicy />}
+              />
               <Route path="*" element={<NotFound to="/" />} />
             </Routes>
             <Footer />

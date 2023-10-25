@@ -120,7 +120,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         </div>
         <div className={style.bottom__wrapper}>
           <span className={style.private__policy__link}>
-            <Link to={`/${currentLanguage}/privacy-policy`}>
+            <Link to={`/${currentLanguage}/help/privacy-policy`}>
               {t('form_feedback.privacy')}
             </Link>
           </span>

@@ -1,6 +1,4 @@
-import style from './Footer.module.css';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../assets/DayLogo_footer.svg';
 import {
   Box,
@@ -13,9 +11,11 @@ import {
   Text,
   useColorModeValue,
   useColorMode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaFacebook, FaTelegram, FaInstagram } from 'react-icons/fa';
 import { useLanguage } from '../Language/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const ListHeader = ({ children }) => {
   return (
@@ -50,14 +50,8 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function Footer() {
-  const { currentLanguage, changeLanguage, t } = useLanguage();
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  const changeColorLanguageClick = (lang) => {
-    return currentLanguage === lang
-      ? style.lang__wrapper__button__active
-      : style.lang__wrapper__button;
-  };
+  const { currentLanguage, t } = useLanguage();
+  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   return (
     <Box borderTopRadius="4em" bg="#232323" color="white">
       <Container as={Stack} maxW={'6xl'} py={10}>
@@ -75,27 +69,39 @@ export default function Footer() {
 
           <Stack align={'flex-start'}>
             <ListHeader>{t('footer.products')}</ListHeader>
-            <Link to={`/${currentLanguage}/`}>{t('footer.liquidator')}</Link>
+            <Link to={`/${currentLanguage}/products/6/liquidator`}>
+              {t('footer.liquidator')}
+            </Link>
+            <Link to={`/${currentLanguage}/products/4/carbon-killer`}>
+              {t('footer.carbon-killer')}
+            </Link>
+            <Link to={`/${currentLanguage}/products/5/cooper-killer`}>
+              {t('footer.copper-killer')}
+            </Link>
+            <Link
+              to={`/${currentLanguage}/products/1/universal-oil-CLP-3-in-1`}
+            >
+              {t('footer.clp')}
+            </Link>
+            <Link to={`/${currentLanguage}/products/2/neutral-synthetic-oil`}>
+              {t('footer.neutral-s-oil')}
+            </Link>
+            <Link to={`/${currentLanguage}/products/3/rust-protection`}>
+              {t('footer.rust-protection')}
+            </Link>
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Legal</ListHeader>
-            <Box as="a" href={'#'}>
-              Cookies Policy
-            </Box>
-            <Box as="a" href={'#'}>
+            <ListHeader>{t('footer.help')}</ListHeader>
+            <Link to={`/${currentLanguage}/help/privacy-policy`}>
               Privacy Policy
-            </Box>
-            <Box as="a" href={'#'}>
-              Terms of Service
-            </Box>
-            <Box as="a" href={'#'}>
-              Law Enforcement
-            </Box>
+            </Link>
           </Stack>
 
-          <Stack align={'flex-start'}>
-            <Image src={logo} alt="Logo" />
+          <Stack>
+            <Link to={`/${currentLanguage}/`}>
+              <Image src={logo} alt="Logo" />
+            </Link>
           </Stack>
         </SimpleGrid>
       </Container>
@@ -115,15 +121,28 @@ export default function Footer() {
           align={{ md: 'center' }}
         >
           <Text>© 2023 DayPatron Inc. All rights reserved</Text>
-          <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Facebook'} href={'#'}>
-              <FaFacebook />
+          <Stack direction={'row'} spacing={6} w>
+            <SocialButton
+              label={'Facebook'}
+              href={
+                'https://www.facebook.com/groups/1521928711901483/?mibextid=oMANbw'
+              }
+            >
+              <FaFacebook size={isMobile ? 16 : 30} />
             </SocialButton>
-            <SocialButton label={'Telegram'} href={'#'}>
-              <FaTelegram />
+            <SocialButton
+              label={'Telegram'}
+              href={'https://t.me/+x_wXRWsDHkk0Mzgy'}
+            >
+              <FaTelegram size={30} />
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
+            <SocialButton
+              label={'Instagram'}
+              href={
+                'https://www.instagram.com/daypatron_ukraine/?utm_source=ig_web_button_share_sheet&igshid=ODE2OTA4Y2Y1MQ=='
+              }
+            >
+              <FaInstagram size={30} />
             </SocialButton>
           </Stack>
         </Container>
