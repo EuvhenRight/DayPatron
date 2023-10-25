@@ -52,7 +52,7 @@ const ProductsItems = () => {
             return (
               <Link
                 key={product.id}
-                to={`/${lang}/products/${product.id}/${product.name}`}
+                to={`/${lang}/products/${product.id}/${product.linkName}`}
               >
                 <li className={changeColor(product.category)}>
                   <div className={style.down__list__content}>

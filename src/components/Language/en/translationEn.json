@@ -62,5 +62,15 @@
     "user_error_agreement": "You must agree to the terms and conditions",
     "send_button": "Send",
     "privacy": "I have read the privacy policy and agree"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "copyright": "Copyright © 2023 DayPatron",
+    "privacy": "Privacy policy",
+    "contact": "Contact us",
+    "about": "About us",
+    "whereToBuy": "Where to buy",
+    "products": "Products",
+    "company": "Company"
   }
 }

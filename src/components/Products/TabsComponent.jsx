@@ -7,6 +7,7 @@ import {
   TabPanel,
   Box,
   Text,
+  useColorMode,
 } from '@chakra-ui/react';
 import {
   InfoOutlineIcon,
@@ -17,22 +18,24 @@ import {
 import ModalSpecification from './Modal';
 
 export default function TabsComponent({ translate, product }) {
+  const { colorMode } = useColorMode();
+  const colorBg = colorMode === 'dark' ? 'red.300' : 'red.500';
   return (
     <Tabs size="sm" variant="enclosed" isFitted>
       <TabList>
-        <Tab _selected={{ color: 'white', bg: 'red.400' }}>
+        <Tab _selected={{ color: 'white', bg: colorBg }}>
           <InfoOutlineIcon pr={2} boxSize={10} />
           {translate('product.description')}
         </Tab>
-        <Tab _selected={{ color: 'white', bg: 'red.400' }}>
+        <Tab _selected={{ color: 'white', bg: colorBg }}>
           <RepeatIcon pr={2} boxSize={10} />
           {translate('product.useTo')}
         </Tab>
-        <Tab _selected={{ color: 'white', bg: 'red.400' }}>
+        <Tab _selected={{ color: 'white', bg: colorBg }}>
           <SettingsIcon pr={2} boxSize={10} />
           {translate('product.specifications')}
         </Tab>
-        <Tab _selected={{ color: 'white', bg: 'red.400' }}>
+        <Tab _selected={{ color: 'white', bg: colorBg }}>
           <QuestionOutlineIcon pr={2} boxSize={10} />
           {translate('product.faq')}
         </Tab>

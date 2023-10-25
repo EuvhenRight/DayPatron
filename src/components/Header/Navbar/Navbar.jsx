@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Navbar.module.css';
 import { useLanguage } from '../../Language/LanguageContext';
+import { useColorMode } from '@chakra-ui/react';
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);
   const { currentLanguage, changeLanguage, t } = useLanguage();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const toggleNavItems = () => {
     setShowMenu(!showMenu);
@@ -61,6 +64,15 @@ const Navbar = () => {
             }}
           >
             {t('header.ua')}
+          </button>
+          <button
+            className={style.lang__wrapper__button}
+            onClick={() => {
+              toggleColorMode();
+              setShowMenu(false);
+            }}
+          >
+            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </button>
         </div>
       </nav>

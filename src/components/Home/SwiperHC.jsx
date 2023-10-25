@@ -1,7 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import 'swiper/css';
 import './styles.css';
 
@@ -9,13 +8,7 @@ import All_Oils from '../../components/assets/All_Oils.jpg';
 import All_Cleaners from '../../components/assets/All_Cleaners.jpg';
 import All_CLP from '../../components/assets/All_CLP.jpg';
 // import required modules
-import {
-  Autoplay,
-  Pagination,
-  Mousewheel,
-  Keyboard,
-  Navigation,
-} from 'swiper/modules';
+import { Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { Image } from '@chakra-ui/react';
 
 export default function SwiperHC({ translateArray }) {
@@ -25,7 +18,6 @@ export default function SwiperHC({ translateArray }) {
       <Swiper
         style={{
           '--swiper-pagination-color': 'red',
-          '--swiper-navigation-color': 'red',
           '--swiper-pagination-bullet-inactive-color': 'red',
           '--swiper-pagination-bullet-inactive-opacity': 0.5,
           '--swiper-pagination-bottom': '40px',
@@ -42,8 +34,7 @@ export default function SwiperHC({ translateArray }) {
         pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
-        navigation={true}
-        modules={[Autoplay, Pagination, Mousewheel, Keyboard, Navigation]}
+        modules={[Autoplay, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
         loop={true}
       >

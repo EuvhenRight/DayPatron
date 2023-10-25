@@ -55,6 +55,7 @@
   border-radius: 12px;
   padding: 10px;
   display: flex;
+  align-items: center;
 }
 
 .nav__right__wrapper {
@@ -74,8 +75,21 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
+  line-height: 1;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button__theme {
+  color: #fff;
+  white-space: nowrap;
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
   line-height: 1;
   position: static;
   text-decoration: none;
@@ -111,8 +125,6 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
   line-height: 1;
   position: static;
   text-decoration: none;
@@ -127,8 +139,6 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
   line-height: 1;
   position: static;
   text-decoration: none;
@@ -155,6 +165,10 @@
     display: none;
   }
 
+  .button__theme {
+    display: none;
+  }
+
   .mobile__navbar__wrapper {
     display: flex;
   }
@@ -164,11 +178,6 @@
   }
 }
 @media screen and (max-width: 781px) {
-  .main_container {
-    padding: 8px 0;
-    margin: 0 15px;
-  }
-
   .logo {
     width: 200px;
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './App.module.css';
 import Header from './components/Header/Header.jsx';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import About from './components/About/About';
@@ -12,32 +11,16 @@ import Product from './components/Products/Product';
 import WhereToBuy from './components/Where_To_Buy/Where_To_Buy';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { LanguageProvider } from './components/Language/LanguageContext';
-
-import { ChakraBaseProvider, extendTheme } from '@chakra-ui/react';
-// 2. Extend the theme to include custom colors, fonts, etc
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
-};
-
-const theme = extendTheme({
-  fonts: {
-    body: 'font-family: Carlito, sans-serif',
-    heading: 'font-family: Carlito, sans-serif',
-  },
-  colors,
-});
+import { ChakraBaseProvider } from '@chakra-ui/react';
+import { theme } from './components/utils/theme';
 
 function App() {
   return (
     <LanguageProvider>
       <ChakraBaseProvider theme={theme}>
-        <div className={style.main__container}>
+        <div>
           <Header />
-          <div className={style.myApp}>
+          <div>
             <Routes>
               <Route path="/" element={<Navigate to="/ua" />} />
               <Route path="/:lang" element={<Home />} />

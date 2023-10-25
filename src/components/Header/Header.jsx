@@ -4,10 +4,12 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import { useLanguage } from '../Language/LanguageContext';
-import { Container } from '@chakra-ui/react';
+import { Container, useColorMode } from '@chakra-ui/react';
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 
 const Header = () => {
   const { currentLanguage, changeLanguage, t } = useLanguage();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const changeColorLanguageClick = (lang) => {
     return currentLanguage === lang
@@ -18,11 +20,7 @@ const Header = () => {
   return (
     <>
       <Container
-        maxW={{
-          lg: 'container.lg',
-          xl: 'container.xl',
-          '2xl': 'container.2xl',
-        }}
+        maxW={'6xl'}
         centerContent
         as="header"
         className={style.main_container}
@@ -81,7 +79,6 @@ const Header = () => {
               >
                 {t('header.en')}
               </button>
-
               <button
                 className={changeColorLanguageClick('ua')}
                 onClick={() => changeLanguage('ua')}
@@ -92,6 +89,9 @@ const Header = () => {
             <div className={style.mobile__navbar__wrapper}>
               <Navbar />
             </div>
+            <button className={style.button__theme} onClick={toggleColorMode}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </button>
           </div>
         </nav>
       </Container>

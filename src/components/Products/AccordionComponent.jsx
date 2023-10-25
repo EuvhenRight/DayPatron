@@ -13,16 +13,19 @@ import {
   Box,
   Text,
   Heading,
+  useColorMode,
 } from '@chakra-ui/react';
 import React from 'react';
 import ModalSpecification from './Modal';
 
 export default function AccordionComponent({ translate, product }) {
+  const { colorMode } = useColorMode();
+  const colorBg = colorMode === 'dark' ? 'red.300' : 'red.500';
   return (
     <Accordion allowToggle>
       <AccordionItem>
         <Heading as="h2">
-          <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
+          <AccordionButton _expanded={{ color: 'white', bg: colorBg }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <InfoOutlineIcon pr={2} boxSize={7} />
               {translate('product.description')}
@@ -36,7 +39,7 @@ export default function AccordionComponent({ translate, product }) {
       </AccordionItem>
       <AccordionItem>
         <Heading as="h2">
-          <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
+          <AccordionButton _expanded={{ color: 'white', bg: colorBg }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <RepeatIcon pr={2} boxSize={7} />
               {translate('product.useTo')}
@@ -58,7 +61,7 @@ export default function AccordionComponent({ translate, product }) {
       </AccordionItem>
       <AccordionItem>
         <Heading as="h2">
-          <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
+          <AccordionButton _expanded={{ color: 'white', bg: colorBg }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <SettingsIcon pr={2} boxSize={7} />
               {translate('product.specifications')}
@@ -85,7 +88,7 @@ export default function AccordionComponent({ translate, product }) {
       </AccordionItem>
       <AccordionItem>
         <Heading as="h2">
-          <AccordionButton _expanded={{ color: 'white', bg: 'red.400' }}>
+          <AccordionButton _expanded={{ color: 'white', bg: colorBg }}>
             <Box as="span" flex="1" textAlign="left" ml={2}>
               <QuestionOutlineIcon pr={2} boxSize={7} />
               {translate('product.faq')}

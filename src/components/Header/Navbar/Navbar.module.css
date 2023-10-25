@@ -23,25 +23,15 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
   line-height: 1.5;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* .main_container:hover {
-  background-color: #fff;
-  color: #303030;
-  border: 1px solid #232323;
-} */
-
 .link {
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   padding: 20px 0;
-  font-size: 20px;
-  font-weight: 700;
   text-decoration: none;
 }
 
@@ -54,8 +44,6 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
   line-height: 1.5;
   position: static;
   text-decoration: none;
@@ -71,8 +59,6 @@
   flex: none;
   align-self: center;
   padding: 10px 14px 11px;
-  font-size: 18px;
-  font-weight: 700;
   line-height: 1.5;
   position: static;
   text-decoration: none;
