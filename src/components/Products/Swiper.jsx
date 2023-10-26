@@ -6,11 +6,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css/pagination';
 import 'swiper/css';
+import 'swiper/css/zoom';
 
 import './styles.css';
 
 // import required modules
-import { Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Zoom, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { Image } from '@chakra-ui/react';
 
 export default function SwiperComponent({ product }) {
@@ -21,18 +22,21 @@ export default function SwiperComponent({ product }) {
           '--swiper-pagination-color': '#38a169',
           '--swiper-navigation-color': '#38a169',
         }}
+        zoom={true}
         cssMode={true}
         spaceBetween={30}
         pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
-        modules={[Pagination, Mousewheel, Keyboard]}
+        modules={[Zoom, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
         loop={true}
       >
         {product.image.map((image, index) => (
           <SwiperSlide key={index}>
-            <Image src={`/images/${image.url}`} alt={product.name} />
+            <div className="swiper-zoom-container">
+              <Image src={`/images/${image.url}`} alt={product.name} />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
