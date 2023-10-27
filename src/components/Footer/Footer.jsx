@@ -10,8 +10,6 @@ import {
   chakra,
   Text,
   useColorModeValue,
-  useColorMode,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaFacebook, FaTelegram, FaInstagram } from 'react-icons/fa';
 import { useLanguage } from '../Language/LanguageContext';
@@ -51,7 +49,7 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function Footer() {
   const { currentLanguage, t } = useLanguage();
-  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+
   return (
     <Box borderTopRadius="4em" bg="#232323" color="white">
       <Container as={Stack} maxW={'6xl'} py={10}>
@@ -128,7 +126,7 @@ export default function Footer() {
                 'https://www.facebook.com/groups/1521928711901483/?mibextid=oMANbw'
               }
             >
-              <FaFacebook size={isMobile ? 16 : 30} />
+              <FaFacebook size={30} />
             </SocialButton>
             <SocialButton
               label={'Telegram'}
