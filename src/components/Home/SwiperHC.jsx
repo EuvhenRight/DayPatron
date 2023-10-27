@@ -3,13 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import './styles.css';
+import { Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Image } from '@chakra-ui/react';
 
 import All_Oils from '../../components/assets/All_Oils.jpg';
 import All_Cleaners from '../../components/assets/All_Cleaners.jpg';
 import All_CLP from '../../components/assets/All_CLP.jpg';
-// import required modules
-import { Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
-import { Image } from '@chakra-ui/react';
 
 export default function SwiperHC({ translateArray }) {
   const slideArray = [All_Oils, All_Cleaners, All_CLP];
@@ -20,7 +19,6 @@ export default function SwiperHC({ translateArray }) {
           '--swiper-pagination-color': 'red',
           '--swiper-pagination-bullet-inactive-color': 'red',
           '--swiper-pagination-bullet-inactive-opacity': 0.5,
-          '--swiper-pagination-bottom': '40px',
           '--swiper-pagination-bullet-width': '12px',
           '--swiper-pagination-bullet-height': '12px',
         }}
@@ -34,7 +32,7 @@ export default function SwiperHC({ translateArray }) {
         pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
-        modules={[Pagination, Mousewheel, Keyboard]}
+        modules={[Autoplay, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
         loop={true}
       >
