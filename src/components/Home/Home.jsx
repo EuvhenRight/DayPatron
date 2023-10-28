@@ -10,6 +10,7 @@ import {
   Heading,
   Image,
   Text,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import SwiperHC from './SwiperHC';
 import userFriendly from '../assets/user_friendly.png';
