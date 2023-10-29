@@ -1,10 +1,18 @@
+import { Box, Container, Text } from '@chakra-ui/react';
 import React from 'react';
+import { useLanguage } from '../Language/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
-    <div>
-      <h1>About</h1>
-    </div>
+    <Container maxW="6xl" mb={10}>
+      <Box display="flex" flexDirection="column">
+        <Text fontSize="lg" px={5} textAlign="justify">
+          {t('aboutUs.text')}
+        </Text>
+      </Box>
+    </Container>
   );
 };
 

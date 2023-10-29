@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import SpinnerLoader from '../Loader_Spinner/Loader_Spinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
+import { Box, Container, Heading, Image, SimpleGrid } from '@chakra-ui/react';
 
 const ProductsItems = () => {
   const [productsData, setProductsData] = React.useState([]);
@@ -44,34 +45,36 @@ const ProductsItems = () => {
   };
 
   return (
-    <div className={style.section__down}>
-      <div className={style.container}>
-        {isLoading && <SpinnerLoader />}
-        <ul className={style.down__list__wrapper}>
-          {productsData.map((product) => {
-            return (
-              <Link
-                key={product.id}
-                to={`/${lang}/products/${product.id}/${product.linkName}`}
-              >
-                <li className={changeColor(product.category)}>
-                  <div className={style.down__list__content}>
-                    <h1 className={style.down__list__content__text}>
-                      {product.name}
-                    </h1>
-                    <img
-                      className={style.down__list__content__img}
-                      src={logo}
-                      alt={product.name}
-                    />
-                  </div>
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
-      </div>
-    </div>
+    <Container maxW={'6xl'} mb={10} minH="100dvh">
+      {isLoading && <SpinnerLoader />}
+      <SimpleGrid columns={[1, 2, 3]} gap={3}>
+        {productsData.map((product) => {
+          return (
+            <Link
+              key={product.id}
+              to={`/${lang}/products/${product.id}/${product.linkName}`}
+            >
+              <Box className={changeColor(product.category)}>
+                <Box className={style.down__list__content}>
+                  <Heading
+                    as="h2"
+                    textAlign="center"
+                    className={style.down__list__content__text}
+                  >
+                    {product.name}
+                  </Heading>
+                  <Image
+                    className={style.down__list__content__img}
+                    src={logo}
+                    alt={product.name}
+                  />
+                </Box>
+              </Box>
+            </Link>
+          );
+        })}
+      </SimpleGrid>
+    </Container>
   );
 };
 

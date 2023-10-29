@@ -42,8 +42,9 @@ const Home = () => {
       <Container
         key={product.id}
         maxW="100%"
+        minH="100dvh"
         centerContent
-        fontSize={{ base: 'sm', sm: 'md', md: 'md', lg: 'md' }}
+        fontSize={{ base: 'sm', sm: 'md' }}
         p="0"
       >
         <SwiperHC translateArray={translateArray} />

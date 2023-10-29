@@ -82,7 +82,7 @@ export default function Product() {
 
   return (
     <>
-      <Container key={product.id} maxW={'6xl'}>
+      <Container key={product.id} maxW={'6xl'} minH="100dvh">
         <Box
           display="flex"
           flexDirection="column-reverse"
