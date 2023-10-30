@@ -39,7 +39,7 @@ export default function SwiperHC({ translateArray }) {
         pagination={{ clickable: true }}
         mousewheel={true}
         keyboard={true}
-        modules={[Pagination, Mousewheel, Keyboard]}
+        modules={[Autoplay, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
         loop={true}
       >
