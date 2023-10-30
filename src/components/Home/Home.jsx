@@ -22,6 +22,7 @@ import oil from '../assets/oil_tr.svg';
 import cleaner from '../assets/cleaner_tr.svg';
 import liquidator from '../assets/liquidator_tr.svg';
 import AllProducts from '../assets/All_line.jpeg';
+import Helmet from '../Helmet/helmet';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -39,6 +40,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        addPostFixTitle={true} noIndex={true} largeTwitterCard={true}{' '}
+      </Helmet>
       <Container
         key={product.id}
         maxW="100%"

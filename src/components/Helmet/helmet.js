@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'react-helmet';
 
-const DOMAIN = 'https://www.daypatron.com.ua';
+const DOMAIN = 'https://www.daypatron.com.ua/';
 const MAIN_KEYWORDS = 'GUN CARE, carbon cleaner, CLP';
 
 const DEFAULT_IMAGE_CARD =
@@ -32,7 +32,7 @@ export default function Helmet({
   }
 
   const metaDesc = description;
-  const metaLink = DOMAIN + link;
+  const metaLink = DOMAIN;
   const metaKeywords =
     keywords.length > 0 ? MAIN_KEYWORDS + ',' + keywords : MAIN_KEYWORDS;
 
