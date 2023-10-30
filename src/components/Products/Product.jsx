@@ -88,7 +88,7 @@ export default function Product() {
         addPostFixTitle={true}
         description={product.description}
         keywords={product.keywords}
-        imageCard={product.imageCard}
+        imageCard={product.image.url}
         noIndex={true}
         largeTwitterCard={true}
       />
