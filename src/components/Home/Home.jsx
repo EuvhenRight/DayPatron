@@ -57,7 +57,11 @@ const Home = () => {
           bg="gray"
           h="76px"
         >
-          <Box display="flex" alignItems="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection={isMobile ? 'column' : 'row'}
+          >
             <Avatar
               name="user-friendly"
               src={userFriendly}
@@ -65,11 +69,19 @@ const Home = () => {
             />
             USER FRIENDLY
           </Box>
-          <Box display="flex" alignItems="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection={isMobile ? 'column' : 'row'}
+          >
             <Avatar name="ammonia" src={ammoniaFree} alt="ammonia-free" />
             AMMONIA FREE
           </Box>
-          <Box display="flex" alignItems="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection={isMobile ? 'column' : 'row'}
+          >
             <Avatar name="safety" src={safety_barrel} alt="safety" />
             SAFETY
           </Box>

@@ -117,33 +117,46 @@ body {
   .one {
     font-size: 40px;
     font-weight: 700;
+    top: 50px;
   }
 
   .two {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
+    width: 75%;
+    top: 50px;
+    right: 50px;
   }
 
   .three {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
+    width: 75%;
+    top: 50px;
+    right: 5px;
   }
 }
 
 @media screen and (max-width: 479px) {
   .one {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
+    top: 50px;
   }
 
   .two {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
+    width: 75%;
+    top: 50px;
+    right: 50px;
   }
 
   .three {
-    top: 25px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
+    width: 75%;
+    top: 50px;
+    right: 5px;
   }
 }
