@@ -16,6 +16,7 @@ import ShareButtonsComponent from '../ShareSocial/ShareButtons';
 import TabsComponent from './TabsComponent';
 import AccordionComponent from './AccordionComponent';
 import SwiperComponent from './Swiper';
+import Helmet from '../Helmet/helmet';
 
 export default function Product() {
   const [product, setProduct] = React.useState([]);
@@ -82,6 +83,15 @@ export default function Product() {
 
   return (
     <>
+      <Helmet
+        title={product.name}
+        addPostFixTitle={true}
+        description={product.description}
+        keywords={product.keywords}
+        imageCard={product.imageCard}
+        noIndex={true}
+        largeTwitterCard={true}
+      />
       <Container key={product.id} maxW={'6xl'} minH="100dvh">
         <Box
           display="flex"
