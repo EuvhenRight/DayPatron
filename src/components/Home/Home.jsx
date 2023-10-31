@@ -87,16 +87,16 @@ const Home = () => {
             alignItems="center"
             flexDirection={isMobile ? 'column' : 'row'}
           >
-            <Avatar name="ammonia" src={ammoniaFree} alt="ammonia-free" />
-            AMMONIA FREE
+            <Avatar name="safety" src={safety_barrel} alt="safety" />
+            SAFETY
           </Box>
           <Box
             display="flex"
             alignItems="center"
             flexDirection={isMobile ? 'column' : 'row'}
           >
-            <Avatar name="safety" src={safety_barrel} alt="safety" />
-            SAFETY
+            <Avatar name="ammonia" src={ammoniaFree} alt="ammonia-free" />
+            AMMONIA FREE
           </Box>
         </Box>
         <Box
