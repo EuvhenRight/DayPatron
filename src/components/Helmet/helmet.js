@@ -67,13 +67,13 @@ export default function HelmetComponent({
       <meta property="og:description" content={metaDesc} />
       <meta property="og:site_name" content="DayPatron" />
       {/* Twitter Card */}
-      <meta property="twitter:site" content="DayPatron" />
-      <meta property="twitter:url" content={metaLink} />
-      <meta property="twitter:title" content={metaTitle} />
-      <meta property="twitter:description" content={metaDesc} />
-      <meta property="twitter:image" content={metaImageCard} />
-      <meta property="twitter:creator" content="creator" />
-      <meta property="twitter:card" content={twitterCard} />
+      <meta name="twitter:site" content="DayPatron" />
+      <meta name="twitter:url" content={metaLink} />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDesc} />
+      <meta name="twitter:image" content={metaImageCard} />
+      <meta name="twitter:creator" content="creator" />
+      <meta name="twitter:card" content={twitterCard} />
 
       <meta name="referrer" content="origin-when-cross-origin" />
       {children}
