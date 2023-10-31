@@ -38,7 +38,7 @@ export default function Helmet({
 
   let metaImageCard;
 
-  if (imageCard.startsWith('https')) {
+  if (imageCard.startsWith('https://')) {
     metaImageCard = imageCard;
   } else {
     metaImageCard = DOMAIN + imageCard;
@@ -60,7 +60,10 @@ export default function Helmet({
       <meta property="og:url" content={metaLink} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDesc} />
-      <meta property="og:image:secure_url" content={metaImageCard} />
+      <meta property="og:image" content={metaImageCard} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="400" />
+      <meta property="og:image:height" content="300" />
       <meta property="og:site_name" content="DayPatron" />
       {/* Twitter Card */}
       <meta property="twitter:site" content="DayPatron" />
