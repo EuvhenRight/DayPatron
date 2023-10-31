@@ -49,7 +49,6 @@ export default function HelmetComponent({
 
   return (
     <Helmet>
-      <html lang="en" />
       <title>{metaTitle}</title>
       <link rel="canonical" href={metaLink} />
       <meta name="description" content={metaDesc} />
