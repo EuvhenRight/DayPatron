@@ -5,7 +5,7 @@ const DOMAIN = 'https://www.daypatron.com.ua/';
 const MAIN_KEYWORDS = 'GUN CARE, carbon cleaner, CLP';
 
 const DEFAULT_IMAGE_CARD =
-  'https://www.daypatron.com.ua/static/media/All_Oils.8f8d5eb704e50f29ce41.jpg';
+  'https://www.daypatron.com.ua/static/media/DayFacebook.png';
 
 const DEFAULT_TITLE = 'THE BEST GUN CARE PRODUCTS';
 const DEFAULT_DESCRIPTION = "DayPatron's gun care products";
