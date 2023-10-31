@@ -16,7 +16,7 @@ import ShareButtonsComponent from '../ShareSocial/ShareButtons';
 import TabsComponent from './TabsComponent';
 import AccordionComponent from './AccordionComponent';
 import SwiperComponent from './Swiper';
-import Helmet from '../Helmet/helmet';
+import HelmetComponent from '../Helmet/helmet.js';
 
 export default function Product() {
   const [product, setProduct] = React.useState([]);
@@ -83,7 +83,7 @@ export default function Product() {
 
   return (
     <>
-      <Helmet
+      <HelmetComponent
         title={product.name}
         addPostFixTitle={true}
         description={product.description}

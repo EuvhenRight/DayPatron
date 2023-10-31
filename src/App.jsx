@@ -13,31 +13,34 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import { LanguageProvider } from './components/Language/LanguageContext';
 import { ChakraBaseProvider } from '@chakra-ui/react';
 import { theme } from './components/utils/theme';
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
     <LanguageProvider>
       <ChakraBaseProvider theme={theme}>
-        <div>
-          <Header />
+        <HelmetProvider>
           <div>
-            <Routes>
-              <Route path="/" element={<Navigate to="/ua" />} />
-              <Route path="/:lang" element={<Home />} />
-              <Route path="/:lang/products" element={<ProductsItems />} />
-              <Route path="/:lang/products/:id/:name" element={<Product />} />
-              <Route path="/:lang/about" element={<About />} />
-              <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
-              <Route path="/:lang/contact" element={<Contacts />} />
-              <Route
-                path="/:lang/help/privacy-policy"
-                element={<PrivacyPolicy />}
-              />
-              <Route path="*" element={<NotFound to="/" />} />
-            </Routes>
-            <Footer />
+            <Header />
+            <div>
+              <Routes>
+                <Route path="/" element={<Navigate to="/ua" />} />
+                <Route path="/:lang" element={<Home />} />
+                <Route path="/:lang/products" element={<ProductsItems />} />
+                <Route path="/:lang/products/:id/:name" element={<Product />} />
+                <Route path="/:lang/about" element={<About />} />
+                <Route path="/:lang/whereToBuy" element={<WhereToBuy />} />
+                <Route path="/:lang/contact" element={<Contacts />} />
+                <Route
+                  path="/:lang/help/privacy-policy"
+                  element={<PrivacyPolicy />}
+                />
+                <Route path="*" element={<NotFound to="/" />} />
+              </Routes>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </HelmetProvider>
       </ChakraBaseProvider>
     </LanguageProvider>
   );

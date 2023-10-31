@@ -22,7 +22,7 @@ import oil from '../assets/oil_tr.svg';
 import cleaner from '../assets/cleaner_tr.svg';
 import liquidator from '../assets/liquidator_tr.svg';
 import AllProducts from '../assets/All_line.jpeg';
-import Helmet from '../Helmet/helmet';
+import HelmetComponent from '../Helmet/helmet.js';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
+      <HelmetComponent>
         title={translate('home.title')}
         description={translate('home.description')}
         addPostFixTitle={true}
@@ -51,7 +51,7 @@ const Home = () => {
         {
           'https://www.daypatron.com.ua/static/media/DayLogo.671b16c7b8f9b78cb5de3763dd57fbc3.svg'
         }
-      </Helmet>
+      </HelmetComponent>
       <Container
         key={product.id}
         maxW="100%"

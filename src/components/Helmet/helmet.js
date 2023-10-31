@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const DOMAIN = 'https://www.daypatron.com.ua/';
 const MAIN_KEYWORDS = 'GUN CARE, carbon cleaner, CLP';
@@ -12,7 +12,7 @@ const DEFAULT_DESCRIPTION = "DayPatron's gun care products";
 
 const POST_FIX_TITLE = ' | DayPatron';
 
-export default function Helmet({
+export default function HelmetComponent({
   title = DEFAULT_TITLE,
   description = DEFAULT_DESCRIPTION,
   link,
@@ -48,7 +48,7 @@ export default function Helmet({
   const twitterCard = largeTwitterCard ? 'summary_large_image' : 'summary';
 
   return (
-    <Head>
+    <Helmet>
       <html lang="en" />
       <title>{metaTitle}</title>
       <link rel="canonical" href={metaLink} />
@@ -61,6 +61,8 @@ export default function Helmet({
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDesc} />
       <meta property="og:image" content={metaImageCard} />
+      <meta property="og:image:secure_url" content={metaImageCard} />
+      <meta property="og:image:alt" content={metaTitle} />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="400" />
       <meta property="og:image:height" content="300" />
@@ -76,6 +78,6 @@ export default function Helmet({
 
       <meta name="referrer" content="origin-when-cross-origin" />
       {children}
-    </Head>
+    </Helmet>
   );
 }
