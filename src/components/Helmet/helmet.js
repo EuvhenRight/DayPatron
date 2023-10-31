@@ -32,7 +32,7 @@ export default function Helmet({
   }
 
   const metaDesc = description;
-  const metaLink = DOMAIN;
+  const metaLink = DOMAIN + link;
   const metaKeywords =
     keywords.length > 0 ? MAIN_KEYWORDS + ',' + keywords : MAIN_KEYWORDS;
 
@@ -50,7 +50,6 @@ export default function Helmet({
   return (
     <Head>
       <html lang="en" />
-
       <title>{metaTitle}</title>
       <link rel="canonical" href={metaLink} />
       <meta name="description" content={metaDesc} />
@@ -61,7 +60,7 @@ export default function Helmet({
       <meta property="og:url" content={metaLink} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDesc} />
-      <meta property="og:image" content={metaImageCard} />
+      <meta property="og:image:secure_url" content={metaImageCard} />
       <meta property="og:site_name" content="DayPatron" />
       {/* Twitter Card */}
       <meta property="twitter:site" content="DayPatron" />
@@ -71,7 +70,6 @@ export default function Helmet({
       <meta property="twitter:image" content={metaImageCard} />
       <meta property="twitter:creator" content="creator" />
       <meta property="twitter:cart" content={twitterCard} />
-      <meta property="twitter:image" content={metaImageCard} />
 
       <meta name="referrer" content="origin-when-cross-origin" />
       {children}
