@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const DOMAIN = 'https://www.daypatron.com.ua/';
+const DOMAIN = 'https://daypatron.com.ua/';
 const MAIN_KEYWORDS = 'GUN CARE, carbon cleaner, CLP';
 
 const DEFAULT_IMAGE_CARD =
@@ -55,16 +55,16 @@ export default function HelmetComponent({
       <meta name="keywords" content={metaKeywords} />
       <meta name="robots" content={metaRobots} />
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={metaLink} />
-      <meta property="og:title" content={metaTitle} />
-      <meta property="og:description" content={metaDesc} />
       <meta property="og:image" content={metaImageCard} />
       <meta property="og:image:secure_url" content={metaImageCard} />
       <meta property="og:image:alt" content={metaTitle} />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="400" />
       <meta property="og:image:height" content="300" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={metaLink} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDesc} />
       <meta property="og:site_name" content="DayPatron" />
       {/* Twitter Card */}
       <meta property="twitter:site" content="DayPatron" />
@@ -73,7 +73,7 @@ export default function HelmetComponent({
       <meta property="twitter:description" content={metaDesc} />
       <meta property="twitter:image" content={metaImageCard} />
       <meta property="twitter:creator" content="creator" />
-      <meta property="twitter:cart" content={twitterCard} />
+      <meta property="twitter:card" content={twitterCard} />
 
       <meta name="referrer" content="origin-when-cross-origin" />
       {children}
