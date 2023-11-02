@@ -16,10 +16,11 @@ import { theme } from './components/utils/theme';
 import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
+  const helmetContext = {};
   return (
     <LanguageProvider>
       <ChakraBaseProvider theme={theme}>
-        <HelmetProvider>
+        <HelmetProvider context={helmetContext}>
           <div>
             <Header />
             <div>

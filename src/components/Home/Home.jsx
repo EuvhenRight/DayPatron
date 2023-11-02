@@ -41,8 +41,8 @@ const Home = () => {
   return (
     <>
       <HelmetComponent
-        title={translate('home.title')}
-        description={translate('home.description')}
+        title={translate('meta.title')}
+        description={translate('meta.description')}
         addPostFixTitle={true}
         noIndex={true}
         keyWords={('Gun_Care', 'carbon_cleaner', 'CLP')}
