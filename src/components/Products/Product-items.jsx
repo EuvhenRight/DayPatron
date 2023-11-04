@@ -1,33 +1,19 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import SpinnerLoader from '../Loader_Spinner/Loader_Spinner';
+import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
 import { Box, Container, Heading, Image, SimpleGrid } from '@chakra-ui/react';
+import { useProductsData } from '../DataContext/DataContext';
 
-const ProductsItems = () => {
-  const [productsData, setProductsData] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+export default function ProductsItems() {
+  const { productsData, isLoading, fetchData } = useProductsData();
   const { lang } = useParams();
 
   React.useEffect(() => {
-    const fetchData = async (lang) => {
-      try {
-        const url = `https://daypatron.adaptable.app/products/${lang}`;
-        console.log(url, 'url');
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setProductsData(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false);
-      }
-    };
-    fetchData(lang);
+    const generalUrl = `https://daypatron.adaptable.app/products/${lang}`;
+    fetchData(generalUrl);
+
     window.scrollTo(0, 0);
   }, [lang]);
 
@@ -44,9 +30,17 @@ const ProductsItems = () => {
     }
   };
 
+  // Check if product exists before rendering.
+  if (isLoading) {
+    return (
+      <Box minH="100dvh" alignItems="center">
+        <LoaderSpinner />
+      </Box>
+    );
+  }
+
   return (
     <Container maxW={'6xl'} mb={10} minH="100dvh">
-      {isLoading && <SpinnerLoader />}
       <SimpleGrid columns={[1, 2, 3]} gap={3}>
         {productsData.map((product) => {
           return (
@@ -76,6 +70,4 @@ const ProductsItems = () => {
       </SimpleGrid>
     </Container>
   );
-};
-
-export default ProductsItems;
+}

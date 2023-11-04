@@ -5,10 +5,7 @@ import {
   Avatar,
   Box,
   Container,
-  Grid,
-  GridItem,
   Heading,
-  Image,
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
@@ -16,18 +13,26 @@ import SwiperHC from './SwiperHC';
 import userFriendly from '../assets/user_friendly.png';
 import ammoniaFree from '../assets/ammonia_free.png';
 import safety_barrel from '../assets/safety_barrel.png';
-import protect from '../assets/protect_tr.svg';
-import clp from '../assets/clp_tr.svg';
-import oil from '../assets/oil_tr.svg';
-import cleaner from '../assets/cleaner_tr.svg';
-import liquidator from '../assets/liquidator_tr.svg';
 import AllProducts from '../assets/All_line.jpeg';
 import HelmetComponent from '../Helmet/helmet.js';
+import { useProductsData } from '../DataContext/DataContext';
+import CardComponent from './Card';
+import { useParams } from 'react-router-dom';
+import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 
-const Home = () => {
+export default function Home() {
   const { t } = useLanguage();
   const titles = ['home.title_one', 'home.title_two', 'home.title_three'];
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+  const { productsData, isLoading, fetchData } = useProductsData();
+  const { lang } = useParams();
+
+  React.useEffect(() => {
+    const generalUrl = `https://daypatron.adaptable.app/products/${lang}`;
+    fetchData(generalUrl);
+
+    window.scrollTo(0, 0);
+  }, [lang]);
 
   const translate = React.useCallback(
     (key) => {
@@ -37,6 +42,14 @@ const Home = () => {
   );
 
   const translateArray = titles.map((item) => translate(item));
+
+  if (isLoading) {
+    return (
+      <Box minH="100dvh" alignItems="center">
+        <LoaderSpinner />
+      </Box>
+    );
+  }
 
   return (
     <>
@@ -120,36 +133,20 @@ const Home = () => {
             {translate('home.about')}
           </Text>
         </Box>
-        <Grid
-          templateColumns="repeat(2, 1fr)"
-          templateRows="repeat(3, 1fr)"
-          gap={2}
-        >
-          <GridItem>
-            <Heading as="h1">What we have?</Heading>
-          </GridItem>
-          <GridItem>
-            <Image width="50%" src={clp} alt="clp" />
-          </GridItem>
-          <GridItem>
-            <Image width="50%" src={oil} alt="clp" />
-          </GridItem>
-          <GridItem>
-            <Image width="50%" src={protect} alt="clp" />
-          </GridItem>
-          <GridItem>
-            <Image width="50%" src={cleaner} alt="clp" />
-          </GridItem>
-          <GridItem>
-            <Image width="50%" src={liquidator} alt="clp" />
-          </GridItem>
-        </Grid>
         <Box>
           <Heading as="h1">Which product use?</Heading>
+          {productsData.map((product) => {
+            return (
+              <CardComponent
+                image={`/images/${product.image[0].url}`}
+                key={product.id}
+                name={product.name}
+                description={product.description}
+              />
+            );
+          })}
         </Box>
       </Container>
     </>
   );
-};
-
-export default Home;
+}

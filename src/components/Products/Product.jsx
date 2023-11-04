@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Product.module.css';
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import { useLanguage } from '../Language/LanguageContext';
 import { useParams } from 'react-router-dom';
@@ -57,14 +56,7 @@ export default function Product() {
     window.scrollTo(0, 0);
   }, [id, lang]);
 
-  // Check if product exists before rendering.
-  if (isLoading) {
-    return (
-      <div className={style.section__middle}>
-        <LoaderSpinner />
-      </div>
-    );
-  }
+  console.log(product, 'product');
 
   // Separate Volume component
   const VolumeTogglePhoto = ({ value, isActive, onClick }) => (
@@ -80,6 +72,15 @@ export default function Product() {
       {value}
     </Tag>
   );
+
+  // Check if product exists before rendering.
+  if (isLoading) {
+    return (
+      <Box minH="100dvh" alignItems="center">
+        <LoaderSpinner />
+      </Box>
+    );
+  }
 
   return (
     <>

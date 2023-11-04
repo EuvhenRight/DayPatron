@@ -1,25 +1,24 @@
 import {
   FacebookShareButton,
-  FacebookIcon,
   TwitterShareButton,
-  TwitterIcon,
   TelegramShareButton,
-  TelegramIcon,
 } from 'react-share';
 import React from 'react';
-import { Box, useBreakpointValue } from '@chakra-ui/react';
+import { useBreakpointValue, Stack } from '@chakra-ui/react';
+import { FaFacebook, FaTelegram } from 'react-icons/fa';
+import { RiTwitterXFill } from 'react-icons/ri';
 
-const ShareButtonsComponent = ({ product }) => {
+export default function ShareButtonsComponent({ product }) {
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const title = `${product.name} | ${product.specification.text}`;
   const url = window.location.href;
-  const iconSize = isMobile ? 32 : 48;
+  const iconSize = isMobile ? 24 : 32;
   const hashtag = '#DayPatron';
-  const imageUrl = `https://www.daypatron.com.ua/images/${product.image.url}';`;
+  const imageUrl = `/images/${product.image.url}';`;
 
   return (
     <>
-      <Box sx={{ ml: 2 }}>
+      <Stack direction={'row'} spacing={6} w>
         <TwitterShareButton
           url={url}
           title={title}
@@ -27,7 +26,7 @@ const ShareButtonsComponent = ({ product }) => {
           media={imageUrl}
           style={{ marginRight: 5 }}
         >
-          <TwitterIcon size={iconSize} round={true} />
+          <RiTwitterXFill label="Twitter" size={iconSize} />
         </TwitterShareButton>
         <FacebookShareButton
           url={url}
@@ -36,14 +35,12 @@ const ShareButtonsComponent = ({ product }) => {
           media={imageUrl}
           style={{ marginRight: 5 }}
         >
-          <FacebookIcon size={iconSize} round={true} />
+          <FaFacebook size={iconSize} />
         </FacebookShareButton>
         <TelegramShareButton url={url} title={title} media={imageUrl}>
-          <TelegramIcon size={iconSize} round />
+          <FaTelegram size={iconSize} />
         </TelegramShareButton>
-      </Box>
+      </Stack>
     </>
   );
-};
-
-export default ShareButtonsComponent;
+}
