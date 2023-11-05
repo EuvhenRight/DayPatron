@@ -99,5 +99,9 @@
   "meta": {
     "title": "THE BEST GUN CARE PRODUCTS",
     "description": "We have returned, and we are better than ever!"
+  },
+  "card": {
+    "info": "Info",
+    "guide": "Guide"
   }
 }

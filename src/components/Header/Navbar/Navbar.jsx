@@ -25,9 +25,7 @@ const Navbar = () => {
   useEffect(() => {
     // Function to close the menu when clicking outside
     const closeMenuOnClickOutside = (e) => {
-      console.log('Close Menu Clicked');
       if (menuRef.current && !menuRef.current.contains(e.target)) {
-        console.log('Closing');
         setShowMenu(false);
       }
     };

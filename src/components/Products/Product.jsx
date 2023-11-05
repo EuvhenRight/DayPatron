@@ -16,12 +16,20 @@ import TabsComponent from './TabsComponent';
 import AccordionComponent from './AccordionComponent';
 import SwiperComponent from './Swiper';
 import HelmetComponent from '../Helmet/helmet.js';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchProduct,
+  productDataSelector,
+  productStatus,
+} from '../../redux/productsSlice';
 
 export default function Product() {
-  const [product, setProduct] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const isLoading = useSelector(productStatus);
+  const product = useSelector(productDataSelector);
+  const dispatch = useDispatch();
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { id, lang } = useParams();
+  console.log(product, 'product');
 
   const { t } = useLanguage();
 
@@ -33,30 +41,10 @@ export default function Product() {
   );
 
   React.useEffect(() => {
-    // Fetch product data
-    const fetchData = async (productId) => {
-      try {
-        const url = `https://daypatron.adaptable.app/products/${lang}/${productId}`;
-
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setProduct(data);
-        setIsLoading(false);
-      } catch (error) {
-        setIsLoading(false);
-        console.log(error);
-      }
-    };
-
-    fetchData(id, lang);
-    setIsLoading(true);
+    console.log('useEffect is running');
+    dispatch(fetchProduct({ lang, id }));
     window.scrollTo(0, 0);
-  }, [id, lang]);
-
-  console.log(product, 'product');
+  }, [lang, dispatch, id]);
 
   // Separate Volume component
   const VolumeTogglePhoto = ({ value, isActive, onClick }) => (
@@ -80,6 +68,10 @@ export default function Product() {
         <LoaderSpinner />
       </Box>
     );
+  }
+
+  if (!product) {
+    return null; // Don't render layout components if productsData is missing
   }
 
   return (

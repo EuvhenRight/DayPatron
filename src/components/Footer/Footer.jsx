@@ -64,7 +64,6 @@ export default function Footer() {
               {t('footer.contact')}
             </Link>
           </Stack>
-
           <Stack align={'flex-start'}>
             <ListHeader>{t('footer.products')}</ListHeader>
             <Link to={`/${currentLanguage}/products/6/liquidator`}>
@@ -88,14 +87,12 @@ export default function Footer() {
               {t('footer.rust-protection')}
             </Link>
           </Stack>
-
           <Stack align={'flex-start'}>
             <ListHeader>{t('footer.help')}</ListHeader>
             <Link to={`/${currentLanguage}/help/privacy-policy`}>
               Privacy Policy
             </Link>
           </Stack>
-
           <Stack>
             <Link to={`/${currentLanguage}/`}>
               <Image src={logo} alt="Logo" />
@@ -103,7 +100,6 @@ export default function Footer() {
           </Stack>
         </SimpleGrid>
       </Container>
-
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}

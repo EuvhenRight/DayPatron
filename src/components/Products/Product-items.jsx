@@ -4,18 +4,23 @@ import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
 import { Box, Container, Heading, Image, SimpleGrid } from '@chakra-ui/react';
-import { useProductsData } from '../DataContext/DataContext';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  allProductsDataSelector,
+  allProductsStatus,
+  fetchAllProductsData,
+} from '../../redux/productsSlice';
 
 export default function ProductsItems() {
-  const { productsData, isLoading, fetchData } = useProductsData();
+  const dispatch = useDispatch();
+  const isLoading = useSelector(allProductsStatus);
+  const productsData = useSelector(allProductsDataSelector);
   const { lang } = useParams();
 
   React.useEffect(() => {
-    const generalUrl = `https://daypatron.adaptable.app/products/${lang}`;
-    fetchData(generalUrl);
-
+    dispatch(fetchAllProductsData(lang));
     window.scrollTo(0, 0);
-  }, [lang]);
+  }, [lang, dispatch]);
 
   const changeColor = (category) => {
     switch (category) {
@@ -38,6 +43,12 @@ export default function ProductsItems() {
       </Box>
     );
   }
+
+  if (!productsData) {
+    return null; // Don't render layout components if productsData is missing
+  }
+
+  console.log(productsData, 'productsData');
 
   return (
     <Container maxW={'6xl'} mb={10} minH="100dvh">

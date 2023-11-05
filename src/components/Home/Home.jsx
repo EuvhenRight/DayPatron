@@ -5,7 +5,7 @@ import {
   Avatar,
   Box,
   Container,
-  Heading,
+  SimpleGrid,
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
@@ -15,24 +15,32 @@ import ammoniaFree from '../assets/ammonia_free.png';
 import safety_barrel from '../assets/safety_barrel.png';
 import AllProducts from '../assets/All_line.jpeg';
 import HelmetComponent from '../Helmet/helmet.js';
-import { useProductsData } from '../DataContext/DataContext';
 import CardComponent from './Card';
 import { useParams } from 'react-router-dom';
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  allProductsDataSelector,
+  allProductsStatus,
+  fetchAllProductsData,
+} from '../../redux/productsSlice';
 
 export default function Home() {
+  const isLoading = useSelector(allProductsStatus);
+  const productsData = useSelector(allProductsDataSelector);
+  const dispatch = useDispatch();
   const { t } = useLanguage();
   const titles = ['home.title_one', 'home.title_two', 'home.title_three'];
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
-  const { productsData, isLoading, fetchData } = useProductsData();
   const { lang } = useParams();
+  console.log(isLoading);
+  console.log(productsData);
 
   React.useEffect(() => {
-    const generalUrl = `https://daypatron.adaptable.app/products/${lang}`;
-    fetchData(generalUrl);
-
+    console.log('useEffect is running');
+    dispatch(fetchAllProductsData(lang));
     window.scrollTo(0, 0);
-  }, [lang]);
+  }, [dispatch, lang]);
 
   const translate = React.useCallback(
     (key) => {
@@ -49,6 +57,10 @@ export default function Home() {
         <LoaderSpinner />
       </Box>
     );
+  }
+
+  if (!productsData) {
+    return null; // Don't render layout components if productsData is missing
   }
 
   return (
@@ -133,19 +145,19 @@ export default function Home() {
             {translate('home.about')}
           </Text>
         </Box>
-        <Box>
-          <Heading as="h1">Which product use?</Heading>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={4}>
           {productsData.map((product) => {
             return (
               <CardComponent
-                image={`/images/${product.image[0].url}`}
+                image={`/images/${product.image[3].url}`}
                 key={product.id}
                 name={product.name}
-                description={product.description}
+                benefits={product.benefits}
+                product={product}
               />
             );
           })}
-        </Box>
+        </SimpleGrid>
       </Container>
     </>
   );

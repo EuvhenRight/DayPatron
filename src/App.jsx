@@ -14,13 +14,14 @@ import { LanguageProvider } from './components/Language/LanguageContext';
 import { ChakraBaseProvider } from '@chakra-ui/react';
 import { theme } from './components/utils/theme';
 import { HelmetProvider } from 'react-helmet-async';
-import { ProductsDataProvider } from './components/DataContext/DataContext.js';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
 
 export default function App() {
   const helmetContext = {};
   return (
-    <ProductsDataProvider>
-      <LanguageProvider>
+    <LanguageProvider>
+      <Provider store={store}>
         <ChakraBaseProvider theme={theme}>
           <HelmetProvider context={helmetContext}>
             <div>
@@ -48,7 +49,7 @@ export default function App() {
             </div>
           </HelmetProvider>
         </ChakraBaseProvider>
-      </LanguageProvider>
-    </ProductsDataProvider>
+      </Provider>
+    </LanguageProvider>
   );
 }
