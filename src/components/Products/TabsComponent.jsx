@@ -8,6 +8,9 @@ import {
   Box,
   Text,
   useColorMode,
+  List,
+  ListItem,
+  ListIcon,
 } from '@chakra-ui/react';
 import {
   InfoOutlineIcon,
@@ -16,6 +19,7 @@ import {
   QuestionOutlineIcon,
 } from '@chakra-ui/icons';
 import ModalSpecification from './Modal';
+import { MdCheckCircle } from 'react-icons/md';
 
 export default function TabsComponent({ translate, product }) {
   const { colorMode } = useColorMode();
@@ -61,7 +65,14 @@ export default function TabsComponent({ translate, product }) {
           flexDirection="column"
           alignItems="center"
         >
-          <Text>{product.specification.text}</Text>
+          <List spacing={3}>
+            {product.benefits.map((benefit, index) => (
+              <ListItem key={index}>
+                <ListIcon as={MdCheckCircle} color={colorBg} />
+                {benefit}
+              </ListItem>
+            ))}
+          </List>
           <Box w="sm" mt={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}

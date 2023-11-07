@@ -42,13 +42,16 @@ export default function SwiperComponent({ product }) {
         className="mySwiper"
         loop={true}
       >
-        {product.image.map((image, index) => (
-          <SwiperSlide key={index}>
-            <div className="swiper-zoom-container">
-              <Image src={`/images/${image.url}`} alt={product.name} />
-            </div>
-          </SwiperSlide>
-        ))}
+        {product.image.map((image, index) => {
+          console.log(index);
+          return (
+            <SwiperSlide key={index}>
+              <div className="swiper-zoom-container">
+                <Image src={`/images/${image.url}`} alt={product.name} />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

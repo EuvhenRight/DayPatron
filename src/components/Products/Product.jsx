@@ -22,6 +22,7 @@ import {
   productDataSelector,
   productStatus,
 } from '../../redux/productsSlice';
+import BreadcrumbComponent from './Breadcrumb';
 
 export default function Product() {
   const isLoading = useSelector(productStatus);
@@ -29,8 +30,7 @@ export default function Product() {
   const dispatch = useDispatch();
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { id, lang } = useParams();
-  console.log(product, 'product');
-
+  const [activeVolume, setActiveVolume] = React.useState(0);
   const { t } = useLanguage();
 
   const translate = React.useCallback(
@@ -53,14 +53,21 @@ export default function Product() {
       m={2}
       borderRadius="md"
       variant="outline"
-      colorScheme={isActive ? 'green' : 'gray'}
+      colorScheme={isActive ? 'red' : 'gray'}
       onClick={onClick}
-      cursor="auto"
+      cursor="pointer"
     >
       {value}
     </Tag>
   );
 
+  const mainImage = product?.image.map((img, i) =>
+    i === activeVolume ? img.url : null
+  );
+
+  const onChangeVolume = (index) => {
+    setActiveVolume(index);
+  };
   // Check if product exists before rendering.
   if (isLoading) {
     return (
@@ -86,6 +93,7 @@ export default function Product() {
         largeTwitterCard={true}
       />
       <Container key={product.id} maxW={'6xl'} minH="100dvh">
+        {!isMobile && <BreadcrumbComponent lang={lang} product={product} />}
         <Box
           display="flex"
           flexDirection="column-reverse"
@@ -118,7 +126,12 @@ export default function Product() {
         <Wrap cursor="pointer" justify="center">
           {/* Separate Volume */}
           {product.volume.map((value, i) => (
-            <VolumeTogglePhoto key={i} value={value} />
+            <VolumeTogglePhoto
+              key={i}
+              value={value}
+              isActive={activeVolume === i}
+              onClick={() => onChangeVolume(i)}
+            />
           ))}
         </Wrap>
         <Box mt={5} as="section">

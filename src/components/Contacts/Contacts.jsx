@@ -3,13 +3,17 @@ import React from 'react';
 import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
 import { useLanguage } from '../Language/LanguageContext';
+import BreadcrumbComponent from '../Products/Breadcrumb';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 const Contacts = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [success, setSuccess] = React.useState(false);
+  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
 
   return (
     <>
+      {!isMobile && <BreadcrumbComponent lang={lang} page="Contacts" />}
       <div className={style.section__gradient}>
         <div className={style.headline__wrapper}>
           <h1 className={style.headline__text}>{t('contacts.mainText')}</h1>

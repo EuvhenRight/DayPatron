@@ -5,7 +5,6 @@ import {
   ModalContent,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
   Image,
 } from '@chakra-ui/react';
@@ -31,7 +30,6 @@ export default function ModalSpecification({ translate, product, imageUrl }) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalCloseButton />
           <ModalBody>
             <Image src={imageUrl} alt={product.name} />
           </ModalBody>

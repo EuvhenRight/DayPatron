@@ -4,22 +4,73 @@ import {
   CardFooter,
   Divider,
   Heading,
-  Stack,
   Button,
   ButtonGroup,
   Image,
-  List,
-  ListItem,
-  ListIcon,
+  Text,
   useColorMode,
+  HStack,
 } from '@chakra-ui/react';
-import { MdCheckCircle } from 'react-icons/md';
 import React from 'react';
 import { useLanguage } from '../Language/LanguageContext';
 import ModalDoc from './Modal';
 import { useNavigate, useParams } from 'react-router-dom';
+import { CheckIcon } from '@chakra-ui/icons';
 
-export default function CardComponent({ image, name, benefits, product }) {
+import { cardAnatomy } from '@chakra-ui/anatomy';
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(cardAnatomy.keys);
+
+const baseStyle = definePartsStyle({
+  // define the part you're going to style
+  container: {
+    backgroundColor: 'gray.400',
+    _dark: {
+      backgroundColor: 'RGBA(0, 0, 0, 0.64)',
+    },
+  },
+  header: {},
+  body: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '1em',
+  },
+  footer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: '1em',
+  },
+});
+
+const sizes = {
+  sm: definePartsStyle({
+    container: {
+      borderRadius: '2em',
+      _hover: {
+        borderColor: 'red.500',
+        _dark: {
+          borderColor: 'red.300',
+        },
+        borderWidth: '2px',
+      },
+    },
+  }),
+};
+
+export const cardTheme = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  defaultProps: {
+    // define which size and variant is applied by default
+    size: 'sm',
+  },
+});
+
+export default function CardComponent({ image, name, UTP, product }) {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { lang } = useParams();
@@ -38,24 +89,18 @@ export default function CardComponent({ image, name, benefits, product }) {
   };
 
   return (
-    <Card maxW="sm">
+    <Card>
       <CardBody>
-        <Image src={image} alt={name} borderRadius="lg" />
-        <Stack mt="5" spacing="2">
-          <Heading size="md">{name}</Heading>
-          <List spacing={3}>
-            {benefits.map((benefit, index) => (
-              <ListItem key={index}>
-                <ListIcon as={MdCheckCircle} color={color} />
-                {benefit}
-              </ListItem>
-            ))}
-          </List>
-        </Stack>
+        <Image src={image} alt={name} />
+        <Heading size="md">{name}</Heading>
+        <HStack mt="2" spacing="3">
+          <CheckIcon boxSize={5} color={color} />
+          <Text size="sm">{product.UTP}</Text>
+        </HStack>
       </CardBody>
       <Divider />
-      <CardFooter justifyContent="center">
-        <ButtonGroup spacing="2">
+      <CardFooter>
+        <ButtonGroup spacing="2" alignItems="center">
           <Button variant="outline" onClick={toggleinfo} colorScheme="red">
             {translate('card.info')}
           </Button>

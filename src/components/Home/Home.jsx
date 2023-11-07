@@ -13,7 +13,6 @@ import SwiperHC from './SwiperHC';
 import userFriendly from '../assets/user_friendly.png';
 import ammoniaFree from '../assets/ammonia_free.png';
 import safety_barrel from '../assets/safety_barrel.png';
-import AllProducts from '../assets/All_line.jpeg';
 import HelmetComponent from '../Helmet/helmet.js';
 import CardComponent from './Card';
 import { useParams } from 'react-router-dom';
@@ -24,6 +23,9 @@ import {
   allProductsStatus,
   fetchAllProductsData,
 } from '../../redux/productsSlice';
+import './styles.css';
+import WithScrollAnimation from '../Animate/Animate';
+import bgPattern from '../assets/bg-pattern.svg';
 
 export default function Home() {
   const isLoading = useSelector(allProductsStatus);
@@ -33,8 +35,6 @@ export default function Home() {
   const titles = ['home.title_one', 'home.title_two', 'home.title_three'];
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const { lang } = useParams();
-  console.log(isLoading);
-  console.log(productsData);
 
   React.useEffect(() => {
     console.log('useEffect is running');
@@ -78,7 +78,7 @@ export default function Home() {
       />
       <Container
         key={product.id}
-        maxW="100%"
+        maxW={'6xl'}
         minH="100dvh"
         centerContent
         fontSize={{ base: 'sm', sm: 'md' }}
@@ -91,13 +91,16 @@ export default function Home() {
           alignItems="center"
           justifyContent="space-around"
           flexDirection="row"
-          bg="gray"
-          h="76px"
+          flexWrap="wrap"
+          borderRadius="2em"
+          bg="linear-gradient(90deg, rgba(197,197,198,1) 45%, rgba(120,119,119,1) 100%);"
+          my={4}
         >
           <Box
             display="flex"
             alignItems="center"
             flexDirection={isMobile ? 'column' : 'row'}
+            my={4}
           >
             <Avatar
               name="user-friendly"
@@ -124,35 +127,33 @@ export default function Home() {
           </Box>
         </Box>
         <Box
-          sx={{
-            bgImage: `url(${AllProducts})`,
-            bgSize: 'cover',
-            height: '450px',
-            bgPosition: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          bg="black"
+          height={isMobile ? '250px' : '400px'}
+          borderRadius="2em"
+          display="flex"
+          alignItems="center"
+          bgImage={bgPattern}
         >
-          <Text
-            color="white"
-            width="84%"
-            bg="black"
-            borderRadius="10px"
-            fontSize={isMobile ? '13px' : '26px'}
-            textAlign="justify"
-          >
-            {translate('home.about')}
-          </Text>
+          <WithScrollAnimation triggerPosition={300} resetPosition={50}>
+            <Text
+              color="white"
+              fontSize={isMobile ? '13px' : '26px'}
+              fontStyle="italic"
+              textAlign="justify"
+              px={isMobile ? 5 : 10}
+            >
+              {t('home.about')}
+            </Text>
+          </WithScrollAnimation>
         </Box>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={4}>
+        <SimpleGrid my={4} columns={{ base: 1, sm: 2, md: 3 }} spacing={4}>
           {productsData.map((product) => {
             return (
               <CardComponent
                 image={`/images/${product.image[3].url}`}
                 key={product.id}
                 name={product.name}
-                benefits={product.benefits}
+                benefits={product.UTP}
                 product={product}
               />
             );

@@ -5,7 +5,6 @@ import {
   ModalContent,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
   Image,
   useColorMode,
@@ -26,7 +25,7 @@ export default function ModalDoc({ translate, product, imageUrl }) {
           cursor="pointer"
           src={imageUrl}
           alt={product.name}
-          size="40px"
+          size="30px"
           color={color}
         />
       </span>
@@ -40,7 +39,6 @@ export default function ModalDoc({ translate, product, imageUrl }) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalCloseButton />
           <ModalBody>
             <Image src={imageUrl} alt={product.name} />
           </ModalBody>

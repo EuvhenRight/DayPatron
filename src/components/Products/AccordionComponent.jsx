@@ -14,8 +14,12 @@ import {
   Text,
   Heading,
   useColorMode,
+  List,
+  ListItem,
+  ListIcon,
 } from '@chakra-ui/react';
 import React from 'react';
+import { MdCheckCircle } from 'react-icons/md';
 import ModalSpecification from './Modal';
 
 export default function AccordionComponent({ translate, product }) {
@@ -76,7 +80,14 @@ export default function AccordionComponent({ translate, product }) {
           flexDirection="column"
           alignItems="center"
         >
-          <Text my={{ base: 2, md: 5 }}>{product.specification.text}</Text>
+          <List spacing={3}>
+            {product.benefits.map((benefit, index) => (
+              <ListItem key={index}>
+                <ListIcon as={MdCheckCircle} color={colorBg} />
+                {benefit}
+              </ListItem>
+            ))}
+          </List>
           <Box w="50%" my={{ base: 2, md: 5 }}>
             <ModalSpecification
               product={product}

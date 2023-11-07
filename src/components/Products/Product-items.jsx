@@ -3,19 +3,28 @@ import { Link, useParams } from 'react-router-dom';
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import style from './Product-items.module.css';
 import logo from '../assets/logo.svg';
-import { Box, Container, Heading, Image, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Image,
+  SimpleGrid,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   allProductsDataSelector,
   allProductsStatus,
   fetchAllProductsData,
 } from '../../redux/productsSlice';
+import BreadcrumbComponent from './Breadcrumb';
 
 export default function ProductsItems() {
   const dispatch = useDispatch();
   const isLoading = useSelector(allProductsStatus);
   const productsData = useSelector(allProductsDataSelector);
   const { lang } = useParams();
+  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
 
   React.useEffect(() => {
     dispatch(fetchAllProductsData(lang));
@@ -48,10 +57,9 @@ export default function ProductsItems() {
     return null; // Don't render layout components if productsData is missing
   }
 
-  console.log(productsData, 'productsData');
-
   return (
     <Container maxW={'6xl'} mb={10} minH="100dvh">
+      {!isMobile && <BreadcrumbComponent lang={lang} page="Products" />}
       <SimpleGrid columns={[1, 2, 3]} gap={3}>
         {productsData.map((product) => {
           return (
