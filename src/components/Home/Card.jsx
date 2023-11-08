@@ -26,7 +26,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle({
   // define the part you're going to style
   container: {
-    backgroundColor: 'gray.400',
+    backgroundColor: 'RGBA(255, 255, 255, 0.80)',
     _dark: {
       backgroundColor: 'RGBA(0, 0, 0, 0.64)',
     },
@@ -50,13 +50,11 @@ const sizes = {
   sm: definePartsStyle({
     container: {
       borderRadius: '2em',
-      _hover: {
-        borderColor: 'red.500',
-        _dark: {
-          borderColor: 'red.300',
-        },
-        borderWidth: '2px',
+      borderColor: 'red.500',
+      _dark: {
+        borderColor: 'red.300',
       },
+      borderWidth: '2px',
     },
   }),
 };
@@ -101,7 +99,7 @@ export default function CardComponent({ image, name, UTP, product }) {
       <Divider />
       <CardFooter>
         <ButtonGroup spacing="2" alignItems="center">
-          <Button variant="outline" onClick={toggleinfo} colorScheme="red">
+          <Button variant="outline" onClick={toggleinfo} colorScheme="gray.700">
             {translate('card.info')}
           </Button>
           <ModalDoc

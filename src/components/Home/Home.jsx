@@ -80,13 +80,10 @@ export default function Home() {
         key={product.id}
         maxW={'6xl'}
         minH="100dvh"
-        centerContent
         fontSize={{ base: 'sm', sm: 'md' }}
-        p="0"
       >
         <SwiperHC translateArray={translateArray} />
         <Box
-          w="100%"
           display="flex"
           alignItems="center"
           justifyContent="space-around"
