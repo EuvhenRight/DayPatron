@@ -4,6 +4,8 @@ import { useLanguage } from '../Language/LanguageContext';
 import { useParams } from 'react-router-dom';
 import {
   Container,
+  Grid,
+  GridItem,
   Heading,
   Tag,
   Text,
@@ -28,7 +30,12 @@ export default function Product() {
   const isLoading = useSelector(productStatus);
   const product = useSelector(productDataSelector);
   const dispatch = useDispatch();
-  const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+  const isMobile = useBreakpointValue({
+    base: true,
+    sm: true,
+    md: true,
+    lg: false,
+  });
   const { id, lang } = useParams();
   const [activeVolume, setActiveVolume] = React.useState(0);
   const { t } = useLanguage();
@@ -92,55 +99,89 @@ export default function Product() {
         noIndex={true}
         largeTwitterCard={true}
       />
-      <Container key={product.id} maxW={'6xl'} minH="100dvh">
+      <Container key={product.id} maxW={'6xl'} minH="100dvh" mb={5}>
         {!isMobile && <BreadcrumbComponent lang={lang} product={product} />}
-        <Box
-          display="flex"
-          flexDirection="column-reverse"
-          alignItems={{ base: 'flex-end', md: 'flex-end', lg: 'flex-end' }}
-        >
-          <Heading as="h2" size={isMobile ? 'md' : 'xl'}>
-            {product.name}
-          </Heading>
-          <Text mb={1}>
-            {translate('product.article')}: {product.article}
-          </Text>
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent={{
-              base: 'center',
-              md: 'flex-end',
-              lg: 'flex-end',
-            }}
-          >
-            {translate('product.share')}:
-            <Box ml={2}>
-              <ShareButtonsComponent product={product} />
+        {isMobile ? (
+          <>
+            <Container p="0">
+              <SwiperComponent product={product} />
+            </Container>
+            <Wrap cursor="pointer" justify="center" mt={5}>
+              {product.volume.map((value, i) => (
+                <VolumeTogglePhoto
+                  key={i}
+                  value={value}
+                  isActive={activeVolume === i}
+                  onClick={() => onChangeVolume(i)}
+                />
+              ))}
+            </Wrap>
+            <Box
+              p={5}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="flex-end"
+            >
+              <Box display="flex" alignItems="center" my={4}>
+                <Text>{translate('product.share')}:</Text>
+                <ShareButtonsComponent product={product} />
+              </Box>
+              <Heading as="h2" size={isMobile ? 'lg' : 'xl'} textAlign="right">
+                {product.name}
+              </Heading>
+              <Text>
+                {translate('product.article')}: {product.article}
+              </Text>
             </Box>
-          </Box>
-        </Box>
-        <Container mb={5} p="0">
-          <SwiperComponent product={product} />
-        </Container>
-        <Wrap cursor="pointer" justify="center">
-          {/* Separate Volume */}
-          {product.volume.map((value, i) => (
-            <VolumeTogglePhoto
-              key={i}
-              value={value}
-              isActive={activeVolume === i}
-              onClick={() => onChangeVolume(i)}
-            />
-          ))}
-        </Wrap>
-        <Box mt={5} as="section">
-          {isMobile ? (
             <AccordionComponent translate={translate} product={product} />
-          ) : (
-            <TabsComponent translate={translate} product={product} />
-          )}
-        </Box>
+          </>
+        ) : (
+          <Grid
+            templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'}
+            gap={3}
+          >
+            <GridItem colSpan={1}>
+              <Container p="0">
+                <SwiperComponent product={product} />
+              </Container>
+              <Wrap cursor="pointer" justify="center" my={5}>
+                {product.volume.map((value, i) => (
+                  <VolumeTogglePhoto
+                    key={i}
+                    value={value}
+                    isActive={activeVolume === i}
+                    onClick={() => onChangeVolume(i)}
+                  />
+                ))}
+              </Wrap>
+            </GridItem>
+            <GridItem
+              colSpan={isMobile ? 1 : 2}
+              sx={
+                isMobile
+                  ? {}
+                  : {
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'flex-end',
+                    }
+              }
+            >
+              <Box my={4} display="flex" alignItems="center">
+                <Text>{translate('product.share')}:</Text>
+                <ShareButtonsComponent product={product} />
+              </Box>
+              <Heading as="h2" size={isMobile ? 'md' : 'xl'} textAlign="right">
+                {product.name}
+              </Heading>
+              <Text mb={5}>
+                {translate('product.article')}: {product.article}
+              </Text>
+              <TabsComponent translate={translate} product={product} />
+            </GridItem>
+          </Grid>
+        )}
       </Container>
     </>
   );

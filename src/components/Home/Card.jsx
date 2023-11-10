@@ -36,13 +36,11 @@ const baseStyle = definePartsStyle({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '1em',
   },
   footer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    padding: '1em',
   },
 });
 
@@ -54,7 +52,17 @@ const sizes = {
       _dark: {
         borderColor: 'red.300',
       },
-      borderWidth: '2px',
+      borderWidth: '1px',
+    },
+  }),
+  md: definePartsStyle({
+    container: {
+      backgroundColor: 'RGBA(255, 255, 255, 0.80)',
+      _dark: {
+        backgroundColor: 'RGBA(0, 0, 0, 0.64)',
+      },
+      borderRadius: '2em',
+      body: {},
     },
   }),
 };

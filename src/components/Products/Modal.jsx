@@ -15,6 +15,7 @@ export default function ModalSpecification({ translate, product, imageUrl }) {
   return (
     <>
       <Image
+        w="50%"
         onClick={onOpen}
         cursor="pointer"
         src={imageUrl}

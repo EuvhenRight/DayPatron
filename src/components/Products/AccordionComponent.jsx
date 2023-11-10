@@ -88,7 +88,12 @@ export default function AccordionComponent({ translate, product }) {
               </ListItem>
             ))}
           </List>
-          <Box w="50%" my={{ base: 2, md: 5 }}>
+          <Box
+            w="50%"
+            my={{ base: 2, md: 5 }}
+            display="flex"
+            justifyContent="center"
+          >
             <ModalSpecification
               product={product}
               translate={translate}
