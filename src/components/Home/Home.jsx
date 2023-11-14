@@ -37,9 +37,9 @@ export default function Home() {
   const { lang } = useParams();
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     console.log('useEffect is running');
     dispatch(fetchAllProductsData(lang));
-    window.scrollTo(0, 0);
   }, [dispatch, lang]);
 
   const translate = React.useCallback(

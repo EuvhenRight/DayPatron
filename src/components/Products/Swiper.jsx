@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -19,13 +19,42 @@ import {
   Mousewheel,
   Keyboard,
 } from 'swiper/modules';
-import { Image, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Image, useBreakpointValue } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { productStatus } from '../../redux/productsSlice';
+import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 
-export default function SwiperComponent({ product }) {
+export default function SwiperComponent({ product, activeVolume }) {
+  const isLoading = useSelector(productStatus);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+  const [displayedImages, setDisplayedImages] = useState([]);
+  useEffect(() => {
+    const filteredImages = activeVolume
+      ? product.image.filter((image, index) => {
+          return (
+            (activeVolume === 0 && index === 0) ||
+            (activeVolume === 1 && index === 3) ||
+            (activeVolume === 2 && index === 5)
+          );
+        })
+      : [...product.image];
+    console.log(activeVolume);
+
+    setDisplayedImages(filteredImages);
+  }, [activeVolume, product.image]);
+
+  if (isLoading) {
+    return (
+      <Box minH="100dvh" alignItems="center">
+        <LoaderSpinner />
+      </Box>
+    );
+  }
+
   return (
     <>
       <Swiper
+        initialSlide={0}
         style={{
           '--swiper-pagination-color': 'red',
           '--swiper-navigation-color': 'red',
@@ -42,16 +71,13 @@ export default function SwiperComponent({ product }) {
         className="mySwiper"
         loop={true}
       >
-        {product.image.map((image, index) => {
-          console.log(index);
-          return (
-            <SwiperSlide key={index}>
-              <div className="swiper-zoom-container">
-                <Image src={`/images/${image.url}`} alt={product.name} />
-              </div>
-            </SwiperSlide>
-          );
-        })}
+        {displayedImages.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div className="swiper-zoom-container">
+              <Image src={`/images/${image.url}`} alt={product.name} />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
