@@ -3,10 +3,11 @@ import { Worker } from '@react-pdf-viewer/core';
 import { Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { useLanguage } from '../Language/LanguageContext';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorMode } from '@chakra-ui/react';
 
-const PrivacyPolicy = () => {
+export default function PrivacyPolicy () {
   const { lang } = useLanguage();
+  const { colorMode } = useColorMode();
 
   return (
     <Box border="1px solid rgba(0, 0, 0, 0.3">
@@ -21,6 +22,7 @@ const PrivacyPolicy = () => {
                 ? '/privacy-policy-ua.pdf'
                 : '/privacy-policy-en.pdf'
             }
+            theme={colorMode === 'dark' ? 'dark' : 'light'}
           />
         </Box>
       </Worker>
@@ -28,4 +30,3 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
