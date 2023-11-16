@@ -4,73 +4,84 @@ import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
 import style from './Contacts.module.css';
 import { useLanguage } from '../Language/LanguageContext';
 import BreadcrumbComponent from '../Products/Breadcrumb';
-import { useBreakpointValue } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  GridItem,
+  Heading,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+import { Grid } from '@chakra-ui/react';
 
-const Contacts = () => {
+export default function Contacts() {
   const { t, lang } = useLanguage();
   const [success, setSuccess] = React.useState(false);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
 
   return (
     <>
-      {!isMobile && <BreadcrumbComponent lang={lang} page="Contacts" />}
-      <div className={style.section__gradient}>
-        <div className={style.headline__wrapper}>
-          <h1 className={style.headline__text}>{t('contacts.mainText')}</h1>
-        </div>
-      </div>
-      <div className={style.section__down}>
-        <div className={style.container}>
-          <div className={style.down_list__wrapper}>
-            <div className={style.down_list__left}>
-              <div className={style.down__contact__wrapper}>
-                <h2 className={style.down__contact__text}>
-                  {t('contacts.leftText')}
+      <Container
+        maxW={'6xl'}
+        minH="100dvh"
+        fontSize={{ base: 'sm', sm: 'md' }}
+        my={4}
+      >
+        {!isMobile && <BreadcrumbComponent lang={lang} page="Contacts" />}
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          h="250px"
+        >
+          <Heading as="h1">{t('contacts.mainText')}</Heading>
+        </Box>
+        <Grid templateColumns="repeat(5, 1fr)" gap={4} alignItems="end">
+          <GridItem colSpan={2}>
+            <Heading as="h2" mb={4}>
+              {t('contacts.leftText')}
+            </Heading>
+            <Text>{t('contacts.leftText_manufacturer')}</Text>
+            <Text>{t('contacts.leftText_supplier')}</Text>
+            <Text>{t('contacts.leftText_phone')}</Text>
+            <Text>
+              Email: info@dezze.com.ua
+              <br />
+              Email: info@daypatron.com.ua
+            </Text>
+            <Box mt={5}>
+              <MyLocation />
+            </Box>
+          </GridItem>
+          <GridItem colSpan={3}>
+            <div className={style.down__form__wrapper}>
+              <div className={style.down__form__headline}>
+                <h2 className={style.down__form__headline__text}>
+                  {t('contacts.rightText')}
                 </h2>
-                <p>{t('contacts.leftText_manufacturer')}</p>
-                <p>{t('contacts.leftText_supplier')}</p>
-                <p>{t('contacts.leftText_phone')}</p>
-                <p>
-                  Email: info@dezze.com.ua
-                  <br />
-                  Email: info@daypatron.com.ua"
-                </p>
               </div>
-              <div className={style.down__contact__map}>
-                <MyLocation />
-              </div>
-            </div>
-            <div className={style.down_list__right}>
-              <div className={style.down__form__wrapper}>
-                <div className={style.down__form__headline}>
-                  <h2 className={style.down__form__headline__text}>
-                    {t('contacts.rightText')}
-                  </h2>
+              {success ? (
+                <div className={style.success}>
+                  <h3 className={style.success__text}>
+                    {t('contacts.successText')}
+                  </h3>
+                  <button
+                    className={style.success__button}
+                    onClick={() => setSuccess(false)}
+                  >
+                    {t('contacts.repeatText')}
+                  </button>
                 </div>
-                {success ? (
-                  <div className={style.success}>
-                    <h3 className={style.success__text}>
-                      {t('contacts.successText')}
-                    </h3>
-                    <button
-                      className={style.success__button}
-                      onClick={() => setSuccess(false)}
-                    >
-                      {t('contacts.repeatText')}
-                    </button>
-                  </div>
-                ) : (
-                  <FormFeedBackContact
-                    success={success}
-                    setSuccess={setSuccess}
-                  />
-                )}
-              </div>
+              ) : (
+                <FormFeedBackContact
+                  success={success}
+                  setSuccess={setSuccess}
+                />
+              )}
             </div>
-          </div>
-        </div>
-      </div>
+          </GridItem>
+        </Grid>
+      </Container>
     </>
   );
-};
-export default Contacts;
+}
