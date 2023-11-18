@@ -12,6 +12,7 @@ export function FormField({ name, label, formik }) {
     <FormControl mb={8} isInvalid={formik.touched[name] && formik.errors[name]}>
       <FormLabel>{label}</FormLabel>
       <Input
+        border="1.5px solid rgba(0, 0, 0, 0.3)"
         _focusVisible={{
           borderColor: 'gray.700',
           _dark: {
@@ -30,11 +31,7 @@ export function FormField({ name, label, formik }) {
 
 export function CheckBoxField({ name, label, formik }) {
   return (
-    <FormControl
-      mb={8}
-      w="40%"
-      isInvalid={formik.touched[name] && formik.errors[name]}
-    >
+    <FormControl mb={6} isInvalid={formik.touched[name] && formik.errors[name]}>
       <Checkbox
         _focusVisible={{
           borderColor: 'gray.700',
@@ -61,6 +58,7 @@ export function TextField({ name, formik }) {
   return (
     <FormControl mb={8} isInvalid={formik.touched[name] && formik.errors[name]}>
       <Textarea
+        border="1.5px solid rgba(0, 0, 0, 0.3)"
         _focusVisible={{
           borderColor: 'gray.700',
           _dark: {

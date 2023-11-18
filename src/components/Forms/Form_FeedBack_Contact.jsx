@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import style from './Form_FeedBack_Contact.module.css';
 import { useLanguage } from '../Language/LanguageContext';
-import { Box, Button, HStack, Text } from '@chakra-ui/react';
+import { Box, Button, Text, VStack } from '@chakra-ui/react';
 
 const FormFeedBackContact = ({ success, setSuccess }) => {
   const { currentLanguage } = useLanguage();
@@ -18,7 +18,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
 
   const validationSchema = Yup.object().shape({
     user_name: Yup.string().required(t('form_feedback.user_error_name')),
-    user_email: Yup.string()
+    reply_to: Yup.string()
       .email(t('form_feedback.user_error_email'))
       .required(t('form_feedback.user_error_email_2')),
     user_message: Yup.string().required(t('form_feedback.user_error_message')),
@@ -31,8 +31,8 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
   const formik = useFormik({
     initialValues: {
       user_name: '',
-      user_email: '',
-      user_phone: '',
+      reply_to: '',
+      phone: '',
       user_message: '',
       user_agreement: false, // Initialize the checkbox value
     },
@@ -40,10 +40,10 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
     onSubmit: (values, { setSubmitting, resetForm }) => {
       emailjs
         .sendForm(
-          'service_jw7bv65',
-          'template_0pkmusj',
+          process.env.REACT_APP_ID_EMAIL_JS,
+          process.env.REACT_APP_TEMPLATE_EMAIL_JS,
           form.current, // Use the ref to access the form element
-          '88xJY5NkpjvnKQzBs'
+          process.env.REACT_APP_PUBLIC_KEY_EMAIL_JS
         )
         .then(
           (result) => {
@@ -61,7 +61,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
   React.useEffect(() => {
     if (formik.setErrors) {
       formik.setFieldError('user_name', t('form_feedback.user_error_name'));
-      formik.setFieldError('user_email', t('form_feedback.user_error_email'));
+      formik.setFieldError('reply_to', t('form_feedback.user_error_email'));
       formik.setFieldError(
         'user_message',
         t('form_feedback.user_error_message')
@@ -76,6 +76,8 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
     }
   }, [formik.setFieldError, error]);
 
+  console.log(formik);
+
   return (
     <>
       <form ref={form} onSubmit={formik.handleSubmit}>
@@ -88,7 +90,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         />
         <FormField
           type="email"
-          name="user_email"
+          name="reply_to"
           label={t('form_feedback.user_email')}
           formik={formik}
           errorStyle={style.form__error__email}
@@ -96,7 +98,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         <FormField
           h="100px"
           type="text"
-          name="user_phone"
+          name="phone"
           label={t('form_feedback.user_phone')}
           formik={formik}
           errorStyle={style.form__error__phone}
@@ -108,7 +110,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__message}
           label={t('form_feedback.user_message')}
         />
-        <HStack justifyContent="space-between" alignItems="flex-start" mt={4}>
+        <VStack justifyContent="space-between" alignItems="flex-start" mt={4}>
           <CheckBoxField
             name="user_agreement"
             formik={formik}
@@ -127,9 +129,9 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
               {t('form_feedback.privacy')}
             </Link>
           </Text>
-        </HStack>
+        </VStack>
         <Box display="flex" justifyContent="flex-end">
-          <Button variant="outline" size="md" type="submit">
+          <Button type="submit" variant="brandPrimary">
             {t('form_feedback.send_button')}
           </Button>
         </Box>

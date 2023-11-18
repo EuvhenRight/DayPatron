@@ -1,17 +1,16 @@
 import MyLocation from '../Google_Map/My_Location';
 import React from 'react';
 import FormFeedBackContact from '../Forms/Form_FeedBack_Contact';
-import style from './Contacts.module.css';
 import { useLanguage } from '../Language/LanguageContext';
 import BreadcrumbComponent from '../Products/Breadcrumb';
 import {
   Box,
+  Button,
   Container,
   GridItem,
   Heading,
   Text,
   useBreakpointValue,
-  useColorMode,
 } from '@chakra-ui/react';
 import { Grid } from '@chakra-ui/react';
 
@@ -19,7 +18,6 @@ export default function Contacts() {
   const { t, lang } = useLanguage();
   const [success, setSuccess] = React.useState(false);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
-  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -60,29 +58,38 @@ export default function Contacts() {
             </Box>
           </GridItem>
           <GridItem colSpan={isMobile ? 1 : 3}>
-            <Box className={style.down__form__wrapper}>
-              <Box className={style.down__form__headline}>
-                <Heading as="h2" className={style.down__form__headline__text}>
-                  {t('contacts.rightText')}
-                </Heading>
-              </Box>
+            <Box
+              border="1.5px solid rgba(0, 0, 0, 0.3)"
+              borderRadius={8}
+              p={(8, 6)}
+            >
               {success ? (
-                <Box className={style.success}>
-                  <Heading as="h3" className={style.success__text}>
-                    {t('contacts.successText')}
-                  </Heading>
-                  <button
-                    className={style.success__button}
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  textAlign="center"
+                >
+                  <Heading as="h3">{t('contacts.successText')}</Heading>
+                  <Button
+                    variant="brandPrimary"
+                    type="submit"
+                    my={4}
                     onClick={() => setSuccess(false)}
                   >
                     {t('contacts.repeatText')}
-                  </button>
+                  </Button>
                 </Box>
               ) : (
-                <FormFeedBackContact
-                  success={success}
-                  setSuccess={setSuccess}
-                />
+                <>
+                  <Box mb={4} textAlign="center">
+                    <Heading as="h2">{t('contacts.rightText')}</Heading>
+                  </Box>
+                  <FormFeedBackContact
+                    success={success}
+                    setSuccess={setSuccess}
+                  />
+                </>
               )}
             </Box>
           </GridItem>
