@@ -3,11 +3,12 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import FormField from './FormField';
+import { FormField, CheckBoxField, TextField } from './FormField';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import style from './Form_FeedBack_Contact.module.css';
 import { useLanguage } from '../Language/LanguageContext';
+import { Box, Button, HStack, Text } from '@chakra-ui/react';
 
 const FormFeedBackContact = ({ success, setSuccess }) => {
   const { currentLanguage } = useLanguage();
@@ -56,6 +57,7 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         );
     },
   });
+
   React.useEffect(() => {
     if (formik.setErrors) {
       formik.setFieldError('user_name', t('form_feedback.user_error_name'));
@@ -68,16 +70,16 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
         'user_agreement',
         t('form_feedback.user_error_agreement')
       );
+      console.log(formik.setErrors);
     } else {
       setError(false);
     }
-  }, [t, formik.setFieldError]);
+  }, [formik.setFieldError, error]);
 
   return (
     <>
-      <form ref={form} onSubmit={formik.handleSubmit} className={style.form}>
+      <form ref={form} onSubmit={formik.handleSubmit}>
         <FormField
-          className={style.form__name}
           type="text"
           name="user_name"
           label={t('form_feedback.user_name')}
@@ -85,7 +87,6 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__name}
         />
         <FormField
-          className={style.form__email}
           type="email"
           name="user_email"
           label={t('form_feedback.user_email')}
@@ -93,41 +94,45 @@ const FormFeedBackContact = ({ success, setSuccess }) => {
           errorStyle={style.form__error__email}
         />
         <FormField
-          className={style.form__phone}
+          h="100px"
           type="text"
           name="user_phone"
           label={t('form_feedback.user_phone')}
           formik={formik}
           errorStyle={style.form__error__phone}
         />
-        <FormField
-          className={style.form__message}
-          type="text"
+        <Text mb={2}>{t('form_feedback.user_message')}</Text>
+        <TextField
           name="user_message"
-          label={t('form_feedback.user_message')}
           formik={formik}
           errorStyle={style.form__error__message}
+          label={t('form_feedback.user_message')}
         />
-        <div className={style.agreement__wrapper}>
-          <FormField
-            className={style.form__agreement}
-            type="checkbox"
+        <HStack justifyContent="space-between" alignItems="flex-start" mt={4}>
+          <CheckBoxField
             name="user_agreement"
-            label={t('form_feedback.user_agreement')}
             formik={formik}
-            errorStyle={style.form__error__agreement}
-          />
-        </div>
-        <div className={style.bottom__wrapper}>
-          <span className={style.private__policy__link}>
-            <Link to={`/${currentLanguage}/help/privacy-policy`}>
+            label={t('form_feedback.user_agreement')}
+            errorStyle={style.form__error__phone}
+          >
+            {t('form_feedback.user_agreement')}
+          </CheckBoxField>
+          <Text>
+            <Link
+              _hover={{
+                textDecoration: 'underline',
+              }}
+              to={`/${currentLanguage}/help/privacy-policy`}
+            >
               {t('form_feedback.privacy')}
             </Link>
-          </span>
-          <button className={style.form__button} type="submit">
+          </Text>
+        </HStack>
+        <Box display="flex" justifyContent="flex-end">
+          <Button variant="outline" size="md" type="submit">
             {t('form_feedback.send_button')}
-          </button>
-        </div>
+          </Button>
+        </Box>
       </form>
     </>
   );

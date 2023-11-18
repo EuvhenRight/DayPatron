@@ -151,7 +151,6 @@
 .down__form__wrapper {
   grid-column-gap: 2em;
   grid-row-gap: 2em;
-  background-color: #fff;
   border: 1px solid #000;
   border-radius: 1em;
   flex-direction: column;

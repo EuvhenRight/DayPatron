@@ -1,20 +1,79 @@
-import React from 'react';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  FormErrorMessage,
+  Checkbox,
+  Textarea,
+} from '@chakra-ui/react';
 
-function FormField({ type, name, label, formik, className, errorStyle }) {
+export function FormField({ name, label, formik }) {
   return (
-    <>
-      <input
-        className={`${className}`}
-        type={type}
-        placeholder={label}
+    <FormControl mb={8} isInvalid={formik.touched[name] && formik.errors[name]}>
+      <FormLabel>{label}</FormLabel>
+      <Input
+        _focusVisible={{
+          borderColor: 'gray.700',
+          _dark: {
+            borderColor: 'whiteAlpha.100',
+          },
+        }}
         name={name}
         {...formik.getFieldProps(name)}
       />
-      {formik.touched[name] && formik.errors[name] ? (
-        <p className={`${errorStyle}`}>{formik.errors[name]}</p>
-      ) : null}
-    </>
+      <FormErrorMessage position="absolute" mb={2}>
+        {formik.errors[name]}
+      </FormErrorMessage>
+    </FormControl>
   );
 }
 
-export default FormField;
+export function CheckBoxField({ name, label, formik }) {
+  return (
+    <FormControl
+      mb={8}
+      w="40%"
+      isInvalid={formik.touched[name] && formik.errors[name]}
+    >
+      <Checkbox
+        _focusVisible={{
+          borderColor: 'gray.700',
+          _dark: {
+            borderColor: 'whiteAlpha.100',
+          },
+        }}
+        name={name}
+        colorScheme="red"
+        isChecked={formik.values[name]}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      >
+        {label}
+      </Checkbox>
+      <FormErrorMessage position="absolute">
+        {formik.errors[name]}
+      </FormErrorMessage>
+    </FormControl>
+  );
+}
+
+export function TextField({ name, formik }) {
+  return (
+    <FormControl mb={8} isInvalid={formik.touched[name] && formik.errors[name]}>
+      <Textarea
+        _focusVisible={{
+          borderColor: 'gray.700',
+          _dark: {
+            borderColor: 'whiteAlpha.100',
+          },
+        }}
+        resize="none"
+        name={name}
+        {...formik.getFieldProps(name)}
+      ></Textarea>
+      <FormErrorMessage position="absolute">
+        {formik.errors[name]}
+      </FormErrorMessage>
+    </FormControl>
+  );
+}

@@ -11,6 +11,7 @@ import {
   Heading,
   Text,
   useBreakpointValue,
+  useColorMode,
 } from '@chakra-ui/react';
 import { Grid } from '@chakra-ui/react';
 
@@ -18,6 +19,7 @@ export default function Contacts() {
   const { t, lang } = useLanguage();
   const [success, setSuccess] = React.useState(false);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -36,8 +38,12 @@ export default function Contacts() {
         >
           <Heading as="h1">{t('contacts.mainText')}</Heading>
         </Box>
-        <Grid templateColumns="repeat(5, 1fr)" gap={4} alignItems="end">
-          <GridItem colSpan={2}>
+        <Grid
+          templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(5, 1fr)'}
+          gap={4}
+          alignItems="end"
+        >
+          <GridItem colSpan={isMobile ? 1 : 2}>
             <Heading as="h2" mb={4}>
               {t('contacts.leftText')}
             </Heading>
@@ -53,32 +59,32 @@ export default function Contacts() {
               <MyLocation />
             </Box>
           </GridItem>
-          <GridItem colSpan={3}>
-            <div className={style.down__form__wrapper}>
-              <div className={style.down__form__headline}>
-                <h2 className={style.down__form__headline__text}>
+          <GridItem colSpan={isMobile ? 1 : 3}>
+            <Box className={style.down__form__wrapper}>
+              <Box className={style.down__form__headline}>
+                <Heading as="h2" className={style.down__form__headline__text}>
                   {t('contacts.rightText')}
-                </h2>
-              </div>
+                </Heading>
+              </Box>
               {success ? (
-                <div className={style.success}>
-                  <h3 className={style.success__text}>
+                <Box className={style.success}>
+                  <Heading as="h3" className={style.success__text}>
                     {t('contacts.successText')}
-                  </h3>
+                  </Heading>
                   <button
                     className={style.success__button}
                     onClick={() => setSuccess(false)}
                   >
                     {t('contacts.repeatText')}
                   </button>
-                </div>
+                </Box>
               ) : (
                 <FormFeedBackContact
                   success={success}
                   setSuccess={setSuccess}
                 />
               )}
-            </div>
+            </Box>
           </GridItem>
         </Grid>
       </Container>
