@@ -25,16 +25,15 @@ const Map = () => {
     width: '100%',
     height: '400px',
     borderRadius: '2em',
-    disableDefaultUI: true, // disable default map UI
-    draggable: true, // make map draggable
-    keyboardShortcuts: false, // disable keyboard shortcuts
-    scaleControl: true, // allow scale controle
-    scrollwheel: true, // allow scroll wheel
-    styles: styles, // change default map styles
   };
 
   return (
-    <GoogleMap zoom={14} center={center} mapContainerStyle={mapContainerStyle}>
+    <GoogleMap
+      zoom={14}
+      center={center}
+      mapContainerStyle={mapContainerStyle}
+      options={{ styles: styles }}
+    >
       <Marker position={center} />
     </GoogleMap>
   );
