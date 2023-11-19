@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import { useMemo } from 'react';
 import styles from './style.json';
+import { useColorMode } from '@chakra-ui/react';
 
 export default function MyLocation() {
   const { isLoaded, loadError } = useLoadScript({
