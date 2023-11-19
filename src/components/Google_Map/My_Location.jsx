@@ -34,7 +34,7 @@ const Map = () => {
 
   return (
     <GoogleMap
-      zoom={14}
+      zoom={16}
       center={center}
       mapContainerStyle={mapContainerStyle}
       options={mapOptions}
