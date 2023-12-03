@@ -113,22 +113,18 @@ export default function AccordionComponent({ translate, product }) {
           </AccordionButton>
         </Heading>
         <AccordionPanel pb={4} textAlign="justify">
-          <b>
-            <Text>{translate('product.question')}:</Text>
-          </b>
-          <Text mb={5}>{product.faq.question_1.Q}</Text>
-          <b>
-            <Text>{translate('product.answer')}:</Text>
-          </b>
-          <Text mb={5}>{product.faq.question_1.A}</Text>
-          <b>
-            <Text>{translate('product.question')}:</Text>
-          </b>
-          <Text>{product.faq.question_2.Q}</Text>
-          <b>
-            <Text mb={5}>{translate('product.answer')}:</Text>
-          </b>
-          <Text>{product.faq.question_2.A}</Text>
+  {[1, 2, 3, 4].map((index) => (
+    <React.Fragment key={index}>
+      <b>
+        <Text>{translate('product.question')}:</Text>
+      </b>
+      <Text mb={5}>{product.faq[`question_${index}`].Q}</Text>
+      <b>
+        <Text>{translate('product.answer')}:</Text>
+      </b>
+      <Text mb={5}>{product.faq[`question_${index}`].A}</Text>
+    </React.Fragment>
+  ))}
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
