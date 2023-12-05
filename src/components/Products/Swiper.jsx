@@ -28,6 +28,8 @@ export default function SwiperComponent({ product, activeVolume }) {
   const isLoading = useSelector(productStatus);
   const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
   const [displayedImages, setDisplayedImages] = useState([]);
+
+  
   useEffect(() => {
     const filteredImages = activeVolume
       ? product.image.filter((image, index) => {
