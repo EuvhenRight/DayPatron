@@ -3,10 +3,10 @@ import {
   Image,
   SimpleGrid,
   useBreakpointValue,
+  Box,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Motorsport from '../assets/motorsport.png';
+import { Link } from '@chakra-ui/react';
 import { useLanguage } from '../Language/LanguageContext';
 import BreadcrumbComponent from '../Products/Breadcrumb';
 
@@ -16,11 +16,31 @@ const WhereToBuy = () => {
   return (
     <Container maxW="6xl" minH="100dvh">
       {!isMobile && <BreadcrumbComponent lang={lang} page="whereToBuy" />}
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8} mt={10}>
-        <Link to="https://motorsport.com.ua/">
-          Motosport
-          <Image src={Motorsport} alt="Motosport" />
-        </Link>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 4 }}
+        spacing={8}
+        mt={10}
+        alignItems="center"
+      >
+        <Box>
+          <Link
+            isExternal
+            href="https://motorsport.com.ua/index.php?match=all&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&dispatch=products.search&security_hash=577899a94e1535a213ecbdaf7bb39696&features_hash=316-10608"
+          >
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/motorsport.png`}
+              alt="Motosport"
+            />
+          </Link>
+        </Box>
+        <Box>
+          <Link isExternal href="https://stvol.ua/catalog/day-patron/b942">
+            <Image
+              src={`${process.env.PUBLIC_URL}/images/stvol.png`}
+              alt="stvol"
+            />
+          </Link>
+        </Box>
       </SimpleGrid>
     </Container>
   );

@@ -2,7 +2,9 @@ import React from 'react';
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner';
 import { useLanguage } from '../Language/LanguageContext';
 import { useParams } from 'react-router-dom';
+import { TbShoppingCartPlus } from 'react-icons/tb';
 import {
+  Button,
   Container,
   Grid,
   GridItem,
@@ -24,6 +26,7 @@ import {
 } from '../../redux/productsSlice';
 import BreadcrumbComponent from './Breadcrumb';
 import VolumeToggleComponent from './VolumeToggleComponent';
+import { Link } from '@chakra-ui/react';
 
 export default function Product() {
   const isLoading = useSelector(productStatus);
@@ -103,6 +106,19 @@ export default function Product() {
               <Text>
                 {translate('product.article')}: {product.article}
               </Text>
+              <Box my={5}>
+                <Link
+                  isExternal
+                  href="https://motorsport.com.ua/index.php?match=all&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&dispatch=products.search&security_hash=577899a94e1535a213ecbdaf7bb39696&features_hash=316-10608"
+                >
+                  <Button
+                    variant="shopPrimary"
+                    leftIcon={<TbShoppingCartPlus />}
+                  >
+                    {translate('product.shop_button')}
+                  </Button>
+                </Link>
+              </Box>
             </Box>
             <AccordionComponent translate={translate} product={product} />
           </>
@@ -149,9 +165,23 @@ export default function Product() {
                 >
                   {product.name}
                 </Heading>
-                <Text mb={5}>
+                <Text>
                   {translate('product.article')}: {product.article}
                 </Text>
+                <Box my={5}>
+                  <Link
+                    isExternal
+                    href="https://motorsport.com.ua/index.php?match=all&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&dispatch=products.search&security_hash=577899a94e1535a213ecbdaf7bb39696&features_hash=316-10608"
+                  >
+                    <Button
+                      variant="shopPrimary"
+                      leftIcon={<TbShoppingCartPlus />}
+                    >
+                      {translate('product.shop_button')}
+                    </Button>
+                  </Link>
+                </Box>
+
                 <TabsComponent translate={translate} product={product} />
               </GridItem>
             </Grid>
