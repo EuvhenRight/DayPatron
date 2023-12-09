@@ -175,6 +175,7 @@ export default function Product() {
                   >
                     <Button
                       variant="shopPrimary"
+                      size="lg"
                       leftIcon={<TbShoppingCartPlus />}
                     >
                       {translate('product.shop_button')}

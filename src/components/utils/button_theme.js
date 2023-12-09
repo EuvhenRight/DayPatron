@@ -17,10 +17,8 @@ const brandPrimary = defineStyle({
 const shopPrimary = defineStyle({
   variant: 'outline',
   size: 'lg',
-  width: '90px',
-  height: '90px',
   border: '1px solid rgba(255, 255, 255, 0.18)',
-  borderRadius: '50%',
+  borderRadius: '8px',
   bg: 'red.500',
   _dark: {
     bg: 'red.300',
