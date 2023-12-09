@@ -131,7 +131,7 @@ export default function Home() {
           alignItems="center"
           bgImage={bgPattern}
         >
-          <WithScrollAnimation triggerPosition={300} resetPosition={50}>
+          <WithScrollAnimation triggerPosition={200} resetPosition={50}>
             <Text
               color="white"
               fontSize={isMobile ? '13px' : '26px'}
