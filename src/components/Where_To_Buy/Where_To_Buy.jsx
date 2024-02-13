@@ -49,6 +49,17 @@ const WhereToBuy = () => {
 						/>
 					</Link>
 				</Box>
+				<Box>
+					<Link
+						isExternal
+						href='https://ibis.net.ua/ua/products/sredstva/search/day-patron/'
+					>
+						<Image
+							src='https://ibis.net.ua/assets/images/v4/logo-full.svg'
+							alt='ibis'
+						/>
+					</Link>
+				</Box>
 			</SimpleGrid>
 		</Container>
 	)
