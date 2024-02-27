@@ -69,8 +69,8 @@ export default function Home() {
 				title={translate('meta.title')}
 				description={translate('meta.description')}
 				addPostFixTitle={true}
-				noIndex={true}
-				keyWords={('Gun_Care', 'carbon_cleaner', 'CLP')}
+				noIndex={false}
+				keyWords={product.keywords}
 				largeTwitterCard={true}
 				imageCard={
 					'https://www.daypatron.com.ua/static/media/DayLogo.671b16c7b8f9b78cb5de3763dd57fbc3.svg'
