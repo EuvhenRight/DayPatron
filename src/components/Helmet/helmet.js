@@ -4,20 +4,14 @@ import { Helmet } from 'react-helmet-async'
 const DOMAIN = 'https://daypatron.com.ua/'
 const MAIN_KEYWORDS = 'GUN CARE, GUN PROTECTION, CLP'
 
-const DEFAULT_IMAGE_CARD =
-	'https://www.daypatron.com.ua/static/media/All_Cleaners.4b3365b0cc7f72411747.jpg'
-
-const DEFAULT_TITLE = 'THE BEST GUN CARE PRODUCTS'
-const DEFAULT_DESCRIPTION = "DayPatron's gun care products"
-
 const POST_FIX_TITLE = ' | DayPatron'
 
 export default function HelmetComponent({
-	title = DEFAULT_TITLE,
-	description = DEFAULT_DESCRIPTION,
+	title,
+	description,
 	link,
 	keywords = '',
-	imageCard = DEFAULT_IMAGE_CARD,
+	imageCard,
 	addPostFixTitle,
 	noIndex,
 	largeTwitterCard,
@@ -67,14 +61,13 @@ export default function HelmetComponent({
 			<meta property='og:description' content={metaDesc} />
 			<meta property='og:site_name' content='DayPatron' />
 			{/* Twitter Card */}
-			<meta name='twitter:site' content='DayPatron' />
+			<meta name='twitter:site' content='@daypatron' />
 			<meta name='twitter:url' content={metaLink} />
 			<meta name='twitter:title' content={metaTitle} />
 			<meta name='twitter:description' content={metaDesc} />
 			<meta name='twitter:image' content={metaImageCard} />
-			<meta name='twitter:creator' content='creator' />
+			<meta name='twitter:creator' content='@daypatron' />
 			<meta name='twitter:card' content={twitterCard} />
-
 			<meta name='referrer' content='origin-when-cross-origin' />
 			{children}
 		</Helmet>

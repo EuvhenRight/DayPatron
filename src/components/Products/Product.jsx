@@ -30,7 +30,9 @@ import VolumeToggleComponent from './VolumeToggleComponent'
 
 export default function Product() {
 	const isLoading = useSelector(productStatus)
-	const product = useSelector(productDataSelector)
+	const productData = useSelector(productDataSelector)
+	const product = productData?.product
+	const metaData = productData?.metaData
 	const dispatch = useDispatch()
 	const isMobile = useBreakpointValue({
 		base: true,
@@ -70,11 +72,11 @@ export default function Product() {
 	return (
 		<>
 			<HelmetComponent
-				title={product.name}
+				title={metaData.title}
 				addPostFixTitle={true}
-				description={product.description}
-				keyWords={product.keywords}
-				imageCard={product.image.url}
+				description={metaData.description}
+				keyWords
+				imageCard={metaData.image}
 				noIndex={false}
 				largeTwitterCard={true}
 			/>
