@@ -14,7 +14,7 @@ const GoogleAnalyticsScript = () => {
 		gtag('js', new Date())
 
 		gtag('config', 'G-FXMDB8MDW6')
-
+		console.log('working')
 		return () => {
 			document.head.removeChild(script)
 		}

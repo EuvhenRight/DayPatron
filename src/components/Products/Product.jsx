@@ -76,7 +76,7 @@ export default function Product() {
 				addPostFixTitle={true}
 				description={metaData.description}
 				keyWords
-				imageCard={metaData.image}
+				imageCard={`/images/${metaData.image}`}
 				noIndex={false}
 				largeTwitterCard={true}
 			/>
