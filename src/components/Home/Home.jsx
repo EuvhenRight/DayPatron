@@ -6,13 +6,13 @@ import {
 	Text,
 	useBreakpointValue,
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {
 	allProductsDataSelector,
 	allProductsStatus,
-	fetchAllProductsData
+	fetchAllProductsData,
 } from '../../redux/productsSlice'
 import WithScrollAnimation from '../Animate/Animate'
 import HelmetComponent from '../Helmet/helmet.js'
@@ -36,12 +36,12 @@ export default function Home() {
 	const isMobile = useBreakpointValue({ base: true, sm: true, md: false })
 	const { lang } = useParams()
 
-	React.useEffect(() => {
+	useEffect(() => {
 		window.scrollTo(0, 0)
 		dispatch(fetchAllProductsData(lang))
 	}, [dispatch, lang])
 
-	const translate = React.useCallback(
+	const translate = useCallback(
 		key => {
 			return t(key)
 		},

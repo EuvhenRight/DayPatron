@@ -100,7 +100,11 @@
 
 	"meta": {
 		"title": "THE BEST GUN CARE PRODUCTS",
-		"description": "DayPatron - gun care products in Ukraine, it's the perfect companion for those who appreciate perfection and care for their weapons"
+		"description": "DayPatron - gun care products in Ukraine, it's the perfect companion for those who appreciate perfection and care for their weapons",
+		"contacts": "Contacts",
+		"about": "About",
+		"whereToBuy": "Where to buy?",
+		"products": "Products"
 	},
 	"card": {
 		"info": "Details",
