@@ -2,15 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
 const DOMAIN = 'https://daypatron.com.ua/'
-const MAIN_KEYWORDS = 'GUN CARE, GUN PROTECTION, CLP'
-
 const POST_FIX_TITLE = ' | DayPatron'
 
 export default function HelmetComponent({
 	title,
 	description,
 	link,
-	keywords = '',
 	imageCard,
 	addPostFixTitle,
 	noIndex,
@@ -27,8 +24,6 @@ export default function HelmetComponent({
 
 	const metaDesc = description
 	const metaLink = link ? DOMAIN + link : DOMAIN
-	const metaKeywords =
-		keywords.length > 0 ? MAIN_KEYWORDS + ',' + keywords : MAIN_KEYWORDS
 
 	let metaImageCard
 
@@ -45,8 +40,9 @@ export default function HelmetComponent({
 		<Helmet>
 			<title>{metaTitle}</title>
 			<link rel='canonical' href={metaLink} />
+			<meta name='title' content={metaTitle} />
+			<meta name='image' content={metaImageCard} />
 			<meta name='description' content={metaDesc} />
-			<meta name='keywords' content={metaKeywords} />
 			<meta name='robots' content={metaRobots} />
 			{/* Open Graph */}
 			<meta property='og:image' content={metaImageCard} />
@@ -61,7 +57,7 @@ export default function HelmetComponent({
 			<meta property='og:description' content={metaDesc} />
 			<meta property='og:site_name' content='DayPatron' />
 			{/* Twitter Card */}
-			<meta name='twitter:site' content='@daypatron' />
+			<meta name='twitter:site' content='Daypatron.com.ua' />
 			<meta name='twitter:url' content={metaLink} />
 			<meta name='twitter:title' content={metaTitle} />
 			<meta name='twitter:description' content={metaDesc} />

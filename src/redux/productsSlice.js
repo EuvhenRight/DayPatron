@@ -35,6 +35,19 @@ export const fetchProduct = createAsyncThunk(
 	}
 )
 
+export const metaDataQuery = createAsyncThunk(
+	'products/metaDataQuery',
+	async ({ rejectWithValue }) => {
+		try {
+			const { data } = await axios.get(`https://daypatron.adaptable.app/`)
+			return data
+		} catch (error) {
+			// Handle the error and return it with rejectWithValue
+			return rejectWithValue(error.response.data) // Assuming the error response contains error details
+		}
+	}
+)
+
 const initialState = {
 	allProductsData: null,
 	productData: null,
@@ -52,6 +65,10 @@ const productsSlice = createSlice({
 		},
 		productDataReceived: (state, action) => {
 			state.productData = action.payload
+			state.productStatus = 'isSuccess'
+		},
+		metaDataReceived: (state, action) => {
+			state.metaData = action.payload
 			state.productStatus = 'isSuccess'
 		},
 	},
@@ -81,6 +98,18 @@ const productsSlice = createSlice({
 				state.productStatus = 'isError'
 				state.productData = null
 			})
+			.addCase(metaDataQuery.pending, state => {
+				state.productStatus = 'isLoading'
+				state.productData = null
+			})
+			.addCase(metaDataQuery.fulfilled, (state, action) => {
+				state.productStatus = 'isSuccess'
+				state.productData = action.payload
+			})
+			.addCase(metaDataQuery.rejected, state => {
+				state.productStatus = 'isError'
+				state.productData = null
+			})
 	},
 })
 
@@ -91,4 +120,6 @@ export const productStatus = state =>
 
 export const allProductsDataSelector = state => state.products.allProductsData
 export const productDataSelector = state => state.products.productData
+
+export const metaDataSelector = state => state.products.metaData
 export const productsReducer = productsSlice.reducer

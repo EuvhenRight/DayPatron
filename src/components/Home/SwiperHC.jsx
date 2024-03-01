@@ -46,7 +46,7 @@ export default function SwiperHC({ translateArray }) {
 				{isMobile
 					? slideArrayMobile.map((image, index) => (
 							<SwiperSlide key={index}>
-								<div
+								<h1
 									className={`title ${
 										index === 0
 											? 'one'
@@ -58,13 +58,13 @@ export default function SwiperHC({ translateArray }) {
 									}`}
 								>
 									{translateArray[index]}
-								</div>
+								</h1>
 								<Image src={image} alt='image' />
 							</SwiperSlide>
 					  ))
 					: slideArray.map((image, index) => (
 							<SwiperSlide key={index}>
-								<div
+								<h1
 									className={`title ${
 										index === 0
 											? 'one'
@@ -76,7 +76,7 @@ export default function SwiperHC({ translateArray }) {
 									}`}
 								>
 									{translateArray[index]}
-								</div>
+								</h1>
 								<Image src={image} alt='image' />
 							</SwiperSlide>
 					  ))}

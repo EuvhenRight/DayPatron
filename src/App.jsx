@@ -26,9 +26,9 @@ export default function App() {
 				<ChakraBaseProvider theme={theme}>
 					<HelmetProvider context={helmetContext}>
 						<GoogleAnalyticsScript />
-						<div>
+						<>
 							<Header />
-							<div>
+							<main>
 								<Routes>
 									<Route path='/' element={<Navigate to='/ua' />} />
 									<Route path='/:lang' element={<Home />} />
@@ -46,9 +46,9 @@ export default function App() {
 									/>
 									<Route path='*' element={<NotFound to='/' />} />
 								</Routes>
-								<Footer />
-							</div>
-						</div>
+							</main>
+							<Footer />
+						</>
 					</HelmetProvider>
 				</ChakraBaseProvider>
 			</Provider>

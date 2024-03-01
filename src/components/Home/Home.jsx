@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom'
 import {
 	allProductsDataSelector,
 	allProductsStatus,
-	fetchAllProductsData,
+	fetchAllProductsData
 } from '../../redux/productsSlice'
 import WithScrollAnimation from '../Animate/Animate'
 import HelmetComponent from '../Helmet/helmet.js'
@@ -38,7 +38,6 @@ export default function Home() {
 
 	React.useEffect(() => {
 		window.scrollTo(0, 0)
-		console.log('useEffect is running')
 		dispatch(fetchAllProductsData(lang))
 	}, [dispatch, lang])
 
@@ -70,6 +69,7 @@ export default function Home() {
 				description={translate('meta.description')}
 				addPostFixTitle={true}
 				noIndex={false}
+				link={lang}
 				largeTwitterCard={true}
 				imageCard={
 					'https://www.daypatron.com.ua/static/media/DayLogo.671b16c7b8f9b78cb5de3763dd57fbc3.svg'
