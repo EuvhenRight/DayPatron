@@ -71,13 +71,12 @@ export default function ProductsItems() {
 		<>
 			<HelmetComponent
 				title={translate('meta.products')}
-				link={`${lang}/${translate('meta.products')}`}
+				link={`${lang}/products`}
+				description={translate('meta.description')}
 				addPostFixTitle={true}
 				noIndex={false}
 				largeTwitterCard={true}
-				imageCard={
-					'https://www.daypatron.com.ua/static/media/DayLogo.671b16c7b8f9b78cb5de3763dd57fbc3.svg'
-				}
+				imageCard={`/images/DayFacebook.jpg`}
 			/>
 			<Container maxW={'6xl'} mb={10} minH='100dvh'>
 				{!isMobile && <BreadcrumbComponent lang={lang} page='Products' />}
