@@ -19,12 +19,11 @@ import { theme } from './components/utils/theme'
 import store from './redux/store.js'
 
 export default function App() {
-	const helmetContext = {}
 	return (
-		<LanguageProvider>
-			<Provider store={store}>
-				<ChakraBaseProvider theme={theme}>
-					<HelmetProvider context={helmetContext}>
+		<HelmetProvider>
+			<LanguageProvider>
+				<Provider store={store}>
+					<ChakraBaseProvider theme={theme}>
 						<GoogleAnalyticsScript />
 						<>
 							<Header />
@@ -49,9 +48,9 @@ export default function App() {
 							</main>
 							<Footer />
 						</>
-					</HelmetProvider>
-				</ChakraBaseProvider>
-			</Provider>
-		</LanguageProvider>
+					</ChakraBaseProvider>
+				</Provider>
+			</LanguageProvider>
+		</HelmetProvider>
 	)
 }
