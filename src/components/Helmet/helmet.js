@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-const DOMAIN = 'https://daypatron.com.ua/'
+const DOMAIN = 'https://www.daypatron.com.ua/'
 const POST_FIX_TITLE = ' | DayPatron'
 
 export default function HelmetComponent({
