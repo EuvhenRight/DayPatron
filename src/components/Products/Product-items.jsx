@@ -76,7 +76,7 @@ export default function ProductsItems() {
 				addPostFixTitle={true}
 				noIndex={false}
 				largeTwitterCard={true}
-				imageCard={`/images/DayFacebook.jpg`}
+				imageCard={`/images/Facebook.jpg`}
 			/>
 			<Container maxW={'6xl'} mb={10} minH='100dvh'>
 				{!isMobile && <BreadcrumbComponent lang={lang} page='Products' />}

@@ -71,7 +71,7 @@ export default function Home() {
 				noIndex={false}
 				link={lang}
 				largeTwitterCard={true}
-				imageCard={`/images/DayFacebook.jpg`}
+				imageCard={`/images/Facebook.jpg`}
 			/>
 			<Container
 				key={product.id}
