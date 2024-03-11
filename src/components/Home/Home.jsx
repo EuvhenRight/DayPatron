@@ -32,7 +32,7 @@ export default function Home() {
 	const productsData = useSelector(allProductsDataSelector)
 	const dispatch = useDispatch()
 	const { t } = useLanguage()
-	const titles = ['home.title_one', 'home.title_two', 'home.title_three']
+	const titles = [' ', 'home.title_two', 'home.title_three']
 	const isMobile = useBreakpointValue({ base: true, sm: true, md: false })
 	const { lang } = useParams()
 

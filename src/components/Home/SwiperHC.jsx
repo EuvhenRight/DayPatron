@@ -2,21 +2,21 @@ import { Image, useBreakpointValue } from '@chakra-ui/react'
 import React from 'react'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Autoplay, Keyboard, Mousewheel, Pagination } from 'swiper/modules'
+import { Keyboard, Mousewheel, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import './styles.css'
 
 import All_CLP from '../../components/assets/All_CLP.jpg'
 import All_Cleaners from '../../components/assets/All_Cleaners.jpg'
-import All_Oils from '../../components/assets/All_Oils.jpg'
+import All_Oils from '../../components/assets/All_sale.jpg'
 
 import All_CLP_m from '../../components/assets/All_CLP-mobile.jpg'
 import All_Cleaners_m from '../../components/assets/All_Cleaners-mobile.jpg'
-import All_Oils_m from '../../components/assets/All_Oils-mobile.jpg'
+import All_Oils_m from '../../components/assets/All_sale-mobile.jpg'
 
 export default function SwiperHC({ translateArray }) {
-	const slideArray = [All_Oils, All_Cleaners, All_CLP]
-	const slideArrayMobile = [All_Oils_m, All_Cleaners_m, All_CLP_m]
+	const slideArray = [All_Oils, All_Cleaners, All_CLP] // Action All_Sale
+	const slideArrayMobile = [All_Oils_m, All_Cleaners_m, All_CLP_m] // Action All_Sale
 	const isMobile = useBreakpointValue({ base: true, sm: true, md: false })
 
 	return (
@@ -30,16 +30,12 @@ export default function SwiperHC({ translateArray }) {
 					'--swiper-pagination-bullet-height': '12px',
 				}}
 				centeredSlides={true}
-				autoplay={{
-					delay: 3500,
-					disableOnInteraction: false,
-				}}
 				cssMode={true}
 				spaceBetween={30}
 				pagination={{ clickable: true }}
 				mousewheel={true}
 				keyboard={true}
-				modules={[Autoplay, Pagination, Mousewheel, Keyboard]}
+				modules={[Pagination, Mousewheel, Keyboard]}
 				className='mySwiper'
 				loop={true}
 			>
