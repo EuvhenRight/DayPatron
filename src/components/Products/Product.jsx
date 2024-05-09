@@ -28,37 +28,6 @@ import SwiperComponent from './Swiper'
 import TabsComponent from './TabsComponent'
 import VolumeToggleComponent from './VolumeToggleComponent'
 
-const currentLink = [
-	{
-		path:
-			'/ua/products/1/universal-oil-CLP-3-in-1' ||
-			'/en/products/1/universal-oil-CLP-3-in-1',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5+%D0%BC%D0%B0%D1%81%D0%BB%D0%BE+CLP&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-	{
-		path:
-			'/ua/products/2/neutral-synthetic-oil' ||
-			'/en/products/2/neutral-synthetic-oil',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=Synthetic+Neutral+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-	{
-		path: '/ua/products/3/rust-protection' || 'en/products/3/rust-protection',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Rust+Protection+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-	{
-		path: '/ua/products/4/carbon-killer' || '/en/products/4/carbon-killer',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Carbon+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-	{
-		path: '/ua/products/5/copper-killer' || '/en/products/5/copper-killer',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Copper+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-	{
-		path: '/ua/products/6/liquidator' || '/en/products/6/liquidator',
-		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Liquidator&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
-	},
-]
-
 export default function Product() {
 	const isLoading = useSelector(productStatus)
 	const productData = useSelector(productDataSelector)
@@ -76,13 +45,56 @@ export default function Product() {
 	const { t } = useLanguage()
 	const location = useLocation()
 	const [mainLink, setMainLink] = React.useState(null)
-
+	const currentLink = [
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/1/universal-oil-CLP-3-in-1'
+					: '/en/products/1/universal-oil-CLP-3-in-1',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=CLP&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/2/neutral-synthetic-oil'
+					: '/en/products/2/neutral-synthetic-oil',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=Synthetic+Neutral+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/3/rust-protection'
+					: 'en/products/3/rust-protection',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Rust+Protection+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/4/carbon-killer'
+					: '/en/products/4/carbon-killer',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Carbon+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/5/copper-killer'
+					: '/en/products/5/copper-killer',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Copper+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+		{
+			path:
+				lang === 'ua'
+					? '/ua/products/6/liquidator'
+					: '/en/products/6/liquidator',
+			link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Liquidator&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+		},
+	]
 	useEffect(() => {
 		const foundLink = currentLink.find(linkItem =>
 			linkItem.path.includes(location.pathname)
 		)
 		setMainLink(foundLink)
-	}, [currentLink, location.pathname])
+	}, [location.pathname])
 
 	const translate = React.useCallback(
 		key => {
