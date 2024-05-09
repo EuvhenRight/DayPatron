@@ -9,10 +9,10 @@ import {
 	Text,
 	useBreakpointValue,
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TbShoppingCartPlus } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import {
 	fetchProduct,
 	productDataSelector,
@@ -27,6 +27,37 @@ import BreadcrumbComponent from './Breadcrumb'
 import SwiperComponent from './Swiper'
 import TabsComponent from './TabsComponent'
 import VolumeToggleComponent from './VolumeToggleComponent'
+
+const currentLink = [
+	{
+		path:
+			'/ua/products/1/universal-oil-CLP-3-in-1' ||
+			'/en/products/1/universal-oil-CLP-3-in-1',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5+%D0%BC%D0%B0%D1%81%D0%BB%D0%BE+CLP&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+	{
+		path:
+			'/ua/products/2/neutral-synthetic-oil' ||
+			'/en/products/2/neutral-synthetic-oil',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=Synthetic+Neutral+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+	{
+		path: '/ua/products/3/rust-protection' || 'en/products/3/rust-protection',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Rust+Protection+Oil&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+	{
+		path: '/ua/products/4/carbon-killer' || '/en/products/4/carbon-killer',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Carbon+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+	{
+		path: '/ua/products/5/copper-killer' || '/en/products/5/copper-killer',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Copper+Killer&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+	{
+		path: '/ua/products/6/liquidator' || '/en/products/6/liquidator',
+		link: 'https://motorsport.com.ua/?match=all&subcats=Y&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=DAY+PATRON+Liquidator&dispatch=products.search&security_hash=aa42b415556c6f9740e12188004ce152',
+	},
+]
 
 export default function Product() {
 	const isLoading = useSelector(productStatus)
@@ -43,6 +74,15 @@ export default function Product() {
 	const { id, lang } = useParams()
 	const [activeVolume, setActiveVolume] = React.useState(0)
 	const { t } = useLanguage()
+	const location = useLocation()
+	const [mainLink, setMainLink] = React.useState(null)
+
+	useEffect(() => {
+		const foundLink = currentLink.find(linkItem =>
+			linkItem.path.includes(location.pathname)
+		)
+		setMainLink(foundLink)
+	}, [currentLink, location.pathname])
 
 	const translate = React.useCallback(
 		key => {
@@ -118,10 +158,7 @@ export default function Product() {
 								<Heading as='h2' color={'green.500'}>
 									{translate('product.sale')}
 								</Heading>
-								<Link
-									isExternal
-									href='https://motorsport.com.ua/index.php?match=all&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&dispatch=products.search&security_hash=577899a94e1535a213ecbdaf7bb39696&features_hash=316-10608'
-								>
+								<Link isExternal href={mainLink?.link}>
 									<Button
 										variant='shopPrimary'
 										leftIcon={<TbShoppingCartPlus />}
@@ -189,10 +226,7 @@ export default function Product() {
 									<Heading as='h2' color={'green.500'}>
 										{translate('product.sale')}
 									</Heading>
-									<Link
-										isExternal
-										href='https://motorsport.com.ua/index.php?match=all&pcode_from_q=Y&pshort=Y&pfull=Y&pname=Y&pkeywords=Y&search_performed=Y&q=&dispatch=products.search&security_hash=577899a94e1535a213ecbdaf7bb39696&features_hash=316-10608'
-									>
+									<Link isExternal href={mainLink?.link}>
 										<Button
 											variant='shopPrimary'
 											size='lg'
