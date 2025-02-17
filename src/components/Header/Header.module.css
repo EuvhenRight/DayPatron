@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main_container {
+  z-index: 1000;
+  padding-top: 18px;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-bottom: 18px;
+  /* position: fixed; */
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__wrapper {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+
+.nav__left {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  align-self: center;
+}
+
+.logo__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 209px;
+  display: block;
+  border-radius: 12px;
+}
+
+.logo img {
+  max-width: 100%;
+  border-radius: 0;
+}
+
+.nav__right {
+  background-color: #232323;
+  border: 1px rgba(255, 255, 255, 0.26);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav__right__wrapper {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.button {
+  color: #fff;
+  white-space: nowrap;
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  line-height: 1;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button__theme {
+  color: #fff;
+  white-space: nowrap;
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  line-height: 1;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #303030;
+}
+
+.nav__right__wrapper a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.lang__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 16px;
+}
+
+.lang__wrapper button {
+  margin-right: 10px;
+}
+
+.lang__wrapper__button {
+  color: #fff;
+  white-space: nowrap;
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  line-height: 1;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lang__wrapper__button__active {
+  background-color: #fff;
+  color: #303030;
+  border: 1px solid #232323;
+  border-radius: 8px;
+  flex: none;
+  align-self: center;
+  padding: 10px 14px 11px;
+  line-height: 1;
+  position: static;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* navbar */
+
+.mobile__navbar__wrapper {
+  background-color: #232323;
+  border: 1px rgba(255, 255, 255, 0.26);
+  border-radius: 14px;
+  display: none;
+}
+
+/* media sizes */
+
+@media screen and (max-width: 991px) {
+  .main_container {
+    z-index: 1001;
+  }
+
+  .nav__right__wrapper {
+    display: none;
+  }
+
+  .button__theme {
+    display: none;
+  }
+
+  .mobile__navbar__wrapper {
+    display: flex;
+  }
+
+  .lang__wrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 781px) {
+  .logo {
+    width: 200px;
+  }
+}

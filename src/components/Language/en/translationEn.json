@@ -1,0 +1,114 @@
+{
+	"header": {
+		"products": "Products",
+		"about": "About",
+		"whereToBuy": "Where to Buy?",
+		"contacts": "Contacts",
+		"menu": "Menu",
+		"en": "en",
+		"ua": "ua"
+	},
+	"home": {
+		"mainTextSlogan": "We have returned, and we are better than ever!",
+		"middleTextSlogan": "DayPatron - Crafting Perfection in Firearm Care",
+		"title_one": "Care that exceeds expectations",
+		"title_two": "Keep it Spotless, Keep it Safe",
+		"title_three": "All-in-One: Clean, Protect, Lubricate",
+		"about": "DAY Patron is the perfect companion for those who appreciate perfection and care for their weapons. These products are designed for use in various conditions. Any place where confidence in your weapon, safety, and high-quality care are crucial becomes the ideal terrain for using DAY Patron products. We believe that everyone deserves to use top-tier products, and our goal is to make it accessible to everyone. Welcome to the world of Day Patron, where caring for your weapon is an art created by professionals.",
+		"assortment": "What we have?",
+		"clp": "CLP - universal oil, which can clean and protect your firearm's surfaces",
+		"neutral-oil": "Neutral oil, which can clean and protect your firearm's surfaces",
+		"protect": "Rust protection can protect your firearm's surfaces",
+		"carbon": "Carbon can clean and protect your firearm's surfaces",
+		"copper": "Copper can clean and protect your firearm's surfaces",
+		"liquidator": "Liquidator can clean and protect your firearm's surfaces"
+	},
+	"home_benefits": {
+		"hand_care": "Whether you're at home, in the office, or on the go, trust our reliable products to deliver effective results without compromising your health or the integrity of your valuable equipment",
+		"clp": "Our cleaning products are more effective than most others. Our lubricants offer advanced protection, enduring extreme temperatures with less application needed",
+		"ph": "Our pH-neutral formula is safe for all firearm surfaces – wood, polymer, stainless steel, and more. Our products clean effectively without harming your firearm's integrity or aesthetics",
+		"ukraine": "When you embark on your journey of firearm care, allow our products, crafted in Ukraine, to accompany you, providing unparalleled results."
+	},
+	"product": {
+		"article": "Article",
+		"share": "Share",
+		"shareInfo": "dayPatron.com.ua - Crafting Perfection in Firearm Care",
+		"specifications": "Specifications",
+		"description": "Description",
+		"useTo": "Instructions",
+		"ingredients": "Ingredients",
+		"shelfLife": "Shelf Life",
+		"volume": "volume",
+		"video": "Video",
+		"videoText": "Watch the video",
+		"faq": "FAQ",
+		"close": "Close",
+		"question": "Question",
+		"sale": "Gift!",
+		"answer": "Answer",
+		"additionalInfo": "You can find out more information about these volumes by emailing us - info@dezze.com.ua or filling out the form on the page: ",
+		"shop_button": "Buy"
+	},
+	"contacts": {
+		"mainText": "Contacts",
+		"leftText": "DayPatron company Ukraine",
+		"leftText_manufacturer": "Manufacturer: LLC 'Ekokemika Trading', Address: Predslavynska Street, 34B, Kyiv, 03150, Ukraine",
+		"leftText_supplier": "Supplier and company for claims: 'Dezze' Ltd",
+		"leftText_phone": "Phone: +38 (099) 730-21-26",
+		"rightText": "Contact feedback",
+		"successText": "Thank you for sharing your feedback",
+		"repeatText": "Repeat"
+	},
+	"form_feedback": {
+		"user_name": "User name",
+		"user_email": "Email",
+		"user_phone": "Phone(optional)",
+		"user_message": "Message",
+		"user_agreement": "I agree",
+		"user_error_name": "Name is required",
+		"user_error_email": "Invalid email address",
+		"user_error_email_2": "Email is required",
+		"user_error_phone": "Phone is required",
+		"user_error_message": "Message is required",
+		"user_error_agreement": "You must agree to the terms and conditions",
+		"send_button": "Send",
+		"privacy": "I have read the privacy policy and agree"
+	},
+	"footer": {
+		"rights": "All rights reserved",
+		"copyright": "Copyright © 2023 DayPatron",
+		"privacy": "Privacy policy",
+		"contact": "Contact us",
+		"about": "About us",
+		"whereToBuy": "Where to buy",
+		"products": "Products",
+		"company": "Company",
+		"liquidator": "Liquidator",
+		"carbon-killer": "Carbon-Killer",
+		"copper-killer": "Copper-Killer",
+		"clp": "Universal Oil CLP 3 in 1",
+		"neutral-s-oil": "Neutral Synthetic Oil",
+		"rust-protection": "Rust Protection",
+		"help": "Help"
+	},
+	"aboutUs": {
+		"text": "DayPatron is a dynamic company based in Kyiv, Ukraine, specializing in gun care products. Established in the year 2022, the company has since been on an exciting journey in the industry, making its mark with a small yet dedicated team of three passionate individuals. In a market where gun enthusiasts and professionals demand quality and reliability, DayPatron emerged as a beacon of excellence. The company's primary focus lies in providing the best possible solutions for gun maintenance and care, earning the trust of customers and establishing itself as a prominent player in the firearm industry. The foundation of DayPatron was built on a commitment to best practices, constantly striving for innovation, and ensuring the highest standards of product quality and customer service. The team at DayPatron is known for their deep passion for firearms and a collective dedication to the craft. This passion drives them to develop cutting-edge products that cater to the unique needs of gun owners and enthusiasts. DayPatron's product line has garnered a reputation for its quality and effectiveness in gun maintenance. The company's commitment to excellence has led to the development of cleaning kits, lubricants, and accessories that not only meet industry standards but often exceed them. These products have become essential tools for gun owners, both for recreational use and professional applications. Despite its relatively short history, DayPatron has quickly established itself as a brand that stands for quality, innovation, and a deep understanding of the gun care industry. Their presence in the market is a testament to their commitment to best practices and their cool, dedicated team. As they continue to expand their product offerings and reach new horizons, DayPatron remains a trusted name among gun enthusiasts in Kyiv and beyond.",
+		"team": "Team",
+		"Yevhen": "Yevhen Uhnivenko",
+		"Dmytro": "Dmytro",
+		"Artem": "Artem"
+	},
+
+	"meta": {
+		"title": "THE BEST GUN CARE PRODUCTS",
+		"description": "DayPatron - gun care products in Ukraine, it's the perfect companion for those who appreciate perfection and care for their weapons",
+		"contacts": "Contacts",
+		"about": "About",
+		"whereToBuy": "Where to buy?",
+		"products": "Products"
+	},
+	"card": {
+		"info": "Details",
+		"guide": "Guide"
+	}
+}

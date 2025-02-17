@@ -1,0 +1,260 @@
+.section__gradient {
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 8em;
+  top: 0%;
+  bottom: auto;
+  left: 0%;
+  right: 0%;
+}
+
+.gradient__wrapper {
+  z-index: -1;
+  width: auto;
+  height: 100%;
+  flex: none;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  overflow: visible;
+}
+
+.gradient {
+  height: 65%;
+  background-position: bottom;
+  background-size: cover;
+  background-image: url('../../../public/images/plate.png');
+}
+
+.headline__wrapper {
+  text-align: center;
+  -webkit-text-fill-color: inherit;
+  background-clip: border-box;
+  flex: 0 auto;
+  order: 0;
+  justify-content: center;
+  align-self: auto;
+  align-items: center;
+  font-size: 3em;
+  display: flex;
+  position: relative;
+  bottom: -1.8em;
+  flex-direction: column-reverse;
+}
+
+.headline__text {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  font-size: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.tradeMark {
+  width: 350px;
+  border-radius: 12px;
+}
+/* animation logo  */
+
+.rotateTrademark {
+  transform: rotate(-3deg);
+  transition: transform 3s ease;
+  width: 350px;
+  display: block;
+  border-radius: 12px;
+}
+
+.section__middle {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  grid-column-gap: 7em;
+  grid-row-gap: 7em;
+  flex-direction: column;
+  flex: 1 1;
+  align-self: stretch;
+  margin: 5em 5%;
+  position: static;
+  align-items: center;
+}
+
+.middle__wrapper {
+  grid-column-gap: 3.75em;
+  grid-row-gap: 3.75em;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.middle__up {
+  width: 100%;
+  flex: 0 auto;
+}
+
+.middle__up__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+  width: auto;
+}
+
+.middle__block__guns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.middle__block__guns img {
+  padding: 10px;
+}
+
+.middle__guns__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.product__block__img {
+  width: 75%;
+  border-radius: 1em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  border-color: black;
+  border: solid 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  grid-area: 2 / 2 / 3 / 3;
+}
+.gun__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 1em;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+.section__down {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.down_list__wrapper {
+  grid-column-gap: 0.75em;
+  grid-row-gap: 0.75em;
+  flex-wrap: wrap;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+  top: 28px;
+}
+
+.down__wrapper {
+  width: 100%;
+  height: 65%;
+  overflow: visible;
+}
+
+.down__background {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: center 50%;
+  background-size: cover;
+  background-image: url('../../../public/images/ar15_background.png');
+}
+
+.down__background h1 {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+  font-size: 60px;
+  color: white;
+}
+
+@media screen and (max-width: 991px) {
+  .headline__text {
+    font-size: 45px;
+  }
+  .middle__up__text {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 781px) {
+  .headline__text {
+    font-size: 35px;
+  }
+  .middle__up__text {
+    font-size: 35px;
+  }
+
+  .product__block__img {
+    width: 100%;
+    border: solid 5px;
+  }
+
+  .down__background h1 {
+    font-size: 45px;
+  }
+
+  .tradeMark {
+    width: 300px;
+  }
+
+  .rotateTrademark {
+    width: 300px;
+  }
+
+  .gun__img {
+    width: 100px;
+    height: 100px;
+  }
+  .down_list__wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.55em;
+    grid-row-gap: 0.55em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .headline__text {
+    font-size: 30px;
+  }
+
+  .middle__up__text {
+    font-size: 30px;
+  }
+
+  .down__background h1 {
+    font-size: 35px;
+  }
+
+  .tradeMark {
+    width: 250px;
+  }
+
+  .rotateTrademark {
+    width: 250px;
+  }
+
+  .down_list__wrapper {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0.55em;
+    grid-row-gap: 0.55em;
+  }
+}
