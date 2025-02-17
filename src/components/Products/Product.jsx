@@ -13,13 +13,10 @@ import React, { useEffect } from 'react'
 import { TbShoppingCartPlus } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
-import {
-	fetchProduct,
-	productDataSelector,
-	productStatus,
-} from '../../redux/productsSlice'
+import { fetchProduct, productStatus } from '../../redux/productsSlice'
 import HelmetComponent from '../Helmet/helmet.js'
 import { useLanguage } from '../Language/LanguageContext'
+import data from '../Language/ua/translationUa.json'
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner'
 import ShareButtonsComponent from '../ShareSocial/ShareButtons'
 import AccordionComponent from './AccordionComponent'
@@ -30,9 +27,8 @@ import VolumeToggleComponent from './VolumeToggleComponent'
 
 export default function Product() {
 	const isLoading = useSelector(productStatus)
-	const productData = useSelector(productDataSelector)
-	const product = productData?.product
-	const metaData = productData?.metaData
+	const metaData = data?.meta
+
 	const dispatch = useDispatch()
 	const isMobile = useBreakpointValue({
 		base: true,
@@ -41,6 +37,10 @@ export default function Product() {
 		lg: false,
 	})
 	const { id, lang } = useParams()
+	const product = data?.products.find(product => {
+		return product.id === Number(id) // Convert id to a number for comparison
+	})
+	console.log(product, 'product')
 	const [activeVolume, setActiveVolume] = React.useState(0)
 	const { t } = useLanguage()
 	const location = useLocation()

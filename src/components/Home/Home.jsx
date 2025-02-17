@@ -10,13 +10,13 @@ import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {
-	allProductsDataSelector,
 	allProductsStatus,
 	fetchAllProductsData,
 } from '../../redux/productsSlice'
 import WithScrollAnimation from '../Animate/Animate'
 import HelmetComponent from '../Helmet/helmet.js'
 import { useLanguage } from '../Language/LanguageContext'
+import data from '../Language/ua/translationUa.json'
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner'
 import product from '../assets/CLP-500ml.png'
 import ammoniaFree from '../assets/ammonia_free.png'
@@ -29,7 +29,7 @@ import './styles.css'
 
 export default function Home() {
 	const isLoading = useSelector(allProductsStatus)
-	const productsData = useSelector(allProductsDataSelector)
+	const productsData = data.products
 	const dispatch = useDispatch()
 	const { t } = useLanguage()
 	const titles = [' ', 'home.title_two', 'home.title_three']

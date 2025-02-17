@@ -10,12 +10,12 @@ import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import {
-	allProductsDataSelector,
 	allProductsStatus,
 	fetchAllProductsData,
 } from '../../redux/productsSlice'
 import HelmetComponent from '../Helmet/helmet.js'
 import { useLanguage } from '../Language/LanguageContext'
+import data from '../Language/ua/translationUa.json'
 import LoaderSpinner from '../Loader_Spinner/Loader_Spinner'
 import logo from '../assets/logo.svg'
 import BreadcrumbComponent from './Breadcrumb'
@@ -24,7 +24,7 @@ import style from './Product-items.module.css'
 export default function ProductsItems() {
 	const dispatch = useDispatch()
 	const isLoading = useSelector(allProductsStatus)
-	const productsData = useSelector(allProductsDataSelector)
+	const productsData = data.products
 	const { lang } = useParams()
 	const isMobile = useBreakpointValue({ base: true, sm: true, md: false })
 	const { t } = useLanguage()
