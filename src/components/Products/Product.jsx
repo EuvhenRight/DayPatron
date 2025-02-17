@@ -38,7 +38,7 @@ export default function Product() {
 	})
 	const { id, lang } = useParams()
 	const product = data?.products.find(product => {
-		return product.id === Number(id) // Convert id to a number for comparison
+		return product.id === Number(id)
 	})
 	console.log(product, 'product')
 	const [activeVolume, setActiveVolume] = React.useState(0)
