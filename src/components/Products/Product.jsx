@@ -108,7 +108,6 @@ export default function Product() {
 		dispatch(fetchProduct({ lang, id }))
 	}, [lang, dispatch, id])
 
-	// Check if product exists before rendering.
 	if (isLoading) {
 		return (
 			<Box minH='100dvh' alignItems='center'>
